@@ -1,0 +1,4 @@
+include fastentrypoints.py
+global-include *.json
+global-include *.yaml
+global-include *.yml

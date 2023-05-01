@@ -1,0 +1,66 @@
+<mxfile host="65bd71144e">
+    <diagram id="H5NXSPUseKZxXubdq3MH" name="Page-1">
+        <mxGraphModel dx="2565" dy="807" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="21" value="Python API" style="swimlane;rounded=1;swimlaneLine=1;shadow=0;fillColor=#330066;strokeWidth=2;fontSize=14;fontColor=#F0F0F0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="190" width="240" height="139" as="geometry">
+                        <mxRectangle x="30" y="50" width="280" height="23" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="&lt;span style=&quot;text-align: left&quot;&gt;Data Persistence/Query API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="21" vertex="1">
+                    <mxGeometry x="24" y="32" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="&lt;span style=&quot;text-align: left&quot;&gt;Analytic/Pipeline Authoring API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="21" vertex="1">
+                    <mxGeometry x="24" y="65" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="&lt;span style=&quot;text-align: left&quot;&gt;Extensible REST API&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="21" vertex="1">
+                    <mxGeometry x="24" y="98" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Analytic Libraries" style="swimlane;gradientColor=none;fillColor=#330066;rounded=1;strokeWidth=2;fontColor=#F0F0F0;labelBorderColor=none;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="300" y="190" width="240" height="139" as="geometry">
+                        <mxRectangle x="30" y="50" width="280" height="23" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="&lt;span style=&quot;text-align: left&quot;&gt;NLP&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="26" vertex="1">
+                    <mxGeometry x="25" y="32" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;span style=&quot;text-align: left&quot;&gt;Webscraping&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="26" vertex="1">
+                    <mxGeometry x="25" y="65" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="&lt;span style=&quot;text-align: left&quot;&gt;Datasets&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="26" vertex="1">
+                    <mxGeometry x="25" y="98" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Microservices" style="swimlane;rounded=1;fillColor=#330066;strokeWidth=2;fontSize=14;fontColor=#F0F0F0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="339" width="500" height="90" as="geometry">
+                        <mxRectangle x="30" y="50" width="280" height="23" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="OpenAPI REST" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="11" vertex="1">
+                    <mxGeometry x="60" y="40" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="ETL Pipeline" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="11" vertex="1">
+                    <mxGeometry x="190" y="40" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Analytic Execution" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="11" vertex="1">
+                    <mxGeometry x="320" y="40" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Infrastructure" style="swimlane;rounded=1;fillColor=#330066;strokeWidth=2;fontSize=14;fontColor=#F0F0F0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="439" width="500" height="120" as="geometry">
+                        <mxRectangle x="30" y="50" width="280" height="23" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="Elasticsearch&lt;br&gt;(Document DB)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="27" vertex="1">
+                    <mxGeometry x="50" y="30" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="S3 &lt;br&gt;(Object Storage)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="27" vertex="1">
+                    <mxGeometry x="200" y="30" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="MQTT &lt;br&gt;(Comms)" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;strokeWidth=2;fillColor=#E6E6E6;fontColor=#330066;strokeColor=#330066;" parent="27" vertex="1">
+                    <mxGeometry x="340" y="30" width="120" height="80" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

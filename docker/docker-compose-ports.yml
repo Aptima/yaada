@@ -1,0 +1,9 @@
+version: '3.6'
+
+services:
+  openapi:
+    ports:
+      - "5000:5000"
+  jupyter:
+    ports:
+      - "8888:8888"

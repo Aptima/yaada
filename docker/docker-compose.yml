@@ -1,0 +1,98 @@
+version: '3.6'
+
+volumes:
+  jupyter_notebook_volume:
+
+networks:
+  default:
+    name: ${YAADA_NETWORK_NAME:-yaada-shared-infrastructure}
+services:
+  openapi:
+    platform: linux/${DOCKER_PLATFORM}
+    stdin_open: true
+    tty: true
+    image: ${YAADA_PROJECT_IMAGE}
+    entrypoint: yaada-openapi.py
+    restart: always
+    environment:
+      - OBJECT_STORAGE_ENABLED=${OBJECT_STORAGE_ENABLED}
+      - OBJECT_STORAGE_URL=zenko:8000
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - ELASTICSEARCH_URL=http://opensearch:9200
+      - TIKA_SERVER_ENDPOINT=http://tika:9998
+
+  ingest:
+    platform: linux/${DOCKER_PLATFORM}
+    image: ${YAADA_PROJECT_IMAGE}
+    restart: always
+    tty: true
+    entrypoint: yaada-ingest-pipeline.py
+    environment:
+      - OBJECT_STORAGE_ENABLED=${OBJECT_STORAGE_ENABLED}
+      - OBJECT_STORAGE_URL=zenko:8000
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - ELASTICSEARCH_URL=http://opensearch:9200
+      - TIKA_SERVER_ENDPOINT=http://tika:9998
+  sink:
+    platform: linux/${DOCKER_PLATFORM}
+    image: ${YAADA_PROJECT_IMAGE}
+    restart: always
+    tty: true
+    entrypoint: yaada-sink.py
+    environment:
+      - OBJECT_STORAGE_ENABLED=${OBJECT_STORAGE_ENABLED}
+      - OBJECT_STORAGE_URL=zenko:8000
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - ELASTICSEARCH_URL=http://opensearch:9200
+      - TIKA_SERVER_ENDPOINT=http://tika:9998
+  worker:
+    platform: linux/${DOCKER_PLATFORM}
+    image: ${YAADA_PROJECT_IMAGE}
+    restart: always
+    tty: true
+    entrypoint: yaada-worker.py
+    environment:
+      - YAADA_IMAGE=${YAADA_PROJECT_IMAGE}
+      - OBJECT_STORAGE_ENABLED=${OBJECT_STORAGE_ENABLED}
+      - OBJECT_STORAGE_URL=zenko:8000
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - ELASTICSEARCH_URL=http://opensearch:9200
+      - TIKA_SERVER_ENDPOINT=http://tika:9998
+  docker-worker:
+    platform: linux/${DOCKER_PLATFORM}
+    image: ${YAADA_PROJECT_IMAGE}
+    restart: always
+    tty: true
+    user: root
+    entrypoint: yaada-worker-docker.py
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - YAADA_IMAGE=${YAADA_PROJECT_IMAGE}
+      - OBJECT_STORAGE_ENABLED=${OBJECT_STORAGE_ENABLED}
+      - OBJECT_STORAGE_URL=zenko:8000
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - ELASTICSEARCH_URL=http://opensearch:9200
+      - TIKA_SERVER_ENDPOINT=http://tika:9998
+      - YAADA_WORKER_LABELS=docker
+  jupyter:
+    platform: linux/${DOCKER_PLATFORM}
+    image: ${YAADA_PROJECT_IMAGE}
+    restart: always
+    tty: true
+    working_dir: /notebooks
+    entrypoint: jupyter lab --allow-root --ip 0.0.0.0 --port=8888 --no-browser --NotebookApp.token='' --NotebookApp.password=''
+    environment:
+      - OBJECT_STORAGE_ENABLED=${OBJECT_STORAGE_ENABLED}
+      - OBJECT_STORAGE_URL=zenko:8000
+      - MQTT_HOSTNAME=mosquitto
+      - MQTT_PORT=1883
+      - ELASTICSEARCH_URL=http://opensearch:9200
+      - TIKA_SERVER_ENDPOINT=http://tika:9998
+    volumes:
+      - jupyter_notebook_volume:/notebooks

@@ -1,0 +1,17 @@
+**.egg-info
+**/__pycache__
+*/dist
+modelscache
+**/*.egg-info
+notebooks/.ipynb_checkpoints
+src/core/build
+src/*/build
+src/*/dist
+site/site
+.vscode
+.pipenv_local/
+**.DS_Store
+yaada.override.yml
+Pipfile.lock
+tmpdata
+**/.pytest_cache

@@ -1,0 +1,778 @@
+# Copyright (c) 2022 Aptima, Inc.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy of
+# this software and associated documentation files (the "Software"), to deal in
+# the Software without restriction, including without limitation the rights to
+# use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+# the Software, and to permit persons to whom the Software is furnished to do so,
+# subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+# FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+# COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+# IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+# CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+openapi: "3.0.3"
+info:
+  title: YAADA API
+  version: "1.0"
+servers:
+  - url: http://localhost:5000
+paths:
+  /analytic/:
+    get:
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticList"
+      summary: get the list of analytics
+      operationId: yaada.openapi.analytic.get_analytic_list
+      tags:
+        - analytic
+  /analytic/exec_async/:
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: start an analytic asynchronously
+      operationId: yaada.openapi.analytic.async_exec
+      requestBody:
+        $ref: "#/components/requestBodies/AnalyticRequest"
+      tags:
+        - analytic
+  /analytic/exec_sync/:
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: start an analytic synchronously
+      operationId: yaada.openapi.analytic.sync_exec
+      requestBody:
+        $ref: "#/components/requestBodies/AnalyticRequest"
+      tags:
+        - analytic
+  "/analytic/description/{analytic_name}/":
+    parameters:
+      - description: the analytic name
+        name: analytic_name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticSummary"
+      summary: get the specific analytic
+      operationId: yaada.openapi.analytic.get_analytic_description
+      tags:
+        - analytic
+  "/analytic/session/{analytic_name}/":
+    parameters:
+      - description: the analytic name
+        name: analytic_name
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticSessions"
+      summary: Get counts of active, complete, and errored analytic sessions for a given analytic_name
+      operationId: yaada.openapi.analytic.get_analytic_sessions
+      tags:
+        - analytic
+  "/analytic/session/":
+    get:
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AnalyticSessionCounts"
+      summary: Get counts of analytic sessions by analytic_name
+      operationId: yaada.openapi.analytic.get_analytic_session_counts
+      tags:
+        - analytic
+  "/analytic/session/{analytic_name}/{analytic_session_id}":
+    parameters:
+      - description: the analytic name
+        name: analytic_name
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: the id for the analytic session
+        name: analytic_session_id
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      responses:
+        "200":
+          description: Success
+      summary: get the status of a specific analytic session
+      operationId: yaada.openapi.analytic.get_analytic_status
+      tags:
+        - analytic
+
+  /artifact:
+    get:
+      responses:
+        "200":
+          description: Success
+      summary: Fetch an artifact file by doc_type and id
+      operationId: yaada.openapi.artifact.get_artifact
+      parameters:
+        - name: artifact_type
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: doc_type
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: filename
+          in: query
+          required: true
+          schema:
+            type: string
+      tags:
+        - artifact
+  "/artifact/{doc_type}/{id}":
+    parameters:
+      - description: The document type to store the file reference in
+        name: doc_type
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: The elasticsearch id for document
+        name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - description: Write synchronously, defaults to True
+        name: sync
+        in: query
+        schema:
+          type: boolean
+          default: true
+      - description: Process document through relevant pipelines, defaults to True
+        name: process
+        in: query
+        schema:
+          type: boolean
+          default: true
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: Upload an artifact, store, and create a document with specified id
+      operationId: yaada.openapi.artifact.upload_artifact
+      parameters:
+        - description: Wait for the document to be available for search before returning
+            from call.
+          name: barrier
+          in: query
+          schema:
+            type: boolean
+            default: false
+        - name: artifact_type
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/post_artifact_root"
+      tags:
+        - artifact
+  /document/:
+    get:
+      operationId: yaada.openapi.document.document_counts
+      responses:
+        "200":
+          $ref: "#/components/responses/document_counts"
+      summary: Get document counts
+      tags:
+        - data
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: Post a document for ingest
+      operationId: yaada.openapi.document.ingest
+      parameters:
+        - description: Write synchronously, defaults to True
+          name: sync
+          in: query
+          schema:
+            type: string
+        - description: Process document through relevant pipelines, defaults to True
+          name: process
+          in: query
+          schema:
+            type: string
+        - description: Wait for the document to be available for search before returning
+            from call.
+          name: barrier
+          in: query
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Document"
+        required: true
+      tags:
+        - data
+  /document/get/:
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: Get a single document
+      operationId: yaada.openapi.document.get_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GetDocument"
+        required: true
+      tags:
+        - data
+    get:
+      parameters:
+        - description: the document type
+          name: doc_type
+          in: query
+          required: true
+          schema:
+            type: string
+        - description: the document id
+          name: id
+          in: query
+          required: true
+          schema:
+            type: string
+        - description: elasticsearch source_include
+          name: source_include
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - description: elasticsearch source_exclude
+          name: source_exclude
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/document"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      summary: Get a single document
+      operationId: yaada.openapi.document.get
+      tags:
+        - data  
+  /document/mget/:
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: Get a list of documents
+      operationId: yaada.openapi.document.mget_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MgetDocuments"
+        required: true
+      tags:
+        - data
+    get:
+      responses:
+        "200":
+          $ref: "#/components/responses/documents"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      parameters:
+        - description: the document type
+          name: doc_type
+          in: query
+          required: true
+          schema:
+            type: string
+        - description: the document id
+          name: ids
+          in: query
+          required: true
+          schema:
+            type: array
+            items:
+              type: string
+        - description: elasticsearch source_include
+          name: source_include
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - description: elasticsearch source_exclude
+          name: source_exclude
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+      summary: Get a list of documents
+      operationId: yaada.openapi.document.mget
+      tags:
+        - data
+  /document/search/:
+    post:
+      responses:
+        "200":
+          $ref: "#/components/responses/search_response"
+      summary: Run elasticsearch search and return paged results
+      operationId: yaada.openapi.document.search_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchDocuments"
+        required: true
+      tags:
+        - data
+    get:
+      responses:
+        "200":
+          $ref: "#/components/responses/document"
+        "404":
+          $ref: "#/components/responses/NotFound"
+      parameters:
+        - description: the document type
+          name: doc_type
+          in: query
+          required: true
+          schema:
+            type: string
+        - description: elasticsearch source_include
+          name: source_include
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - description: elasticsearch source_exclude
+          name: source_exclude
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+        - description: starting result offset
+          name: page_from
+          in: query
+          required: false
+          schema:
+            type: integer
+        - description: number of results
+          name: page_size
+          in: query
+          required: false
+          schema:
+            type: integer
+        - description: return raw elasticsearch results
+          name: raw
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - description: elasticsearch query
+          name: query
+          in: query
+          required: false
+          schema:
+            type: object
+      summary: Run elasticsearch search and return paged results
+      operationId: yaada.openapi.document.search
+      tags:
+        - data
+  /document/term_counts/:
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: Get term counts
+      operationId: yaada.openapi.document.term_counts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TermCounts"
+        required: true
+      tags:
+        - data
+  /document/rawquery/:
+    post:
+      responses:
+        "200":
+          description: Success
+      summary: Run elasticsearch raw query. Used for aggregations.
+      operationId: yaada.openapi.document.rawquery
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RawQuery"
+        required: true
+      tags:
+        - data
+  /schema/:
+    get:
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SchemaList"
+      summary: get the list of schemas
+      operationId: yaada.openapi.schema.get_list
+      tags:
+        - schema
+  "/schema/{doc_type}":
+    parameters:
+      - description: the schema type
+        name: doc_type
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      responses:
+        "200":
+          description: Success
+      summary: get the specific schema
+      operationId: yaada.openapi.schema.get_type
+      tags:
+        - schema
+components:
+  responses:
+    ParseError:
+      description: When a mask can't be parsed
+    NotFound:
+      description: The document was not found
+    MaskError:
+      description: When any error occurs on mask
+    document_counts:
+      description: map of doc_type to count of that type present in system
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties:
+              type: integer
+              description: Count of doc_type
+    search_response:
+      description: paged output of search
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              documents:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Document"
+              page_from:
+                type: integer
+              page_size:
+                type: integer
+              timed_out:
+                type: boolean
+              took:
+                type: integer
+              total_result:
+                type: integer
+            required:
+            - documents
+            - page_from
+            - page_size
+            - timed_out
+            - took
+            - total_result
+    document:
+      description: single document
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Document"
+    documents:
+      description: array of documents
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "#/components/schemas/Document"
+  requestBodies:
+    post_artifact_root:
+      content:
+        multipart/form-data:
+          schema:
+            type: object
+            properties:
+              file:
+                type: string
+                format: binary
+            required:
+              - file
+    AnalyticRequest:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AnalyticRequest"
+      required: true
+  schemas:
+    Document:
+      properties:
+        doc_type:
+          type: string
+          description: The type of document
+        id:
+          type: string
+          description: The unique identifier of the document
+        _id:
+          type: string
+          description: Optional elasticsearch id
+      type: object
+    SearchDocuments:
+      required:
+        - doc_type
+      properties:
+        doc_type:
+          type: string
+          description: The type of document
+        query_body:
+          type: object
+          description: Elasticsearch query
+          default:
+            query:
+              match_all: {}
+        page_from:
+          type: integer
+          description: Elasticsearch document offset to start page from
+          default: 0
+        page_size:
+          type: integer
+          description: Elasticsearch document offset to start page from
+          default: 10
+        raw:
+          type: boolean
+          description: Return the raw elasticsearch hit, rather than the _source field
+          default: false
+        _source:
+          type: boolean
+          description: Include the document as part of response
+        _source_include:
+          type: array
+          description: include fields in response
+          items:
+            type: string
+        _source_exclude:
+          type: array
+          description: exclude fields from response
+          items:
+            type: string
+      type: object
+    RawQuery:
+      required:
+        - query_body
+      properties:
+        doc_type:
+          type: string
+          description: The type of document
+        query_body:
+          type: object
+          description: Elasticsearch query
+          default:
+            query:
+              match_all: {}
+      type: object
+    GetDocument:
+      required:
+        - id
+      properties:
+        doc_type:
+          type: string
+          description: The type of document
+        id:
+          type: string
+          description: the elasticsearch id
+        _source:
+          type: boolean
+          description: Include the document as part of response
+        _source_include:
+          type: array
+          description: include fields in response
+          items:
+            type: string
+        _source_exclude:
+          type: array
+          description: exclude fields from response
+          items:
+            type: string
+      type: object
+    MgetDocuments:
+      required:
+        - ids
+      properties:
+        doc_type:
+          type: string
+          description: The type of document
+        ids:
+          type: array
+          description: elasticsearch id
+          items:
+            type: string
+        _source:
+          type: boolean
+          description: Include the document as part of response
+        _source_include:
+          type: array
+          description: include fields in response
+          items:
+            type: string
+        _source_exclude:
+          type: array
+          description: exclude fields from response
+          items:
+            type: string
+      type: object
+    TermCounts:
+      required:
+        - term
+        - doc_type
+      properties:
+        doc_type:
+          type: string
+          description: The type of document
+        term:
+          type: string
+          description: The term to count.
+        query_body:
+          type: object
+          description: Elasticsearch query
+          default:
+            query:
+              match_all: {}
+      type: object
+    SchemaList:
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+            description: name of schema
+      type: object
+    AnalyticList:
+      properties:
+        analytics:
+          type: array
+          items:
+            type: string
+            description: name of analytic
+      type: object
+    AnalyticRequest:
+      properties:
+        analytic_name:
+          type: string
+          description: The name of the analytic to run
+        analytic_session_id:
+          type: string
+          description: Request instance id -- used for marking results
+        include_results:
+          type: boolean
+          description: Return analytic results in response payload.
+          default: false
+        parameters:
+          type: object
+          description: The analytics execution parameter
+          default: {}
+        worker:
+          type: string
+          description: the name or regex pattern designating worker process that should
+            execute analytic
+          default: default
+      type: object
+    AnalyticSummary:
+      properties:
+        name:
+          type: string
+          description: The name of the analytic
+        description:
+          type: string
+          description: A short description
+        request_schema:
+          type: object
+          description: The analytics execution parameter schema
+          default: {}
+      type: object
+    AnalyticSessions:
+      type: object
+      properties:
+        active:
+          type: array
+          items:
+            type: string
+        error:
+          type: array
+          items:
+            type: string
+        finished:
+          type: array
+          items:
+            type: string
+    AnalyticSessionCounts:
+      type: object
+      additionalProperties:
+        type: integer
