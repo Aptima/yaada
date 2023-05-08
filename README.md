@@ -4,7 +4,7 @@ YAADA is a data architecture and analytics platform developed to support the ful
 
 ## Getting started
 
-This README has contains instructions for developing the core YAADA project. For instructions on using YAADA for your project, consult the [Getting Started documentation](http://aptima.github.io/yaada/getting-started/).
+This README has contains instructions for developing the core YAADA project. For instructions on using YAADA for your project, consult the [Getting Started documentation](https://aptima.github.io/yaada/getting-started/).
 
 ### Prerequisites
 * Docker
@@ -30,7 +30,7 @@ A full YAADA-based system running infrastructure and YAADA services in developme
 
 ### Installing and running
 
-To install and run the stock YAADA system from this repo, follow the instruction in this section. If you want to create your own project that uses YAADA, consult the [Getting Started documentation](https://yaada.pages.aptima.com/yaada/getting-started/).
+To install and run the stock YAADA system from this repo, follow the instruction in this section. If you want to create your own project that uses YAADA, consult the [Getting Started documentation](https://aptima.github.io/yaada/getting-started/).
 
 Activate virtual environment with:
 

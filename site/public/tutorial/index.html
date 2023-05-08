@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../concepts/" rel="prev"/>
+<link href="../api/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
+<title>Tutorial - Yet Another Analytic Dataflow Architecture</title>
+<link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#tutorial">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Yet Another Analytic Dataflow Architecture" class="md-header__button md-logo" data-md-component="logo" href=".." title="Yet Another Analytic Dataflow Architecture">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Yet Another Analytic Dataflow Architecture
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Tutorial
+            
+          </span>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Yet Another Analytic Dataflow Architecture" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Yet Another Analytic Dataflow Architecture">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Yet Another Analytic Dataflow Architecture
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../getting-started/">
+        Getting Started
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../concepts/">
+        Architecture and Concepts
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Tutorial
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Tutorial
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-project">
+    Creating a project
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#working-with-jupyter-or-ipython">
+    Working with Jupyter or IPython
+  </a>
+<nav aria-label="Working with Jupyter or IPython" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jupyter">
+    Jupyter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ipython">
+    IPython
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ingesting-data">
+    Ingesting Data
+  </a>
+<nav aria-label="Ingesting Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#download-csv-data">
+    Download csv data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#load-the-csv">
+    Load the csv
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#defining-a-document-schema">
+    Defining a document schema
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#querying-data">
+    Querying Data
+  </a>
+<nav aria-label="Querying Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fetch-documents-from-an-index-with-contextquery-method">
+    Fetch documents from an index with context.query method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#compute-value-counts-with-contextterm_counts-method">
+    Compute value counts with context.term_counts method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#check-if-a-document-exists-by-id-with-contextexists-method">
+    Check if a document exists by id with context.exists method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fetch-specific-document-with-contextget-method">
+    Fetch specific document with context.get method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raw-elasticsearch-queryaggregation-with-contextrawquery-method">
+    Raw Elasticsearch query/aggregation with context.rawquery method
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elasticsearch-schema-mapping">
+    Elasticsearch schema mapping
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applying-builtin-analyticspipelines">
+    Applying builtin analytics/pipelines
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#writing-an-analytic">
+    Writing an Analytic
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#writing-a-pipeline-processor">
+    Writing a Pipeline Processor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extending-the-rest-api-with-custom-endpoints">
+    Extending the REST API with custom endpoints
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../api/">
+        Python API
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../openapi/">
+        REST API
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#creating-a-project">
+    Creating a project
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#working-with-jupyter-or-ipython">
+    Working with Jupyter or IPython
+  </a>
+<nav aria-label="Working with Jupyter or IPython" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#jupyter">
+    Jupyter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ipython">
+    IPython
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ingesting-data">
+    Ingesting Data
+  </a>
+<nav aria-label="Ingesting Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#download-csv-data">
+    Download csv data
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#load-the-csv">
+    Load the csv
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#defining-a-document-schema">
+    Defining a document schema
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#querying-data">
+    Querying Data
+  </a>
+<nav aria-label="Querying Data" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fetch-documents-from-an-index-with-contextquery-method">
+    Fetch documents from an index with context.query method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#compute-value-counts-with-contextterm_counts-method">
+    Compute value counts with context.term_counts method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#check-if-a-document-exists-by-id-with-contextexists-method">
+    Check if a document exists by id with context.exists method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fetch-specific-document-with-contextget-method">
+    Fetch specific document with context.get method
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raw-elasticsearch-queryaggregation-with-contextrawquery-method">
+    Raw Elasticsearch query/aggregation with context.rawquery method
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elasticsearch-schema-mapping">
+    Elasticsearch schema mapping
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applying-builtin-analyticspipelines">
+    Applying builtin analytics/pipelines
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#writing-an-analytic">
+    Writing an Analytic
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#writing-a-pipeline-processor">
+    Writing a Pipeline Processor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extending-the-rest-api-with-custom-endpoints">
+    Extending the REST API with custom endpoints
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="tutorial">Tutorial</h1>
+<h2 id="creating-a-project">Creating a project</h2>
+<p>In order to use YAADA, you first need to create a new project directory that will house your project metadata, Docker configuration for running the system, and any project specific source code or schemas. All of the tutorials in this section assume that you have read <a href="../getting-started/">Getting Started</a> and followed the instructions to install prerequisites, create a project setting <code>yaada-tutorial</code> as the project_name (and accepting all defaults after that), run the system, and are running commands from the root of the project directory.</p>
+<h2 id="working-with-jupyter-or-ipython">Working with Jupyter or IPython</h2>
+<h3 id="jupyter">Jupyter</h3>
+<p>Jupyter is helpful a developer tool. Many YAADA developers use it when writing the code of an analytic or processor before tying it into the rest of YAADA, or testing a query. To start up the dev Jupyter server, run the following command:</p>
+<div class="highlight"><pre><span></span><code>$ yda run jupyter
+</code></pre></div>
+<p>This will direct you to a new browser tab with the Jupyter interface and show logs in the terminal. If you’re unfamiliar with Jupyter, refer to the Jupyter Lab <a href="https://jupyterlab.readthedocs.io/en/stable/">documentation</a>.</p>
+<p>Note that when using Jupyter, changes to code outside the notebook will not be picked up until the Jupyter Kernel is restarted.</p>
+<p>In order to start interacting with YAADA data from a Jupyter noetbook, you will need to add the following as the first cell and execute it:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">yaada</span><span class="p">,</span><span class="n">core</span><span class="o">.</span><span class="n">analytic</span><span class="o">.</span><span class="n">context</span> <span class="kn">import</span> <span class="nn">make_analytic_context</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">make_analytic_context</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="ipython">IPython</h3>
+<p>If you would prefer to experiment with YAADA from the command line, the IPython shell provides a REPL that can be used to experiment with the YAADA APIs.</p>
+<p>Launch IPython with:</p>
+<div class="highlight"><pre><span></span><code>$ yda run ipython
+</code></pre></div>
+<p>Unlike with Jupyter, you don't need to construct the <code>context</code> manually. Once you are in the REPL, you will have a <code>context</code> already constructed for you and any code changes in your project will be automatically picked up through <a href="https://ipython.org/ipython-doc/3/config/extensions/autoreload.html">IPython magic autoreload</a>.</p>
+<h2 id="ingesting-data">Ingesting Data</h2>
+<p>This section will cover ingesting data into YAADA's Elasticsearch. The tutorial will leverage a publically available csv containing avengers character data.
+Content in this section assumes you have created an IPython shell with <code>yda run ipython</code> or using Jupyter Lab with <code>yda run jupyter</code> and have already constructed your YAADA <code>context</code>.</p>
+<h3 id="download-csv-data">Download csv data</h3>
+<p>Download the <code>avengers.csv</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://raw.githubusercontent.com/fivethirtyeight/data/master/avengers/avengers.csv"</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="s2">"avengers.csv"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="load-the-csv">Load the csv</h3>
+<p>Read the CSV as dictionaries and write into YAADA.
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">yaada.core.utility</span> <span class="kn">import</span> <span class="n">hash_for_text</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'avengers.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'latin-1'</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+  <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+  <span class="c1"># Iterate through the csv, printing progress with tqdm</span>
+  <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">reader</span><span class="p">):</span> 
+    <span class="c1"># Create a dictionary containing all the values from the row, adding a `doc_type`</span>
+    <span class="c1"># and normalizing the csv columns names to be better dictionary keys. Note that any </span>
+    <span class="c1"># fields that are an empty string are omitted to prevent Elasticsearch from inferring </span>
+    <span class="c1"># the wrong schema type for the field.</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">doc_type</span><span class="o">=</span><span class="s2">"Avenger"</span><span class="p">,</span><span class="o">**</span><span class="p">{</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\W+"</span><span class="p">,</span><span class="s1">'_'</span><span class="p">,</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">})</span>
+    <span class="c1"># for fields that contain numeric values, coerce to number if non empty string, delete if</span>
+    <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'appearances'</span><span class="p">,</span><span class="s1">''</span><span class="p">):</span>
+        <span class="n">doc</span><span class="p">[</span><span class="s1">'appearances'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">'appearances'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'year'</span><span class="p">,</span><span class="s1">''</span><span class="p">):</span>
+        <span class="n">doc</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">'year'</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">doc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'years_since_joining'</span><span class="p">,</span><span class="s1">''</span><span class="p">):</span>
+        <span class="n">doc</span><span class="p">[</span><span class="s1">'years_since_joining'</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">'years_since_joining'</span><span class="p">])</span>
+
+    <span class="c1"># Create a unique id for this row by hashing the URL it came from.</span>
+    <span class="n">doc</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hash_for_text</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s1">'URL'</span><span class="p">]])</span> 
+    <span class="c1"># Save into elasticsearch</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> 
+</code></pre></div></p>
+<p>Now verify that you have documents in Elasticsearch using <code>context.document_counts()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">document_counts</span><span class="p">()</span>
+</code></pre></div>
+<p>will result in:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s1">'Avenger'</span><span class="p">:</span> <span class="mi">173</span><span class="p">}</span>
+</code></pre></div></p>
+<p>Now to look at what the data looks like once ingested, fetch all the <code>Avenger</code> documents back from YAADA and inspect:</p>
+<div class="highlight"><pre><span></span><code><span class="n">avengers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">))</span>
+<span class="n">avengers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+<p>should result in something like:</p>
+<p><div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s1">'doc_type'</span><span class="p">:</span> <span class="s1">'Avenger'</span><span class="p">,</span>
+ <span class="s1">'url'</span><span class="p">:</span> <span class="s1">'http://marvel.wikia.com/Henry_Pym_(Earth-616)'</span><span class="p">,</span>
+ <span class="s1">'name_alias'</span><span class="p">:</span> <span class="s1">'Henry Jonathan "Hank" Pym'</span><span class="p">,</span>
+ <span class="s1">'appearances'</span><span class="p">:</span> <span class="mi">1269</span><span class="p">,</span>
+ <span class="s1">'current_'</span><span class="p">:</span> <span class="s1">'YES'</span><span class="p">,</span>
+ <span class="s1">'gender'</span><span class="p">:</span> <span class="s1">'MALE'</span><span class="p">,</span>
+ <span class="s1">'full_reserve_avengers_intro'</span><span class="p">:</span> <span class="s1">'Sep-63'</span><span class="p">,</span>
+ <span class="s1">'year'</span><span class="p">:</span> <span class="mi">1963</span><span class="p">,</span>
+ <span class="s1">'years_since_joining'</span><span class="p">:</span> <span class="mi">52</span><span class="p">,</span>
+ <span class="s1">'honorary'</span><span class="p">:</span> <span class="s1">'Full'</span><span class="p">,</span>
+ <span class="s1">'death1'</span><span class="p">:</span> <span class="s1">'YES'</span><span class="p">,</span>
+ <span class="s1">'return1'</span><span class="p">:</span> <span class="s1">'NO'</span><span class="p">,</span>
+ <span class="s1">'notes'</span><span class="p">:</span> <span class="s1">'Merged with Ultron in Rage of Ultron Vol. 1. A funeral was held. '</span><span class="p">,</span>
+ <span class="s1">'id'</span><span class="p">:</span> <span class="s1">'55f4787faa40baaf13540c4bf78509c976a5261050e400203355398209faa7ef'</span><span class="p">,</span>
+ <span class="s1">'analytic_session_id'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'fcd6d744-375e-4b34-8fb2-fdcaebc21440'</span><span class="p">],</span>
+ <span class="s1">'analytic_name'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'IPython'</span><span class="p">],</span>
+ <span class="s1">'@updated'</span><span class="p">:</span> <span class="s1">'2022-08-22T21:40:12.600548'</span><span class="p">,</span>
+ <span class="s1">'@timestamp'</span><span class="p">:</span> <span class="s1">'2022-08-22T21:40:12.600550'</span><span class="p">,</span>
+ <span class="s1">'_pipeline'</span><span class="p">:</span> <span class="p">[],</span>
+ <span class="s1">'_id'</span><span class="p">:</span> <span class="s1">'55f4787faa40baaf13540c4bf78509c976a5261050e400203355398209faa7ef'</span><span class="p">}</span>
+</code></pre></div>
+Note that several fields (i.e. <code>analytic_name</code>, <code>analytic_session_id</code>, <code>@updated</code>, <code>@timestamp</code>, <code>_pipeline</code>, <code>_id</code>) were autogenerated and can safely be ignored. The most useful of those is <code>@timestamp</code> which tracks the time that the document was first ingested.</p>
+<h3 id="defining-a-document-schema">Defining a document schema</h3>
+<p>YAADA supports defining document schemas as json or yaml files following the <a href="https://spec.openapis.org/oas/v3.0.0.html#schema-object">OpenAPI 3.0 json-schema variant</a>.</p>
+<p>To create a schema for our new <code>Avenger</code> document type, create a new file called <code>schema/Avenger.yaml</code> and put the following contents in it:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+<span class="nt">properties</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">id</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The index-unique id used for writing into elasticsearch -- will be autogenerated if omitted.</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">doc_type</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">url</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">name_alias</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">appearances</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
+<span class="w">  </span><span class="nt">current_</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">gender</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">full_reserve_avengers_intro</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">year</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
+<span class="w">  </span><span class="nt">years_since_joining</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">integer</span>
+<span class="w">  </span><span class="nt">honorary</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">death1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">return1</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">notes</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">death2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">return2</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">probationary_introl</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">death3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">return3</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">death4</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">return4</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">death5</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">return5</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="nt">required</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">doc_type</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">id</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">url</span>
+</code></pre></div>
+Note that the filename (minus the <code>.yaml</code>) must exactly match the <code>doc_type</code> field in the data being ingested.</p>
+<p>After creating the schema file, you will need to exit your IPython session and relaunch, or restart your Jupyter kernel for the new schema to be picked up.</p>
+<p>No try to ingest an invalid document and watch an exception get thrown:</p>
+<div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span>
+    <span class="n">doc_type</span><span class="o">=</span><span class="s2">"Avenger"</span><span class="p">,</span>
+    <span class="nb">id</span><span class="o">=</span><span class="s1">'foo'</span>
+<span class="p">))</span>
+</code></pre></div>
+<p>The above should result in a schema validation exception because we're missing the required <code>url</code> field.</p>
+<div class="highlight"><pre><span></span><code>ValidationError: 'url' is a required property
+
+Failed validating 'required' in schema:
+    {'definitions': {},
+     'links': {},
+     'nullable': False,
+     'properties': {'_id': {'description': 'The index-unique id used for '
+                                           'writing into elasticsearch -- '
+                                           'will be autogenerated if '
+                                           'omitted.',
+                            'type': 'string'},
+                    'appearances': {'type': 'integer'},
+                    'current_': {'type': 'string'},
+                    'death1': {'type': 'string'},
+                    'death2': {'type': 'string'},
+                    'death3': {'type': 'string'},
+                    'death4': {'type': 'string'},
+                    'death5': {'type': 'string'},
+                    'doc_type': {'type': 'string'},
+                    'full_reserve_avengers_intro': {'type': 'string'},
+                    'gender': {'type': 'string'},
+                    'honorary': {'type': 'string'},
+                    'id': {'description': 'The index-unique id used for '
+                                          'writing into elasticsearch -- '
+                                          'will be autogenerated if '
+                                          'omitted.',
+                           'type': 'string'},
+                    'name_alias': {'type': 'string'},
+                    'notes': {'type': 'string'},
+                    'probationary_introl': {'type': 'string'},
+                    'return1': {'type': 'string'},
+                    'return2': {'type': 'string'},
+                    'return3': {'type': 'string'},
+                    'return4': {'type': 'string'},
+                    'return5': {'type': 'string'},
+                    'url': {'type': 'string'},
+                    'year': {'type': 'integer'},
+                    'years_since_joining': {'type': 'integer'}},
+     'required': ['id', 'doc_type', 'url'],
+     'type': 'object'}
+
+On instance:
+    {'@timestamp': datetime.datetime(2022, 8, 22, 22, 44, 41, 55061),
+     '@updated': datetime.datetime(2022, 8, 22, 22, 44, 41, 55056),
+     '_id': 'foo',
+     '_op_type': 'update',
+     '_pipeline': [],
+     'analytic_name': ['IPython'],
+     'analytic_session_id': ['84244b01-daaa-4392-a11e-ca7ffcd79494'],
+     'doc_type': 'Avenger',
+     'id': 'foo'}
+</code></pre></div>
+<h2 id="querying-data">Querying Data</h2>
+<p>This section will cover how to query data in YAADA. The methods that will be covered are <code>query</code>, <code>term_counts</code>, <code>exists</code>, <code>get</code>, and <code>rawquery</code> context methods.
+Content in this section assumes you have created an IPython shell with <code>yda run ipython</code> or using Jupyter Lab with <code>yda run jupyter</code> and have already constructed your YAADA <code>context</code>, and have followed the previous tutorial to ingest <code>Avenger</code> documents.</p>
+<h3 id="fetch-documents-from-an-index-with-contextquery-method">Fetch documents from an index with <code>context.query</code> method</h3>
+<p>This method uses the Elasticsearch scroll api through the Elasticsearch scan method and so can return extremely large numbers of documents if you are not careful.</p>
+<p>Basic usage of <code>query</code> to retrieve all documents in index just requires passing the <code>doc_type</code> as a parameter:</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">avengers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">avengers</span><span class="p">))</span>
+</code></pre></div>
+Which should print:</p>
+<div class="highlight"><pre><span></span><code>173
+</code></pre></div>
+<p>Note that <code>context.query('Avenger')</code> returns a python generator that will lazily scroll through the Elasticsearch index, so we realize by wrapping with the <code>list</code> constructor.</p>
+<p>Now let's query for a subset of avengers using an Elasticsearch query. See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html">Elasticsearch Query DSL documentation</a> for more details.</p>
+<p>We are going to query for all avengers that have dies 3 times. Note that in the following query, we append a <code>.keyword</code> to the field we are querying on because by default, Elasticsearch maps string to a fuzzy search index mapping, and provides a <code>.keyword</code> variant for exact matching with <code>term</code> queries.
+<div class="highlight"><pre><span></span><code><span class="n">avengers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,{</span>
+    <span class="s2">"query"</span><span class="p">:{</span>
+        <span class="s2">"term"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">"death3.keyword"</span><span class="p">:</span><span class="s2">"YES"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">avengers</span><span class="p">))</span>
+</code></pre></div>
+Which should print:</p>
+<div class="highlight"><pre><span></span><code>2
+</code></pre></div>
+<p>To see the names of the two avengers returned, we can print with:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">([</span><span class="n">a</span><span class="p">[</span><span class="s1">'name_alias'</span><span class="p">]</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">avengers</span><span class="p">])</span>
+</code></pre></div>
+<p>and get:</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="s1">'Mar-Vell'</span><span class="p">,</span> <span class="s1">'Jocasta'</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="compute-value-counts-with-contextterm_counts-method">Compute value counts with <code>context.term_counts</code> method</h3>
+<p>If we want to compute some high level summary statistics over some document field, we can use <code>context.term_counts</code>.</p>
+<p>To see the counts of MALE vs FEMALE avengers, we can use the following:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">term_counts</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,</span><span class="s1">'gender.keyword'</span><span class="p">))</span>
+</code></pre></div>
+which should print:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="s1">'MALE'</span><span class="p">:</span> <span class="mi">115</span><span class="p">,</span> <span class="s1">'FEMALE'</span><span class="p">:</span> <span class="mi">58</span><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="check-if-a-document-exists-by-id-with-contextexists-method">Check if a document exists by id with <code>context.exists</code> method</h3>
+<p>If we want to see if an <code>id</code> exists in a specific document index, we can use <code>context.get</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,</span><span class="s1">'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89'</span><span class="p">))</span>
+</code></pre></div>
+<p>should print:</p>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+<h3 id="fetch-specific-document-with-contextget-method">Fetch specific document with <code>context.get</code> method</h3>
+<p>To fetch a document from an index by id, we can:</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,</span><span class="s1">'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89'</span><span class="p">)</span>
+</code></pre></div>
+<p>which when inspected should look like:</p>
+<div class="highlight"><pre><span></span><code>{'doc_type': 'Avenger',
+ 'url': 'http://marvel.wikia.com/Vision_(Earth-616)',
+ 'name_alias': 'Victor Shade (alias)',
+ 'appearances': 1036,
+ 'current_': 'YES',
+ 'gender': 'MALE',
+ 'full_reserve_avengers_intro': 'Nov-68',
+ 'year': 1968,
+ 'years_since_joining': 47,
+ 'honorary': 'Full',
+ 'death1': 'YES',
+ 'return1': 'YES',
+ 'notes': 'Dies in Avengers_Vol_1_500. Is eventually rebuilt. ',
+ 'id': 'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89',
+ 'analytic_session_id': ['9d3e392b-f15e-4ac9-a24a-10b2c5145bf9'],
+ 'analytic_name': ['IPython'],
+ '@updated': '2022-08-22T22:40:01.920328',
+ '@timestamp': '2022-08-22T22:40:01.920330',
+ '_pipeline': [],
+ '_id': 'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89'}
+</code></pre></div>
+<p>If I don't want to see all those fields returned, I can choose the just return certain fields by passing a <code>source</code> argument.</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,</span><span class="s1">'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89'</span><span class="p">,</span><span class="n">source</span><span class="o">=</span><span class="p">[</span><span class="s1">'doc_type'</span><span class="p">,</span><span class="s1">'id'</span><span class="p">,</span><span class="s1">'name_alias'</span><span class="p">])</span>
+</code></pre></div>
+<p>which when inspected should look like:</p>
+<div class="highlight"><pre><span></span><code>{'name_alias': 'Victor Shade (alias)',
+ 'doc_type': 'Avenger',
+ 'id': 'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89',
+ '_id': 'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89'}
+</code></pre></div>
+<h3 id="raw-elasticsearch-queryaggregation-with-contextrawquery-method">Raw Elasticsearch query/aggregation with <code>context.rawquery</code> method</h3>
+<p>The <code>context.query</code> method mentioned above used the Elasticsearch scroll API and only returns the source document, without any of the metadata from the Eleasticsearch query result envelope. If you want access to aggregations or query score data, you'll need to use <code>context.rawquery</code>.</p>
+<p>If I want to run an Elasticsearch aggregation to find out the range of <code>year</code> values in the <code>Avenger</code> index, I can run the following aggregation:</p>
+<div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">rawquery</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,{</span>
+    <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">},</span>
+    <span class="s2">"aggs"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"earliest_year"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"min"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"year"</span>
+        <span class="p">}</span>
+      <span class="p">},</span>
+      <span class="s2">"latest_year"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"max"</span><span class="p">:</span> <span class="p">{</span>
+          <span class="s2">"field"</span><span class="p">:</span> <span class="s2">"year"</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">"size"</span><span class="p">:</span> <span class="mi">0</span>
+<span class="p">})</span>
+</code></pre></div>
+<p>Inspecting the result should look like:</p>
+<div class="highlight"><pre><span></span><code>{'took': 3,
+ 'timed_out': False,
+ '_shards': {'total': 1, 'successful': 1, 'skipped': 0, 'failed': 0},
+ 'hits': {'total': {'value': 173, 'relation': 'eq'},
+  'max_score': None,
+  'hits': []},
+ 'aggregations': {'earliest_year': {'value': 1900.0},
+  'latest_year': {'value': 2015.0}}}
+</code></pre></div>
+<p>so we can see that the first year in the Avenger index is <code>1900.0</code> and the latest is <code>2015.0</code>.</p>
+<h2 id="elasticsearch-schema-mapping">Elasticsearch schema mapping</h2>
+<p>TODO</p>
+<h2 id="applying-builtin-analyticspipelines">Applying builtin analytics/pipelines</h2>
+<p>TODO</p>
+<h2 id="writing-an-analytic">Writing an Analytic</h2>
+<p>TODO</p>
+<h2 id="writing-a-pipeline-processor">Writing a Pipeline Processor</h2>
+<p>TODO</p>
+<h2 id="extending-the-rest-api-with-custom-endpoints">Extending the REST API with custom endpoints</h2>
+<p>TODO</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Aptima, Inc. 2023
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+<script>document$.subscribe(() => {
+            window.update_swagger_ui_iframe_height = function (id) {
+                var iFrameID = document.getElementById(id);
+                if (iFrameID) {
+                    full_height = (iFrameID.contentWindow.document.body.scrollHeight + 80) + "px";
+                    iFrameID.height = full_height;
+                    iFrameID.style.height = full_height;
+                }
+            }
+        
+            let iframe_id_list = []
+            var iframes = document.getElementsByClassName("swagger-ui-iframe");
+            for (var i = 0; i < iframes.length; i++) { 
+                iframe_id_list.push(iframes[i].getAttribute("id"))
+            }
+        
+            let ticking = true;
+            
+            document.addEventListener('scroll', function(e) {
+                if (!ticking) {
+                    window.requestAnimationFrame(()=> {
+                        let half_vh = window.innerHeight/2;
+                        for(var i = 0; i < iframe_id_list.length; i++) {
+                            let element = document.getElementById(iframe_id_list[i])
+                            if(element==null){
+                                return
+                            }
+                            let diff = element.getBoundingClientRect().top
+                            if(element.contentWindow.update_top_val){
+                                element.contentWindow.update_top_val(half_vh - diff)
+                            }
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        
+            const dark_scheme_name = "slate"
+            
+            window.scheme = document.body.getAttribute("data-md-color-scheme")
+            const options = {
+                attributeFilter: ['data-md-color-scheme'],
+            };
+            function color_scheme_callback(mutations) {
+                for (let mutation of mutations) {
+                    if (mutation.attributeName === "data-md-color-scheme") {
+                        scheme = document.body.getAttribute("data-md-color-scheme")
+                        var iframe_list = document.getElementsByClassName("swagger-ui-iframe")
+                        for(var i = 0; i < iframe_list.length; i++) {
+                            var ele = iframe_list.item(i);
+                            if (ele) {
+                                if (scheme === dark_scheme_name) {
+                                    ele.contentWindow.enable_dark_mode();
+                                } else {
+                                    ele.contentWindow.disable_dark_mode();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            observer = new MutationObserver(color_scheme_callback);
+            observer.observe(document.body, options);
+            })</script></body>
+</html>
