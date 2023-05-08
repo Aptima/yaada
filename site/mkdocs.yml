@@ -8,7 +8,7 @@ nav:
     - Getting Started: getting-started.md
     - Architecture and Concepts: concepts.md
     - Tutorial: tutorial.md
-    - Python API: api.md
+    # - Python API: api.md
     - REST API: openapi.md
 markdown_extensions:
   - pymdownx.superfences:

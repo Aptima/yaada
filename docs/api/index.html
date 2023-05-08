@@ -5,11 +5,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="../tutorial/" rel="prev"/>
-<link href="../openapi/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
-<title>Python API - Yet Another Analytic Dataflow Architecture</title>
+<title>YAADA Python API - Yet Another Analytic Dataflow Architecture</title>
 <link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -47,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Python API
+              YAADA Python API
             
           </span>
 </div>
@@ -118,168 +116,6 @@
 <a class="md-nav__link" href="../tutorial/">
         Tutorial
       </a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          Python API
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        Python API
-      </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#analytic-context">
-    Analytic Context
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context">
-    yaada.core.analytic.context
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext">
-    AnalyticContext
-  </a>
-<nav aria-label="AnalyticContext" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.aggregation">
-    aggregation()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.async_exec_analytic">
-    async_exec_analytic()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.delete">
-    delete()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.delete_by_query">
-    delete_by_query()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.delete_index">
-    delete_index()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.document_counts">
-    document_counts()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.document_mappings">
-    document_mappings()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.document_type_exists">
-    document_type_exists()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.exists">
-    exists()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.get">
-    get()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.index_field_mappings">
-    index_field_mappings()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.index_mappings">
-    index_mappings()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.index_settings">
-    index_settings()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.ingest_barrier">
-    ingest_barrier()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.mget">
-    mget()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.query">
-    query()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.rawquery">
-    rawquery()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.report_status">
-    report_status()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.sentinel_present">
-    sentinel_present()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.set_analytic_name">
-    set_analytic_name()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.set_analytic_session_id">
-    set_analytic_session_id()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.sync_exec_analytic">
-    sync_exec_analytic()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.term_counts">
-    term_counts()
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.update">
-    update()
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#yaada.core.analytic.context.make_analytic_context">
-    make_analytic_context()
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../openapi/">

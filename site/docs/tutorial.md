@@ -191,7 +191,7 @@ Note that the filename (minus the `.yaml`) must exactly match the `doc_type` fie
 
 After creating the schema file, you will need to exit your IPython session and relaunch, or restart your Jupyter kernel for the new schema to be picked up.
 
-No try to ingest an invalid document and watch an exception get thrown:
+Now try to ingest an invalid document and watch an exception get thrown:
 
 ```python
 context.update(dict(
