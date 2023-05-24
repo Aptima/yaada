@@ -254,7 +254,7 @@ class Project:
         path_to_project = os.path.abspath(self.get_project_path())
 
         # if path_to_project is not None:
-        self.set_env_var("YAADA_CONFIG_DIRECTORY", f"{path_to_project}/conf")
+        self.set_env_var("YAADA_CONFIG_DIRECTORY", os.path.join(f"{path_to_project}", "conf"))
 
     def load_yaml(self, config_path):
         if os.path.exists(config_path):
