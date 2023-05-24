@@ -21,6 +21,7 @@ openapi: "3.0.3"
 info:
   title: YAADA API
   version: "1.0"
+  description: "This page provides documentation and test interfaces for a hosted API developed with Yet Another Analytics Dataflow Architecture (YAADA)."
 servers:
   - url: http://localhost:5000
 paths:
