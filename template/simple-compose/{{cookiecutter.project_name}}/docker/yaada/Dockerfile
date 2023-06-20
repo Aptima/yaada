@@ -43,18 +43,28 @@ RUN cat /ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 
 WORKDIR /usr/src/yaada
 
-ENV YAADA_CONFIG default.conf
 
-VOLUME ["/root/.newspaper_scraper"]
+# COPY --chown=yaada:yaada . /usr/src/yaada
 
-COPY --chown=yaada:yaada . /usr/src/yaada
-
-RUN pip install -e /usr/src/yaada/src/core
-RUN pip install -e /usr/src/yaada/src/webscraping
-RUN pip install -e /usr/src/yaada/src/nlp
-RUN pip install -e /usr/src/yaada/src/openapi
+RUN pip install git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}#subdirectory=src/core
+RUN pip install git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}#subdirectory=src/webscraping
+RUN pip install git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}#subdirectory=src/nlp
+RUN pip install git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}#subdirectory=src/openapi
 
 RUN yaada-download-default-nlp-resources.py
+
+
+WORKDIR /usr/src/{{cookiecutter.project_slug}}
+
+USER root
+
+ENV YAADA_CONFIG /usr/src/{{cookiecutter.project_slug}}/conf/{{cookiecutter.project_slug}}.conf
+
+COPY --chown=yaada:yaada . /usr/src/{{cookiecutter.project_slug}}
+COPY --chown=yaada:yaada ./notebooks /notebooks
+
+RUN pip install -e /usr/src/{{cookiecutter.project_slug}}/src/{{cookiecutter.python_package}}
+
 
 USER yaada
 

@@ -32,7 +32,7 @@ $ pip install cookiecutter
 Next, navigate to the parent directory of where you would like your new project to go, and invoke cookiecutter with the template you want to use:
 
 ```
-$ cookiecutter https://gitlab.aptima.com/yaada/yaada-project-template.git --checkout 6.1
+$ cookiecutter https://github.com/Aptima/yaada.git --checkout=v6.2.0 --directory=template/simple-compose
 ```
 
 Follow the prompts, and if successful, you will have a new yaada project directory. All remaining commands will happen from within the project directory
@@ -56,14 +56,6 @@ $ pipenv install
 ```
 
 ## Building and running through Docker
-
-### Get YAADA Docker images
-
-If you do not have the main YAADA Docker images locally, pull them with:
-
-```
-$ yda pull-core
-```
 
 ### Build project images
 

@@ -7,7 +7,6 @@ setup(
     install_requires=[
         "yaada-core>={{cookiecutter.yaada_version}}",
         "yaada-nlp>={{cookiecutter.yaada_version}}",
-        "yaada-dataset>={{cookiecutter.yaada_version}}",
         "yaada-openapi>={{cookiecutter.yaada_version}}",
         "yaada-webscraping>={{cookiecutter.yaada_version}}"
     ],

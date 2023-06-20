@@ -42,12 +42,24 @@ docker:
   #   run:
   #     - script-from-scripts-section arg1 arg2 etc
   build:
+    yaada/mosquitto:
+      image: yaada/mosquitto
+      dockerfile: docker/mosquitto/Dockerfile
+      context: docker/mosquitto
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
+        PLATFORM: ${DOCKER_PLATFORM}
+    yaada/zenko-cloudserver:
+      image: yaada/zenko-cloudserver
+      dockerfile: docker/zenko-cloudserver/Dockerfile
+      context: docker/zenko-cloudserver
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
+        PLATFORM: ${DOCKER_PLATFORM}
     {{cookiecutter.docker_image}}:
       image: {{cookiecutter.docker_image}}
-      dockerfile: docker/Dockerfile-yaada
+      dockerfile: docker/yaada/Dockerfile
       context: .
-      build_args:
-        YAADA_CORE_IMAGE: ${YAADA_CORE_IMAGE}
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
+        YAADA_BASE_IMAGE: python:3.8
         PLATFORM: ${DOCKER_PLATFORM}
 variables:
   TRANSFORMERS_CACHE: 
