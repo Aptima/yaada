@@ -226,7 +226,6 @@ class DockerHelper:
                 "push", command_args=[f"{registry}/{image}:{t}"], verbose=verbose
             )
 
-
     def after_up_copy(self, verbose):
         # print(self.get_running_services())
         for f in self.project.get_docker_after_up_copy():

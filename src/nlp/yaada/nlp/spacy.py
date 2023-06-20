@@ -22,7 +22,6 @@ import random
 
 import spacy
 from spacy.util import compounding, minibatch
-
 from yaada.core import default_log_level
 from yaada.core.analytic import YAADAPipelineProcessor
 from yaada.core.analytic.model import ModelBase

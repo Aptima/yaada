@@ -29,7 +29,6 @@ import newspaper
 import requests
 from newspaper import Article
 from pyquery import PyQuery
-
 from yaada.core import default_log_level, schema, utility
 from yaada.core.analytic import YAADAAnalytic, YAADAPipelineProcessor
 

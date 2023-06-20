@@ -19,7 +19,6 @@
 
 import connexion
 from jsonschema.exceptions import ValidationError
-
 from yaada.core import utility
 
 
@@ -28,7 +27,6 @@ def document_counts():
 
 
 def search_post(body):
-
     result = connexion.request.context.doc_service.paged_query(
         body["doc_type"],
         body.get("query_body", {"query": {"match_all": {}}}),
@@ -51,7 +49,6 @@ def search(
     raw=False,
     query={"query": {"match_all": {}}},
 ):
-
     result = connexion.request.context.doc_service.paged_query(
         doc_type,
         query,
@@ -65,7 +62,6 @@ def search(
 
 
 def rawquery(body):
-
     result = connexion.request.context.doc_service.rawquery(
         body["doc_type"], body["query_body"]
     )

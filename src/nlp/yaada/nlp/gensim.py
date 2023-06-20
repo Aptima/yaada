@@ -29,7 +29,6 @@ import spacy
 from gensim.models import CoherenceModel
 from gensim.utils import simple_preprocess
 from tqdm import tqdm
-
 from yaada.core import default_log_level, schema
 from yaada.core.analytic import YAADAAnalytic
 from yaada.core.analytic.model import ModelBase
@@ -309,7 +308,6 @@ class GensimTrainLDAModel(YAADAAnalytic):
         pass
 
     def run(self, context, request):
-
         model_instance_id = request["parameters"]["model_instance_id"]
 
         analyze_doc_type = request["parameters"]["analyze_doc_type"]

@@ -21,13 +21,11 @@ import json
 from collections import OrderedDict
 
 import click
-
 from yaada.core.cli import common
 from yaada.core.cli.project import Project
 
 
 def get_property_type(k, v):
-
     if "type" not in v:
         if "$ref" in v:
             if v["$ref"] == "#/definitions/artifacts":
@@ -48,7 +46,6 @@ def get_property_type(k, v):
 
 
 def get_property_link(k, v):
-
     if "type" not in v:
         if "$ref" in v:
             if v["$ref"] == "#/definitions/document-links":
@@ -144,7 +141,6 @@ def generate_analytics_section(project, config, schema_manager, analytics_dict):
         print("```")
 
         if len(rec["calls"]) > 0:
-
             print(
                 dedent(
                     f"""\
@@ -174,7 +170,6 @@ def generate_pipelines_section(
     )
 
     for name, p in pipelines_dict.items():
-
         print(f"## Pipeline for `{name}`")
         if len(p) > 0:
             print(

@@ -28,7 +28,6 @@ import sys
 from deepmerge import Merger
 from git import Repo
 from ruamel.yaml import YAML
-
 from yaada.core import default_log_level
 from yaada.core.utility import create_service_overrides
 
@@ -131,7 +130,6 @@ class Project:
             raise NoProjectFound()
 
         for p in expanded:
-
             logger.info(f"loading: {p}")
             self.merge_config(self.load_yaml(p))
 
@@ -228,7 +226,6 @@ class Project:
         self.current_env = env
 
     def init_environment(self):
-
         self.init_env_var(
             "COMPOSE_PROJECT_NAME", default=self.get_docker_compose_project_name()
         )
@@ -254,7 +251,9 @@ class Project:
         path_to_project = os.path.abspath(self.get_project_path())
 
         # if path_to_project is not None:
-        self.set_env_var("YAADA_CONFIG_DIRECTORY", os.path.join(f"{path_to_project}", "conf"))
+        self.set_env_var(
+            "YAADA_CONFIG_DIRECTORY", os.path.join(f"{path_to_project}", "conf")
+        )
 
     def load_yaml(self, config_path):
         if os.path.exists(config_path):

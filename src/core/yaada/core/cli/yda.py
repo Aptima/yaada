@@ -22,7 +22,6 @@ import os
 import subprocess
 
 import click
-
 from yaada.core.cli import common
 from yaada.core.cli.analytic import *  # noqa: F401,F403
 from yaada.core.cli.cf import *  # noqa: F401,F403
@@ -435,7 +434,6 @@ def push(images, verbose, registry, env):
     """Push all project images."""
     project = Project(env=env)
     push_images(project, images, registry=registry, verbose=verbose)
-
 
 
 @yaada.command()

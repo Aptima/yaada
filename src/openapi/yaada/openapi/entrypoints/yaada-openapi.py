@@ -22,7 +22,6 @@ import argparse
 
 import connexion
 from flask_cors import CORS
-
 from yaada.core.analytic.context import make_analytic_context
 from yaada.core.config import YAADAConfig
 from yaada.openapi.common import load_spec

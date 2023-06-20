@@ -22,7 +22,6 @@ import os
 import sys
 
 import click
-
 from yaada.core.cli import common
 from yaada.core.cli.project import Project
 

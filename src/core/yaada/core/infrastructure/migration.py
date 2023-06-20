@@ -30,7 +30,6 @@ from pathlib import Path
 import boto3
 import botocore
 from tqdm import tqdm
-
 from yaada.core import default_log_level, utility
 from yaada.core.analytic.plugin import AnalyticContextPlugin
 
@@ -55,7 +54,6 @@ class MigrationContextPlugin(AnalyticContextPlugin):
         scroll="24h",
         binary=False,
     ):
-
         doc_service = self.context.doc_service
         c = 0
         for doc in tqdm(
@@ -566,7 +564,6 @@ class MigrationContextPlugin(AnalyticContextPlugin):
         )
 
     def list_buckets(self):
-
         endpoint = self.context.ob_service.object_storage_url
         access_key_id = self.context.ob_service.access_key_id
         secret_access_key = self.context.ob_service.secret_access_key

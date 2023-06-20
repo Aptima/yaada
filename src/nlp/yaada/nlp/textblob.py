@@ -18,7 +18,6 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from textblob import TextBlob
-
 from yaada.core.analytic import YAADAAnalytic, YAADAPipelineProcessor
 from yaada.nlp.utils import ensure_textblob_corpora
 
@@ -48,7 +47,6 @@ class TextBlobSentiment(YAADAAnalytic):
         ensure_textblob_corpora()
 
     def run(self, context, request):
-
         q = {"query": {"match_all": {}}}
 
         if "analyze_query" in request["parameters"]:

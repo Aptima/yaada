@@ -23,7 +23,6 @@ import uuid as _uuid
 from datetime import datetime
 
 import jsonschema
-
 from yaada.core import analytic, default_log_level, utility
 from yaada.core.analytic.execution import async_exec_analytic, sync_exec_analytic
 from yaada.core.analytic.pipeline import make_pipeline
@@ -71,7 +70,6 @@ class AnalyticContext:
         connect_to_services=True,
         overrides={},
     ):
-
         self.config = config
         if self.config is None:
             if "config" in overrides:
@@ -493,7 +491,6 @@ class AnalyticContext:
         self.status["input_stats"][doc_type] += 1
 
     def report_status(self, write_es=False, message=None):
-
         """
         Called automatically when analytics are started and finishing. Available to be called by Anaytic developers
         to show intermediate status of a an analytic. To do this, call it in the ``run`` function of an Analytic.
@@ -641,7 +638,6 @@ class AnalyticContext:
         )
 
     def query_count(self, doc_type, query={"query": {"match_all": {}}}):
-
         if query is None:
             query = {"query": {"match_all": {}}}
 
@@ -1356,7 +1352,6 @@ def make_analytic_context(
     connect_to_services=True,
     overrides={},
 ):
-
     """
     Return an instance of the context object. A context object is needed to
     interact with the Elasticsearch database using python. A detailed description of the

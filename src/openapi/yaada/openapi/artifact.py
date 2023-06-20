@@ -19,12 +19,10 @@
 
 import connexion
 from flask import send_file
-
 from yaada.core import utility
 
 
 def upload_artifact(body, doc_type, id, sync, process, barrier, artifact_type, file):
-
     doc = connexion.request.context.doc_service.get(
         doc_type, id, _source_include=["doc_type", "_id", "artifacts"]
     )
@@ -39,7 +37,6 @@ def upload_artifact(body, doc_type, id, sync, process, barrier, artifact_type, f
 
 
 def get_artifact(artifact_type, doc_type, id, filename):
-
     doc = connexion.request.context.doc_service.get(doc_type, id)
 
     for blob in doc["artifacts"][artifact_type]:

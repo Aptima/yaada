@@ -17,7 +17,6 @@ class AnalyticContextPlugin(ABC):
 
 
 def register_context_plugins(context):
-
     config = context.config
 
     plugins = config.context_plugins

@@ -21,7 +21,6 @@ import subprocess
 import sys
 
 import click
-
 from yaada.core.cli.docker import DockerHelper
 from yaada.core.cli.project import Project
 from yaada.core.config import YAADAConfig
@@ -141,7 +140,11 @@ def wait_for_backend(project, timeout=60.0, api_url=None):
     print("Waiting for backend...", file=sys.stderr)
 
     context = make_analytic_context(
-        "CLI", init_pipelines=False, init_analytics=False,config=config, overrides=project.config
+        "CLI",
+        init_pipelines=False,
+        init_analytics=False,
+        config=config,
+        overrides=project.config,
     )
     context.document_counts()
     if api_url is None:
