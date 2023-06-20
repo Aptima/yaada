@@ -25,7 +25,7 @@ import click
 from yaada.core.cli.docker import DockerHelper
 from yaada.core.cli.project import Project
 from yaada.core.config import YAADAConfig
-from yaada.core.utility import wait_flask
+from yaada.core.utility import wait_api
 
 
 def print_help(ctx, message, value):
@@ -133,7 +133,7 @@ def watch_output(output_func, **kwargs):
     curses.wrapper(c)
 
 
-def wait_for_backend(project, timeout=60.0, flask_url=None):
+def wait_for_backend(project, timeout=60.0, api_url=None):
     config = YAADAConfig(overrides=project.config)
     config.connection_timeout = timeout
     from yaada.core.analytic.context import make_analytic_context
@@ -141,12 +141,12 @@ def wait_for_backend(project, timeout=60.0, flask_url=None):
     print("Waiting for backend...", file=sys.stderr)
 
     context = make_analytic_context(
-        "CLI", init_pipelines=False, config=config, overrides=project.config
+        "CLI", init_pipelines=False, init_analytics=False,config=config, overrides=project.config
     )
     context.document_counts()
-    if flask_url is None:
-        flask_url = f"http://{project.config.get('hostname','localhost')}:5000"
-    wait_flask(flask_url, timeout)
+    if api_url is None:
+        api_url = f"http://{project.config.get('hostname','localhost')}:5000"
+    wait_api(api_url, timeout)
 
     print("READY")
 

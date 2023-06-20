@@ -1,8 +1,7 @@
 project_name: "yaada"
 description: "An example project file included in core repo" 
-project_version: "6.1.0"
-yaada_core_version: "6.1.0"
-path_to_core: .
+project_version: "6.2.0"
+yaada_core_version: "6.2.0"
 config: default.conf
 env: # the default environments for this project
   - local
@@ -10,7 +9,6 @@ docker:
   # used to populate active YAADA_PROJECT_IMAGE environment variable
   tag: LATEST #required. one of [LATEST, VERSION, GITHASH]
   compose_project_name: yaada6 # required.
-  core_image: yaada/yaada
   project_image: yaada/yaada
   platform: amd64
   network: 
@@ -56,6 +54,12 @@ docker:
       context: .
       build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
         YAADA_BASE_IMAGE: python:3.8
+        PLATFORM: ${DOCKER_PLATFORM}
+    yaada/dev:
+      image: yaada/dev
+      dockerfile: docker/dev/Dockerfile
+      context: docker/dev
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
         PLATFORM: ${DOCKER_PLATFORM}
 variables:
   TRANSFORMERS_CACHE: modelscache/transformers 

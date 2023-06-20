@@ -226,26 +226,6 @@ class DockerHelper:
                 "push", command_args=[f"{registry}/{image}:{t}"], verbose=verbose
             )
 
-    def pull_core(self, registry=None, verbose=False):
-        images = self.project.get_core_images()
-        tag = self.project.config.get("yaada_core_version")
-        if registry is None:
-            registry = (
-                self.project.config.get("docker", {}).get("registry", "").rstrip("/")
-            )
-        if registry == "":
-            click.echo("No registry specified or available in configuration")
-            sys.exit(0)
-
-        for image in images:
-            self.run_docker_command(
-                "pull", command_args=[f"{registry}/{image}:{tag}"], verbose=verbose
-            )
-            self.run_docker_command(
-                "tag",
-                command_args=[f"{registry}/{image}:{tag}", f"{image}:{tag}"],
-                verbose=verbose,
-            )
 
     def after_up_copy(self, verbose):
         # print(self.get_running_services())

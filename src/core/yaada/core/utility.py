@@ -166,14 +166,14 @@ def listify_parameter_dicts(in_value, sentinel):
 connectivity_cache = {}
 
 
-def wait_flask(url, timeout):
-    wait_net_service("FLASK", url, 5.0, timeout)
+def wait_api(url, timeout):
+    wait_net_service("API", url, 5.0, timeout)
     import requests
 
     start_time = time.time()
     while True:
         try:
-            r = requests.get(f"{url}/data/document_counts/")
+            r = requests.get(f"{url}/document/")
             if r.status_code == 200:
                 break
         except Exception:
