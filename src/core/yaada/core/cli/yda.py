@@ -22,7 +22,6 @@ import os
 import subprocess
 
 import click
-
 from yaada.core.cli import common
 from yaada.core.cli.analytic import *  # noqa: F401,F403
 from yaada.core.cli.cf import *  # noqa: F401,F403
@@ -51,14 +50,14 @@ class ServiceType(click.ParamType):
 
 
 def build_images(project, images, no_cache, verbose, cwd=None):
-    path_to_core = project.get_core_path()
-    if path_to_core is not None and path_to_core.strip() != ".":
-        core_project = Project(
-            cwd=path_to_core, config_overrides=project.get_config_for_building_core()
-        )
-        build_images(
-            core_project, images, no_cache=no_cache, verbose=verbose, cwd=path_to_core
-        )
+    # path_to_core = project.get_core_path()
+    # if path_to_core is not None and path_to_core.strip() != ".":
+    #     core_project = Project(
+    #         cwd=path_to_core, config_overrides=project.get_config_for_building_core()
+    #     )
+    #     build_images(
+    #         core_project, images, no_cache=no_cache, verbose=verbose, cwd=path_to_core
+    #     )
 
     docker = DockerHelper(project)
     for build in project.get_image_builds(images):
@@ -247,11 +246,10 @@ def shell(service_name, arguments, verbose, compose, env, no_tty, working_direct
 @yaada.command()
 @click.argument("arguments", type=click.STRING, nargs=-1)
 @click.option("--verbose", "-v", is_flag=True)
-@click.option("--core", is_flag=True)
 @click.option(
     "--env", "-e", type=common.EnvironmentsType(), default=None, multiple=True
 )
-def image_debug_shell(arguments, verbose, core, env):
+def image_debug_shell(arguments, verbose, env):
     """Launch docker run for project image with arguments"""
     project = Project(env=env)
     docker = DockerHelper(project)
@@ -271,15 +269,10 @@ def image_debug_shell(arguments, verbose, core, env):
         "-e",
         "TIKA_SERVER_ENDPOINT=http://tika:9998",
     ]
-    project.get_current_core_image_tag()
-    if core:
-        docker_args = docker_args + [
-            f"{project.get_core_image()}:{project.get_current_core_image_tag()}"
-        ]
-    else:
-        docker_args = docker_args + [
-            f"{project.get_project_image()}:{project.get_current_project_tag()}"
-        ]
+
+    docker_args = docker_args + [
+        f"{project.get_project_image()}:{project.get_current_project_tag()}"
+    ]
 
     command_args = list(arguments)
     if len(command_args) == 0:
@@ -444,19 +437,6 @@ def push(images, verbose, registry, env):
 
 
 @yaada.command()
-@click.option("--verbose", "-v", is_flag=True)
-@click.option("--registry", type=click.STRING, default=None)
-@click.option(
-    "--env", "-e", type=common.EnvironmentsType(), default=None, multiple=True
-)
-def pull_core(verbose, registry, env):
-    """Pull core images."""
-    project = Project(env=env)
-    docker = DockerHelper(project)
-    docker.pull_core(verbose=verbose, registry=registry)
-
-
-@yaada.command()
 def download_nlp_resources():
     """Download python nlp resources"""
     # project = Project()
@@ -469,12 +449,12 @@ def download_nlp_resources():
 @click.option(
     "--env", "-e", type=common.EnvironmentsType(), default=None, multiple=True
 )
-@click.option("--timeout", type=click.FLOAT, default=30.0)
-@click.option("--flask-url", type=click.STRING, default=None)
-def wait(env, timeout, flask_url):
+@click.option("--timeout", type=click.FLOAT, default=120.0)
+@click.option("--api-url", type=click.STRING, default=None)
+def wait(env, timeout, api_url):
     """Wait for the backend to be ready."""
     project = Project(env=env)
-    common.wait_for_backend(project, timeout=timeout, flask_url=flask_url)
+    common.wait_for_backend(project, timeout=timeout, api_url=api_url)
 
 
 @yaada.command()

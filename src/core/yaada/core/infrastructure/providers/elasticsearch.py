@@ -29,7 +29,6 @@ from elasticsearch import Elasticsearch, helpers
 from elasticsearch.client import ClusterClient, IndicesClient
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch.helpers.errors import BulkIndexError
-
 from yaada.core import default_log_level, utility
 
 logger = logging.getLogger(__name__)
@@ -84,7 +83,6 @@ class ElasticsearchProvider:
         while True:
             try:
                 if self.es.ping():
-
                     health = cluster.health()
 
                     if health["status"] in ["yellow", "green"]:
@@ -138,7 +136,6 @@ class ElasticsearchProvider:
         return self.index_field_mappings(doc_type, *fields)
 
     def index_field_mappings(self, doc_type, *fields):
-
         x = ",".join(fields)
         if x == "":
             x = "*"

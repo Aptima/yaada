@@ -1,0 +1,147 @@
+project_name: {{cookiecutter.project_slug}}
+description: "" 
+project_version: "{{cookiecutter.project_version}}"
+yaada_core_version: "{{cookiecutter.yaada_version}}"
+config: {{cookiecutter.project_slug}}.conf
+env: # the default environments for this project
+  - local
+docker:
+  # used to populate active YAADA_PROJECT_IMAGE environment variable
+  project_image: {{cookiecutter.docker_image}}
+  platform: amd64
+  tag: LATEST #one of [LATEST, VERSION, GITHASH]
+  compose_project_name: {{cookiecutter.docker_project}}
+  network: 
+    name: yaada-shared-infrastructure
+  composes:
+    shared:
+      file: docker/docker-compose-shared.yml
+    shared-ports:
+      file: docker/docker-compose-shared-ports.yml
+    apps: 
+      file: docker/docker-compose.yml
+    apps-ports: 
+      file: docker/docker-compose-ports.yml
+  default_composes:
+    - shared
+    - shared-ports
+    - apps
+    - apps-ports
+  # after_up:
+  #   copy:
+  #     - 
+  #       source: ./a-local-file-path.json
+  #       container: a-container-name
+  #       dest: a-path-in-the-container
+  #   run:
+  #     - script-from-scripts-section arg1 arg2 etc
+  build:
+    {{ cookiecutter.python_module }}/mosquitto:
+      image: {{ cookiecutter.python_module }}/mosquitto
+      dockerfile: docker/mosquitto/Dockerfile
+      context: docker/mosquitto
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
+        PLATFORM: ${DOCKER_PLATFORM}
+    {{ cookiecutter.python_module }}/zenko:
+      image: {{ cookiecutter.python_module }}/zenko
+      dockerfile: docker/zenko-cloudserver/Dockerfile
+      context: docker/zenko-cloudserver
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
+        PLATFORM: ${DOCKER_PLATFORM}
+    {{cookiecutter.docker_image}}:
+      image: {{cookiecutter.docker_image}}
+      dockerfile: docker/yaada/Dockerfile
+      context: .
+      build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
+        YAADA_BASE_IMAGE: python:3.8
+        PLATFORM: ${DOCKER_PLATFORM}
+variables:
+  TRANSFORMERS_CACHE: 
+    value: modelscache/transformers
+    replace_absolute: true
+  SENTENCE_TRANSFORMERS_HOME: 
+    value: modelscache/sentence_transformers
+    replace_absolute: true
+  TORCH_HOME: 
+    value: modelscache/torch
+    replace_absolute: true
+  NLTK_DATA: 
+    value: modelscache/nltk_data
+    replace_absolute: true
+ 
+script:
+  openapi:
+    command: yaada-openapi.py --debug
+    stop_service: openapi
+  ingest:
+    command: yaada-ingest-pipeline.py
+    stop_service: ingest
+  sink:
+    command: yaada-sink.py
+    stop_service: sink
+  worker:
+    command: yaada-worker.py
+    stop_service: worker
+  jupyter: 
+    command: jupyter lab notebooks
+    stop_service: jupyter
+  ipython:
+    command: 
+      - ipython
+      - "-c"
+      - "from IPython import get_ipython;ipython = get_ipython();ipython.run_line_magic('load_ext', 'autoreload');ipython.run_line_magic('autoreload', '2');from yaada.core.analytic.context import make_analytic_context;context=make_analytic_context('IPython',init_pipelines=False)"
+      - "-i"
+      - "--profile={{cookiecutter.project_slug}}"
+  ipython-no-context:
+    command: 
+      - ipython
+      - "-c"
+      - "from IPython import get_ipython;ipython = get_ipython();ipython.run_line_magic('load_ext', 'autoreload');ipython.run_line_magic('autoreload', '2')"
+      - "-i"
+      - "--profile={{cookiecutter.project_slug}}"
+environments:
+  local: {}
+s3:
+  buckets:
+    yaada: {} # with no overrides, will default to yaada's default bucket for your selected environment
+    # some-real-s3-bucket:
+    #   bucket: {real s3 bucket name}
+    #   region: {region}
+    #   endpoint: {aws endpoint -- see https://docs.aws.amazon.com/general/latest/gr/s3.html and lookup region} 
+    #   access_key_id: {aws_access_key_id}
+    #   secret_access_key: {aws_secret_access_key}
+
+## set default environment variables for all environments  
+# variables:
+#   FOO: bar
+## the following values allow you to override the defaults environment variables or context connection overrides.
+## Null values or omission in realized config indicate using the defaults   
+# hostname: Null # the hostname/ip to connect to the service
+# tenant: Null # the project namespace for seperating project yaada data
+# prefix: Null # the namespace to seperate yaada data from non-yaada data
+# protocol: Null # http vs https
+## mqtt specific overrides
+# mqtt:
+#   hostname: Null
+#   tenant: Null
+#   prefix: Null
+#   port: Null
+#   ingest: Null
+#   sink: Null
+#   sinklog: Null
+# elasticsearch:
+#   hostname: Null
+#   tenant: Null
+#   prefix: Null
+#   protocol: Null
+#   port: Null
+# objectstorage:
+#   enabled: false
+#   hostname: Null
+#   tenant: Null
+#   prefix: Null
+#   location: Null
+#   bucket: Null
+#   secure: Null
+#   access_key_id: Null
+#   secret_access_key: Null

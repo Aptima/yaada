@@ -1,0 +1,14 @@
+**/.ipynb_checkpoints
+yaada.override.yml
+modelscache
+docker_volume_backups
+*.DS_Store
+*/.DS_Store
+**/__pycache__
+**/dist
+**/build
+modelscache
+**/*.egg-info
+.vscode
+.pipenv_local/
+Pipfile.lock

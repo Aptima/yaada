@@ -17,18 +17,43 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from setuptools import find_namespace_packages, setup
+PACKAGE_DIRS = $(dir $(wildcard src/*/setup.py))
+DIST_DIRS = $(patsubst %, %/dist, $(PACKAGE_DIRS))
+BUILD_DIRS = $(patsubst %, %/build, $(PACKAGE_DIRS))
 
-setup(
-    name="yaada-dataset",
-    version="6.1.0",
-    packages=find_namespace_packages(),
-    description="",
-    long_description="",
-    author="Gabriel Ganberg",
-    author_email="ganberg@aptima.com",
-    python_requires=">=3.8.0",
-    zip_safe=False,
-    licence="MIT License",
-    install_requires=["newspaper3k", "beautifulsoup4", "lxml"],
-)
+flake8:
+	pipenv run flake8 $(PACKAGE_DIRS)
+black:
+	pipenv run black $(PACKAGE_DIRS)
+isort:
+	pipenv run isort $(PACKAGE_DIRS)
+lint: black isort flake8
+
+build-packages: $(DIST_DIRS)
+
+install:
+	pipenv install --dev
+update:
+	pipenv update
+lock-arm64:
+	pipenv lock
+	pipenv requirements --exclude-markers | grep "^[^-]" > docker/yaada/requirements-arm64.txt
+lock-amd64:
+	pipenv lock
+	pipenv requirements --exclude-markers | grep "^[^-]" > docker/yaada/requirements-amd64.txt
+lock: lock-amd64
+%/dist:
+	cd $(dir $@) && python -m build
+
+clean-packages:
+	rm -rf $(DIST_DIRS)
+	rm -rf $(BUILD_DIRS)
+
+purge:
+	yda volume purge
+build:
+	yda build
+down:
+	yda down
+up:
+	yda up

@@ -132,7 +132,6 @@ def find_and_register(config, analytics=True, pipelines=True, models=True):
         start_t = time.time()
         mod = importlib.import_module(pkg)
         for name, obj in ((n, o) for (n, o) in inspect.getmembers(mod)):
-
             if (
                 analytics
                 and inspect.isclass(obj)

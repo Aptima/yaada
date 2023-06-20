@@ -33,11 +33,11 @@ import boto3
 import botocore.exceptions
 import click
 from tqdm import tqdm
-
-import docker
 from yaada.core import utility
 from yaada.core.cli import common
 from yaada.core.cli.project import Project
+
+import docker
 
 logging.Logger.manager.loggerDict["boto3"].setLevel(logging.CRITICAL)
 logging.Logger.manager.loggerDict["botocore"].setLevel(logging.CRITICAL)
@@ -107,7 +107,6 @@ def ensure_ecr_repository(ecr, repository_name):
         print(f"created ecr repository {uri}")
         return uri
     else:
-
         uri = ecr.describe_repositories(repositoryNames=[repository_name])[
             "repositories"
         ][0]["repositoryUri"]

@@ -24,7 +24,6 @@ import re
 from typing import Any, Dict, List
 
 from ruamel.yaml import YAML
-
 from yaada.core.analytic.context import AnalyticContext
 from yaada.core.schema import SchemaManager
 

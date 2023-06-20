@@ -28,7 +28,6 @@ import sys
 from deepmerge import Merger
 from git import Repo
 from ruamel.yaml import YAML
-
 from yaada.core import default_log_level
 from yaada.core.utility import create_service_overrides
 
@@ -113,7 +112,7 @@ class Project:
         self.config = {
             "yaada_core_version": get_yaada_core_version(),
             "env": ["local"],
-            "docker": {"registry": "gitlab-external.aptima.com:4567/yaada/yaada-core"},
+            "docker": {},
         }
         if "YAADA_HOSTNAME" in os.environ:
             self.config["hostname"] = os.getenv("YAADA_HOSTNAME")
@@ -131,7 +130,6 @@ class Project:
             raise NoProjectFound()
 
         for p in expanded:
-
             logger.info(f"loading: {p}")
             self.merge_config(self.load_yaml(p))
 
@@ -228,16 +226,15 @@ class Project:
         self.current_env = env
 
     def init_environment(self):
-
         self.init_env_var(
             "COMPOSE_PROJECT_NAME", default=self.get_docker_compose_project_name()
         )
-        self.init_env_var("CORE_GIT_HASH", default=self.get_core_git_hash())
+        # self.init_env_var("CORE_GIT_HASH", default=self.get_core_git_hash())
         self.init_env_var("PROJECT_GIT_HASH", default=self.get_project_git_hash())
-        self.init_env_var("YAADA_CORE_IMAGE", default=self.get_current_core_image())
-        self.init_env_var(
-            "YAADA_CORE_IMAGE_TAG", default=self.get_current_core_image_tag()
-        )
+        # self.init_env_var("YAADA_CORE_IMAGE", default=self.get_current_core_image())
+        # self.init_env_var(
+        #     "YAADA_CORE_IMAGE_TAG", default=self.get_current_core_image_tag()
+        # )
         self.init_env_var(
             "YAADA_PROJECT_IMAGE", default=self.get_current_project_image()
         )
@@ -254,7 +251,9 @@ class Project:
         path_to_project = os.path.abspath(self.get_project_path())
 
         # if path_to_project is not None:
-        self.set_env_var("YAADA_CONFIG_DIRECTORY", os.path.join(f"{path_to_project}", "conf"))
+        self.set_env_var(
+            "YAADA_CONFIG_DIRECTORY", os.path.join(f"{path_to_project}", "conf")
+        )
 
     def load_yaml(self, config_path):
         if os.path.exists(config_path):
@@ -345,20 +344,20 @@ class Project:
         if newval is not None:
             self.config["variables"][variable] = newval
 
-    def get_core_git_hash(self):
-        try:
-            path_to_core = self.get_core_path()
-            if path_to_core is not None:
-                repo = Repo(path_to_core)
-                return repo.head.commit.hexsha
-        except Exception:
-            pass
+    # def get_core_git_hash(self):
+    #     try:
+    #         path_to_core = self.get_core_path()
+    #         if path_to_core is not None:
+    #             repo = Repo(path_to_core)
+    #             return repo.head.commit.hexsha
+    #     except Exception:
+    #         pass
 
     def get_project_path(self):
         return self.config.get("path_to_project", ".")
 
-    def get_core_path(self):
-        return self.config.get("path_to_core", None)
+    # def get_core_path(self):
+    #     return self.config.get("path_to_core", None)
 
     def get_project_git_hash(self):
         try:
@@ -406,32 +405,32 @@ class Project:
             return command.get("variables", {})
         return None
 
-    def get_core_tags(self):
-        tags = ["latest", self.config["yaada_core_version"]]
-        if self.config["yaada_core_version"].endswith("-snapshot"):
-            tags.append(self.get_core_git_hash())
-        return tags
+    # def get_core_tags(self):
+    #     tags = ["latest", self.config["yaada_core_version"]]
+    #     if self.config["yaada_core_version"].endswith("-snapshot"):
+    #         tags.append(self.get_core_git_hash())
+    #     return tags
 
-    def get_core_image(self):
-        return self.config.get("docker", {}).get("core_image", "yaada/yaada")
+    # def get_core_image(self):
+    #     return self.config.get("docker", {}).get("core_image", "yaada/yaada")
 
-    def get_current_core_image_tag(self):
-        if (
-            self.config["yaada_core_version"].endswith("-snapshot")
-            and self.get_core_git_hash()
-        ):
-            return f"{self.get_core_git_hash()}"
-        else:
-            return f"{self.config['yaada_core_version']}"
+    # def get_current_core_image_tag(self):
+    #     if (
+    #         self.config["yaada_core_version"].endswith("-snapshot")
+    #         and self.get_core_git_hash()
+    #     ):
+    #         return f"{self.get_core_git_hash()}"
+    #     else:
+    #         return f"{self.config['yaada_core_version']}"
 
-    def get_current_core_image(self):
-        if (
-            self.config["yaada_core_version"].endswith("-snapshot")
-            and self.get_core_git_hash()
-        ):
-            return f"{self.get_core_image()}:{self.get_core_git_hash()}"
-        else:
-            return f"{self.get_core_image()}:{self.config['yaada_core_version']}"
+    # def get_current_core_image(self):
+    #     if (
+    #         self.config["yaada_core_version"].endswith("-snapshot")
+    #         and self.get_core_git_hash()
+    #     ):
+    #         return f"{self.get_core_image()}:{self.get_core_git_hash()}"
+    #     else:
+    #         return f"{self.get_core_image()}:{self.config['yaada_core_version']}"
 
     def get_project_tags(self):
         tags = ["latest", self.config["project_version"]]
@@ -473,14 +472,14 @@ class Project:
     def get_docker_tag(self):
         return self.config.get("docker", {}).get("tag", None)
 
-    def get_core_images(self):
-        return self.config.get("docker", {}).get(
-            "core_images",
-            [
-                "yaada/yaada",
-                "yaada/yaada-mosquitto",
-            ],
-        )
+    # def get_core_images(self):
+    #     return self.config.get("docker", {}).get(
+    #         "core_images",
+    #         [
+    #             "yaada/yaada",
+    #             "yaada/yaada-mosquitto",
+    #         ],
+    #     )
 
     def get_project_images(self):
         return [build["image"] for build in self.get_image_builds([])]

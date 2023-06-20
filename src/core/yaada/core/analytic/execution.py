@@ -22,7 +22,6 @@ import re
 import traceback
 
 from jsonschema import validate
-
 from yaada.core import analytic, utility
 
 

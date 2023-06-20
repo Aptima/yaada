@@ -23,7 +23,6 @@ RUN mkdir -p /home/yaada/modelcache/transformers
 RUN mkdir -p /home/yaada/modelcache/sentence_transformers
 RUN mkdir -p /home/yaada/modelcache/torch
 RUN mkdir -p /home/yaada/modelcache/nltk_data
-# VOLUME ["/home/yaada/modelcache"]
 
 ENV TRANSFORMERS_CACHE=/home/yaada/modelcache/transformers
 ENV SENTENCE_TRANSFORMERS_HOME=/home/yaada/modelcache/sentence_transformers
@@ -51,7 +50,6 @@ VOLUME ["/root/.newspaper_scraper"]
 COPY --chown=yaada:yaada . /usr/src/yaada
 
 RUN pip install -e /usr/src/yaada/src/core
-RUN pip install -e /usr/src/yaada/src/dataset
 RUN pip install -e /usr/src/yaada/src/webscraping
 RUN pip install -e /usr/src/yaada/src/nlp
 RUN pip install -e /usr/src/yaada/src/openapi

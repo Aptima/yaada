@@ -5,7 +5,6 @@ name = "pypi"
 
 [packages]
 yaada-core = {editable = true, path = "./src/core"}
-yaada-dataset = {editable = true, path = "./src/dataset"}
 yaada-nlp = {editable = true, path = "./src/nlp"}
 yaada-openapi = {editable = true, path = "./src/openapi"}
 yaada-webscraping = {editable = true, path = "./src/webscraping"}

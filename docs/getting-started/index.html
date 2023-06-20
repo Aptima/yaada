@@ -8,9 +8,9 @@
 <link href=".." rel="prev"/>
 <link href="../concepts/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.8" name="generator"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.16" name="generator"/>
 <title>Getting Started - Yet Another Analytic Dataflow Architecture</title>
-<link href="../assets/stylesheets/main.ded33207.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -173,11 +173,6 @@
 <nav aria-label="Building and running through Docker" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#get-yaada-docker-images">
-    Get YAADA Docker images
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#build-project-images">
     Build project images
   </a>
@@ -281,11 +276,6 @@
 <nav aria-label="Building and running through Docker" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#get-yaada-docker-images">
-    Get YAADA Docker images
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#build-project-images">
     Build project images
   </a>
@@ -336,7 +326,7 @@
 <div class="highlight"><pre><span></span><code>$ pip install cookiecutter
 </code></pre></div>
 <p>Next, navigate to the parent directory of where you would like your new project to go, and invoke cookiecutter with the template you want to use:</p>
-<div class="highlight"><pre><span></span><code>$ cookiecutter https://gitlab.aptima.com/yaada/yaada-project-template.git --checkout 6.1
+<div class="highlight"><pre><span></span><code>$ cookiecutter https://github.com/Aptima/yaada.git --checkout=v6.2.0 --directory=template/simple-compose
 </code></pre></div>
 <p>Follow the prompts, and if successful, you will have a new yaada project directory. All remaining commands will happen from within the project directory</p>
 <h2 id="python-environment-setup">Python environment setup</h2>
@@ -349,10 +339,6 @@
 <div class="highlight"><pre><span></span><code>$ pipenv install
 </code></pre></div>
 <h2 id="building-and-running-through-docker">Building and running through Docker</h2>
-<h3 id="get-yaada-docker-images">Get YAADA Docker images</h3>
-<p>If you do not have the main YAADA Docker images locally, pull them with:</p>
-<div class="highlight"><pre><span></span><code>$ yda pull-core
-</code></pre></div>
 <h3 id="build-project-images">Build project images</h3>
 <div class="highlight"><pre><span></span><code>$ yda build
 </code></pre></div>
@@ -428,7 +414,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+<script src="../assets/javascripts/bundle.a51614de.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);

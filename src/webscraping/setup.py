@@ -21,7 +21,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-webscraping",
-    version="6.1.0",
+    version="6.2.0",
     packages=find_namespace_packages(),
     description="",
     long_description="",

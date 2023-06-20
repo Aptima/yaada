@@ -26,7 +26,6 @@ from uuid import uuid4
 
 import paho.mqtt.packettypes as packettypes
 from paho.mqtt import client as mqtt
-
 from yaada.core import default_log_level, utility
 
 broker = {
@@ -325,7 +324,6 @@ class MQTTProvider:
         self.subscriptions = None
 
     def connect(self, client_id):
-
         self._client_id = client_id
 
         hostname = self.overrides.get("hostname", self._config.mqtt_hostname)

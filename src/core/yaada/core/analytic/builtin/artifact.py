@@ -24,7 +24,6 @@ import re
 import chardet
 import tika
 from tika import parser
-
 from yaada.core import default_log_level, utility
 from yaada.core.analytic import YAADAPipelineProcessor
 
@@ -57,7 +56,6 @@ class ArtifactExtractTextContent(YAADAPipelineProcessor):
                 ):
                     tf = context.ob_service.fetch_file_to_temp(blob["remote_file_path"])
                     try:
-
                         if encoding:
                             # rawdata = tf.read()
                             # content = rawdata.decode(encoding)

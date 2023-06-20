@@ -24,7 +24,6 @@ import tempfile
 
 import boto3
 import botocore
-
 from yaada.core import default_log_level, exceptions, utility
 
 mimetypes.add_type("text/markdown", ".md")
@@ -105,7 +104,6 @@ class ObjectStorageProvider:
             )
 
     def create_temp_dir(self):
-
         return tempfile.TemporaryDirectory()
 
     def get_content_type(self, filename):

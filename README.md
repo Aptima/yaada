@@ -9,7 +9,6 @@ This README has contains instructions for developing the core YAADA project. For
 ### Prerequisites
 * Docker
 * docker-compose (isn't always installed with Docker under Linux, so may need to install seperately)
-* On Windows, make sure Microsoft Visual C++ Build Tools are installed (requires Admin rights) and on the System PATH. (current download location: https://visualstudio.microsoft.com/downloads/ under `Tools for Visual Studio 2017` ... `Build Tools for Visual Studio 2017`)
 * Python 3.8
 * [PIP](https://pip.pypa.io/en/stable/)
 * [`pipenv`](https://pipenv.pypa.io/en/latest/)
@@ -159,6 +158,9 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 ```
 
 ## Release Notes
+
+### 6.1.0 --> 6.2.0
+Adding cookiecutter templates to main yaada repo and moving away from using yaada-core Docker image. Going forward, projects will have fully self-contained Docker images and install yaada from the public Github repo.
 
 ### 6.0.3 --> 6.1.0
 Due to current versions of Elasticsearch and MinIO incompatibility with M1 Macs, and due to both products having recent license changes,

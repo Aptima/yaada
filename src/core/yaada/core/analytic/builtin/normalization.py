@@ -21,7 +21,6 @@ import datetime
 
 import dateparser
 import dateutil.parser
-
 from yaada.core import utility
 from yaada.core.analytic import YAADAPipelineProcessor
 

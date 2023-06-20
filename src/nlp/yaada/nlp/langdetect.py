@@ -19,7 +19,6 @@
 
 import ftfy
 from langdetect import detect, detect_langs
-
 from yaada.core import schema
 from yaada.core.analytic import YAADAAnalytic
 

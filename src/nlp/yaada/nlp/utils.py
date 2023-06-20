@@ -83,7 +83,6 @@ def ensure_textblob_corpora():
 
 
 def download_nlp_resources():
-
     ensure_spacy_model("xx_ent_wiki_sm")
     ensure_spacy_model("en_core_web_sm")
     ensure_spacy_model("en_core_web_md")
