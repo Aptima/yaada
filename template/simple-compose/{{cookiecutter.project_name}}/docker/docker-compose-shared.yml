@@ -46,7 +46,7 @@ services:
   # there is a region mapping in the restEndpoints section for the new url.
   # See https://stackoverflow.com/questions/49339557/connecting-to-scality-s3-server-between-docker-containers.
   zenko: 
-    image: yaada/zenko-cloudserver:${YAADA_CORE_IMAGE_TAG}
+    image: {{ cookiecutter.python_module }}/zenko:${PROJECT_IMAGE_TAG}
     platform: linux/amd64
     restart: always
     environment:
@@ -60,7 +60,7 @@ services:
       - shared_zenko_data_volume:/usr/src/app/localData
       - shared_zenko_metadata_volume:/usr/src/app/localMetadata
   mosquitto:
-    image: yaada/mosquitto:${YAADA_CORE_IMAGE_TAG}
+    image: {{ cookiecutter.python_module }}/mosquitto:${PROJECT_IMAGE_TAG}
     platform: linux/${DOCKER_PLATFORM}
     restart: always
     volumes:

@@ -7,12 +7,6 @@ env: # the default environments for this project
   - local
 docker:
   # used to populate active YAADA_PROJECT_IMAGE environment variable
-  registry: artifact.production.aptima.com:8443
-  core_image: yaada/yaada
-  core_images:
-    - yaada/yaada
-    - yaada/yaada-mosquitto
-    - yaada/zenko-cloudserver
   project_image: {{cookiecutter.docker_image}}
   platform: amd64
   tag: LATEST #one of [LATEST, VERSION, GITHASH]
@@ -42,14 +36,14 @@ docker:
   #   run:
   #     - script-from-scripts-section arg1 arg2 etc
   build:
-    yaada/mosquitto:
-      image: yaada/mosquitto
+    {{ cookiecutter.python_module }}/mosquitto:
+      image: {{ cookiecutter.python_module }}/mosquitto
       dockerfile: docker/mosquitto/Dockerfile
       context: docker/mosquitto
       build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
         PLATFORM: ${DOCKER_PLATFORM}
-    yaada/zenko-cloudserver:
-      image: yaada/zenko-cloudserver
+    {{ cookiecutter.python_module }}/zenko:
+      image: {{ cookiecutter.python_module }}/zenko
       dockerfile: docker/zenko-cloudserver/Dockerfile
       context: docker/zenko-cloudserver
       build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
