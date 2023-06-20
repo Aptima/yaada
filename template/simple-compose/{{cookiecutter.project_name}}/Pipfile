@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+yaada-core = {editable = true, subdirectory = "src/core", git = "git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}"}
+yaada-nlp = {editable = true, subdirectory = "src/nlp", git = "git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}"}
+yaada-webscraping = {editable = true, subdirectory = "src/webscraping", git = "git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}"}
+yaada-openapi = {editable = true, subdirectory = "src/openapi", git = "git+https://github.com/Aptima/yaada.git@v{{cookiecutter.yaada_version}}"}
+{{cookiecutter.python_package}} = {editable = true, path = "src/{{cookiecutter.python_package}}"}
+
+[dev-packages]
+flake8 = "*"
+pytest = "*"
+pip-licenses = "*"
+black = "*"
+isort = "*"
+certifi = "*"
+twine = "*"
+build = "*"
+mkdocs-material = "*"
+mkdocs-swagger-ui-tag = "*"
+mkdocstrings = {version = "*", extras = ["python"]}
+
+[requires]
+python_version = "3.8"
