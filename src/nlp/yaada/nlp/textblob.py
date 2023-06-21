@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -18,6 +18,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from textblob import TextBlob
+
 from yaada.core.analytic import YAADAAnalytic, YAADAPipelineProcessor
 from yaada.nlp.utils import ensure_textblob_corpora
 

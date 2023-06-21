@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -24,6 +24,7 @@ import re
 from typing import Any, Dict, List
 
 from ruamel.yaml import YAML
+
 from yaada.core.analytic.context import AnalyticContext
 from yaada.core.schema import SchemaManager
 

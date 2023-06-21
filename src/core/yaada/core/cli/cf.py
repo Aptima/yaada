@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -33,11 +33,11 @@ import boto3
 import botocore.exceptions
 import click
 from tqdm import tqdm
+
+import docker
 from yaada.core import utility
 from yaada.core.cli import common
 from yaada.core.cli.project import Project
-
-import docker
 
 logging.Logger.manager.loggerDict["boto3"].setLevel(logging.CRITICAL)
 logging.Logger.manager.loggerDict["botocore"].setLevel(logging.CRITICAL)

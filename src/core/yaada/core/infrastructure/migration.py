@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -30,6 +30,7 @@ from pathlib import Path
 import boto3
 import botocore
 from tqdm import tqdm
+
 from yaada.core import default_log_level, utility
 from yaada.core.analytic.plugin import AnalyticContextPlugin
 

@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -21,6 +21,7 @@ import subprocess
 import sys
 
 import click
+
 from yaada.core.cli.docker import DockerHelper
 from yaada.core.cli.project import Project
 from yaada.core.config import YAADAConfig

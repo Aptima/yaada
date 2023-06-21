@@ -1,4 +1,4 @@
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -31,6 +31,7 @@ from openapi_schema_validator import (  # we use OpenAPI 3.0 validation because 
     validate,
 )
 from ruamel.yaml import YAML
+
 from yaada.core import default_log_level, utility
 from yaada.core.config import YAADAConfig
 

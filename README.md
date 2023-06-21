@@ -162,6 +162,11 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 ### 6.1.0 --> 6.2.0
 Adding cookiecutter templates to main yaada repo and moving away from using yaada-core Docker image. Going forward, projects will have fully self-contained Docker images and install yaada from the public Github repo.
 
+Add plugins for:
+
+- Neo4j graph database
+- Weaviate vector database
+
 ### 6.0.3 --> 6.1.0
 Due to current versions of Elasticsearch and MinIO incompatibility with M1 Macs, and due to both products having recent license changes,
 YAADA has replaced Elasticsearch with OpenSearch, and replaced MinIO with Zenko CloudServer. Additionally, all use of the minio python 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Copyright (c) 2022 Aptima, Inc.
+# Copyright (c) 2023 Aptima, Inc.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the "Software"), to deal in
@@ -23,12 +23,11 @@ import os
 import sys
 import traceback
 
+import docker
 from yaada.core import utility
 from yaada.core.analytic.execution import get_worker_labels, match_request_worker_label
 from yaada.core.config import YAADAConfig
 from yaada.core.infrastructure.providers import make_message_service
-
-import docker
 
 ANALYTIC_NAME = "docker_worker"
 ANALYTIC_SESSION_ID = "0"
