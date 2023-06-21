@@ -31,6 +31,7 @@ from openapi_schema_validator import (  # we use OpenAPI 3.0 validation because 
     validate,
 )
 from ruamel.yaml import YAML
+
 from yaada.core import default_log_level, utility
 from yaada.core.config import YAADAConfig
 

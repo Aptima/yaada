@@ -22,6 +22,7 @@ import sys
 
 import click
 from ruamel.yaml.main import round_trip_dump as yaml_dump
+
 from yaada.core.cli import common
 from yaada.core.cli.project import Project
 

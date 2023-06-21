@@ -29,6 +29,7 @@ from elasticsearch import Elasticsearch, helpers
 from elasticsearch.client import ClusterClient, IndicesClient
 from elasticsearch.exceptions import NotFoundError
 from elasticsearch.helpers.errors import BulkIndexError
+
 from yaada.core import default_log_level, utility
 
 logger = logging.getLogger(__name__)

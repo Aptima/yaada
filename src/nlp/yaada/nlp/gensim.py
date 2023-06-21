@@ -29,6 +29,7 @@ import spacy
 from gensim.models import CoherenceModel
 from gensim.utils import simple_preprocess
 from tqdm import tqdm
+
 from yaada.core import default_log_level, schema
 from yaada.core.analytic import YAADAAnalytic
 from yaada.core.analytic.model import ModelBase

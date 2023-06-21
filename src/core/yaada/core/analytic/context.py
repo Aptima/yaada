@@ -23,6 +23,7 @@ import uuid as _uuid
 from datetime import datetime
 
 import jsonschema
+
 from yaada.core import analytic, default_log_level, utility
 from yaada.core.analytic.execution import async_exec_analytic, sync_exec_analytic
 from yaada.core.analytic.pipeline import make_pipeline

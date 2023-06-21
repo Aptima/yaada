@@ -24,6 +24,7 @@ import re
 import chardet
 import tika
 from tika import parser
+
 from yaada.core import default_log_level, utility
 from yaada.core.analytic import YAADAPipelineProcessor
 

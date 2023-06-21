@@ -23,6 +23,7 @@ import os
 import os.path
 
 from pyhocon import ConfigFactory
+
 from yaada.core import default_log_level
 from yaada.core.utility import to_bool
 

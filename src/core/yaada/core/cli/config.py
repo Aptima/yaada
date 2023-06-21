@@ -18,6 +18,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import click
+
 from yaada.core.cli import common
 from yaada.core.cli.project import Project
 
