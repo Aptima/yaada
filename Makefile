@@ -17,7 +17,7 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-PACKAGE_DIRS = $(dir $(wildcard src/*/setup.py))
+PACKAGE_DIRS = $(dir $(wildcard src/*/setup.py)) $(dir $(wildcard src/plugins/*/setup.py))
 DIST_DIRS = $(patsubst %, %/dist, $(PACKAGE_DIRS))
 BUILD_DIRS = $(patsubst %, %/build, $(PACKAGE_DIRS))
 
