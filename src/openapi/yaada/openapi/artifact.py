@@ -46,7 +46,7 @@ def get_artifact(artifact_type, doc_type, id, filename):
                 blob["remote_file_path"]
             )
             return send_file(
-                tf, mimetype=blob["content_type"], attachment_filename=filename
+                tf, mimetype=blob["content_type"], download_name=filename
             )
 
     return None
