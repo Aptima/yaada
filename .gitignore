@@ -15,3 +15,4 @@ yaada.override.yml
 Pipfile.lock
 tmpdata
 **/.pytest_cache
+src/**/build
