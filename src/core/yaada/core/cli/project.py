@@ -148,9 +148,11 @@ class Project:
         self.set_elasticsearch_variables()
         self.set_objectstorage_variables()
         self.set_mqtt_variables()
+        self.resolve_path_variables()
+        self.substitute_environment_variables()
         self.replace_docker_build_variables()
         self.replace_script_run_variables()
-        self.resolve_path_variables()
+        
         # load customized variables into current process environment
         for k, v in self.config["variables"].items():
             os.environ[k] = v
@@ -176,17 +178,23 @@ class Project:
             yaml = YAML()
             yaml.dump(data, f)
 
-    def substitute_variables(self, obj: dict):
+    def substitute_variables(self, obj: dict,from_environment=False):
         obj_copy = obj.copy()
-        for name, value in obj_copy.items():
+        for name, value in obj.items():
             if isinstance(value, str):
                 m = re.match(r"""\w*\$\{([a-zA-Z_][a-zA-Z0-9_]*)\}\w*""", value)
                 if m:
                     variable_name = m.group(1)
-                    if variable_name in self.config.get("variables", {}):
-                        obj_copy[name] = self.config.get("variables", {}).get(
-                            variable_name
-                        )
+                    if not from_environment:
+                        if variable_name in self.config.get("variables", {}):
+                            obj_copy[name] = self.config.get("variables", {}).get(
+                                variable_name
+                            )
+                    else:
+                        if variable_name in os.environ:
+                            obj_copy[name] = os.environ[variable_name]
+                        else:
+                            del obj_copy[name]
         return obj_copy
 
     def replace_docker_build_variables(self):
@@ -200,6 +208,9 @@ class Project:
                 script_body["variables"] = self.substitute_variables(
                     script_body["variables"]
                 )
+
+    def substitute_environment_variables(self):
+        self.config['variables'] = self.substitute_variables(self.config.get('variables'),from_environment=True)
 
     def get_environments(self):
         return list(self.config.get("environments", {}).keys())
