@@ -8,6 +8,7 @@ yaada-core = {editable = true, path = "./src/core"}
 yaada-nlp = {editable = true, path = "./src/nlp"}
 yaada-openapi = {editable = true, path = "./src/openapi"}
 yaada-webscraping = {editable = true, path = "./src/webscraping"}
+pandas = {version = "==1.5.3"} # for pyLDAvis compatibility
 
 [dev-packages]
 flake8 = "*"
