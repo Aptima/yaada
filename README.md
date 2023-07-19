@@ -159,6 +159,11 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 
 ## Release Notes
 
+### 6.2.0 --> 6.2.1
+
+- Fix bug in artifact download API due to use of deprecated Flask API.
+- Add support for environment variable substitution to yaada.yml variables section
+
 ### 6.1.0 --> 6.2.0
 Adding cookiecutter templates to main yaada repo and moving away from using yaada-core Docker image. Going forward, projects will have fully self-contained Docker images and install yaada from the public Github repo.
 

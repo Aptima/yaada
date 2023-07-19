@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.16" name="generator"/>
+<meta content="mkdocs-1.4.3, mkdocs-material-9.1.17" name="generator"/>
 <title>YAADA Python API - Yet Another Analytic Dataflow Architecture</title>
 <link href="../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -299,9 +299,8 @@
 </h2>
 <div class="doc doc-contents">
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  58</span>
-<span class="normal">  59</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  59</span>
 <span class="normal">  60</span>
 <span class="normal">  61</span>
 <span class="normal">  62</span>
@@ -1578,7 +1577,8 @@
 <span class="normal">1333</span>
 <span class="normal">1334</span>
 <span class="normal">1335</span>
-<span class="normal">1336</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AnalyticContext</span><span class="p">:</span>
+<span class="normal">1336</span>
+<span class="normal">1337</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">AnalyticContext</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">analytic_name</span><span class="p">,</span>
@@ -2867,12 +2867,12 @@
 <div class="doc doc-contents">
 <p>Depricated, use :py:meth:<code>yaada.analytic.context.AnalyticContext.rawquery</code> instead.</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1074</span>
-<span class="normal">1075</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1075</span>
 <span class="normal">1076</span>
 <span class="normal">1077</span>
-<span class="normal">1078</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">aggregation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<span class="normal">1078</span>
+<span class="normal">1079</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">aggregation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Depricated, use :py:meth:`yaada.analytic.context.AnalyticContext.rawquery` instead.</span>
 <span class="sd">    """</span>
@@ -2984,9 +2984,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1193</span>
-<span class="normal">1194</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1194</span>
 <span class="normal">1195</span>
 <span class="normal">1196</span>
 <span class="normal">1197</span>
@@ -3069,7 +3068,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">1274</span>
 <span class="normal">1275</span>
 <span class="normal">1276</span>
-<span class="normal">1277</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">async_exec_analytic</span><span class="p">(</span>
+<span class="normal">1277</span>
+<span class="normal">1278</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">async_exec_analytic</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">analytic_name</span><span class="p">,</span>
     <span class="n">analytic_session_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -3212,9 +3212,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <pre><code>context.delete("Publication", "b0e062ac-0e84-40db-8ecd-36e1aa0e264b")
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">850</span>
-<span class="normal">851</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">851</span>
 <span class="normal">852</span>
 <span class="normal">853</span>
 <span class="normal">854</span>
@@ -3234,7 +3233,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">868</span>
 <span class="normal">869</span>
 <span class="normal">870</span>
-<span class="normal">871</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<span class="normal">871</span>
+<span class="normal">872</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Delete a single document in Elasticsearch.</span>
 
@@ -3320,9 +3320,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
       }
   })</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">819</span>
-<span class="normal">820</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">820</span>
 <span class="normal">821</span>
 <span class="normal">822</span>
 <span class="normal">823</span>
@@ -3350,7 +3349,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">845</span>
 <span class="normal">846</span>
 <span class="normal">847</span>
-<span class="normal">848</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_by_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}}):</span>
+<span class="normal">848</span>
+<span class="normal">849</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_by_query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}}):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Delete all documents that result from the a given query.</span>
 
@@ -3422,9 +3422,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <p>.. code-block:: python</p>
 <p>context.delete_index("Publication")</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">873</span>
-<span class="normal">874</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">874</span>
 <span class="normal">875</span>
 <span class="normal">876</span>
 <span class="normal">877</span>
@@ -3439,7 +3438,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">886</span>
 <span class="normal">887</span>
 <span class="normal">888</span>
-<span class="normal">889</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">initialize_index</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal">889</span>
+<span class="normal">890</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">initialize_index</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Deletes an index in Elasticsearch.</span>
 
@@ -3473,9 +3473,8 @@ the number of documents currently stored.</p>
 <pre><code>context.document_counts()
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">978</span>
-<span class="normal">979</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">979</span>
 <span class="normal">980</span>
 <span class="normal">981</span>
 <span class="normal">982</span>
@@ -3486,7 +3485,8 @@ the number of documents currently stored.</p>
 <span class="normal">987</span>
 <span class="normal">988</span>
 <span class="normal">989</span>
-<span class="normal">990</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="normal">990</span>
+<span class="normal">991</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns an object with a breakdown of each index and the count of documents</span>
 <span class="sd">    in each index. The keys are each ``doc_type``'s in Elasticsearch and the values are</span>
@@ -3510,12 +3510,12 @@ the number of documents currently stored.</p>
 <div class="doc doc-contents">
 <p>This is a depricated method, use :py:meth:<code>yaada.analytic.context.AnalyticContext.index_field_mappings</code> instead.</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1016</span>
-<span class="normal">1017</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1017</span>
 <span class="normal">1018</span>
 <span class="normal">1019</span>
-<span class="normal">1020</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">):</span>
+<span class="normal">1020</span>
+<span class="normal">1021</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    This is a depricated method, use :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` instead.</span>
 <span class="sd">    """</span>
@@ -3565,9 +3565,8 @@ exists.</p>
 <p>context.document_type_exists("Publication")</p>
 </details>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1099</span>
-<span class="normal">1100</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1100</span>
 <span class="normal">1101</span>
 <span class="normal">1102</span>
 <span class="normal">1103</span>
@@ -3583,7 +3582,8 @@ exists.</p>
 <span class="normal">1113</span>
 <span class="normal">1114</span>
 <span class="normal">1115</span>
-<span class="normal">1116</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_type_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
+<span class="normal">1116</span>
+<span class="normal">1117</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_type_exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns a bool value describing whether a ``doc_type``</span>
 <span class="sd">    exists.</span>
@@ -3658,9 +3658,8 @@ exists.</p>
 <p>.. code-block:: python</p>
 <p>context.exists("Publication", "f33bca95-3caa-46ac-8667-448ba4973190")</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">748</span>
-<span class="normal">749</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">749</span>
 <span class="normal">750</span>
 <span class="normal">751</span>
 <span class="normal">752</span>
@@ -3679,7 +3678,8 @@ exists.</p>
 <span class="normal">765</span>
 <span class="normal">766</span>
 <span class="normal">767</span>
-<span class="normal">768</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
+<span class="normal">768</span>
+<span class="normal">769</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">exists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns a bool value describing whether or not a document exists.</span>
 
@@ -3877,9 +3877,8 @@ check that this value matches up with the value in the <code>sentinel_key</code>
 <p>.. code-block:: python</p>
 <p>context.get("Publication", "2cf0d07c-cba9-47e3-9063-5d6265e26089")</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">646</span>
-<span class="normal">647</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">647</span>
 <span class="normal">648</span>
 <span class="normal">649</span>
 <span class="normal">650</span>
@@ -3978,7 +3977,8 @@ check that this value matches up with the value in the <code>sentinel_key</code>
 <span class="normal">743</span>
 <span class="normal">744</span>
 <span class="normal">745</span>
-<span class="normal">746</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span>
+<span class="normal">746</span>
+<span class="normal">747</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">doc_type</span><span class="p">,</span>
     <span class="nb">id</span><span class="p">,</span>
@@ -4135,9 +4135,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1022</span>
-<span class="normal">1023</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1023</span>
 <span class="normal">1024</span>
 <span class="normal">1025</span>
 <span class="normal">1026</span>
@@ -4154,7 +4153,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">1037</span>
 <span class="normal">1038</span>
 <span class="normal">1039</span>
-<span class="normal">1040</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_field_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">):</span>
+<span class="normal">1040</span>
+<span class="normal">1041</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_field_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">):</span>
     <span class="c1"># Link out specific Elasticsearch call</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns the Elasticsearch mapping for the given ``doc_type``. The Elasticsearch documentation</span>
@@ -4212,9 +4212,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1042</span>
-<span class="normal">1043</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1043</span>
 <span class="normal">1044</span>
 <span class="normal">1045</span>
 <span class="normal">1046</span>
@@ -4224,7 +4223,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">1050</span>
 <span class="normal">1051</span>
 <span class="normal">1052</span>
-<span class="normal">1053</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
+<span class="normal">1053</span>
+<span class="normal">1054</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns raw index mapping for an Elasticsearch index. Includes Elasticsearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.</span>
 
@@ -4275,9 +4275,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1055</span>
-<span class="normal">1056</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1056</span>
 <span class="normal">1057</span>
 <span class="normal">1058</span>
 <span class="normal">1059</span>
@@ -4288,7 +4287,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">1064</span>
 <span class="normal">1065</span>
 <span class="normal">1066</span>
-<span class="normal">1067</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
+<span class="normal">1067</span>
+<span class="normal">1068</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns an object with an index's Elasticsearch settings. `Documentation on Elasticsearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;`_</span>
 
@@ -4416,9 +4416,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">928</span>
-<span class="normal">929</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">929</span>
 <span class="normal">930</span>
 <span class="normal">931</span>
 <span class="normal">932</span>
@@ -4462,7 +4461,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">970</span>
 <span class="normal">971</span>
 <span class="normal">972</span>
-<span class="normal">973</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ingest_barrier</span><span class="p">(</span>
+<span class="normal">973</span>
+<span class="normal">974</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">ingest_barrier</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">doc_type</span><span class="p">,</span>
     <span class="nb">id</span><span class="p">,</span>
@@ -4581,9 +4581,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <p>.. code-block:: python</p>
 <p>context.mget("Publication", ["2cf0d07c-cba9-47e3-9063-5d6265e26089", "b0e062ac-0e84-40db-8ecd-36e1aa0e264b"])</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">770</span>
-<span class="normal">771</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">771</span>
 <span class="normal">772</span>
 <span class="normal">773</span>
 <span class="normal">774</span>
@@ -4629,7 +4628,8 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">814</span>
 <span class="normal">815</span>
 <span class="normal">816</span>
-<span class="normal">817</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">mget</span><span class="p">(</span>
+<span class="normal">817</span>
+<span class="normal">818</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">mget</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_include</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
@@ -4813,9 +4813,8 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">552</span>
-<span class="normal">553</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">553</span>
 <span class="normal">554</span>
 <span class="normal">555</span>
 <span class="normal">556</span>
@@ -4878,7 +4877,8 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
 <span class="normal">613</span>
 <span class="normal">614</span>
 <span class="normal">615</span>
-<span class="normal">616</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">query</span><span class="p">(</span>
+<span class="normal">616</span>
+<span class="normal">617</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">query</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">doc_type</span><span class="p">,</span>
     <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}},</span>
@@ -4998,9 +4998,8 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1080</span>
-<span class="normal">1081</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1081</span>
 <span class="normal">1082</span>
 <span class="normal">1083</span>
 <span class="normal">1084</span>
@@ -5016,7 +5015,8 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
 <span class="normal">1094</span>
 <span class="normal">1095</span>
 <span class="normal">1096</span>
-<span class="normal">1097</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rawquery</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<span class="normal">1097</span>
+<span class="normal">1098</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rawquery</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns results to a query.</span>
 
@@ -5056,9 +5056,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 </li>
 </ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">493</span>
-<span class="normal">494</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">494</span>
 <span class="normal">495</span>
 <span class="normal">496</span>
 <span class="normal">497</span>
@@ -5087,7 +5086,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <span class="normal">520</span>
 <span class="normal">521</span>
 <span class="normal">522</span>
-<span class="normal">523</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">report_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">write_es</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal">523</span>
+<span class="normal">524</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">report_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">write_es</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Called automatically when analytics are started and finishing. Available to be called by Anaytic developers</span>
 <span class="sd">    to show intermediate status of a an analytic. To do this, call it in the ``run`` function of an Analytic.</span>
@@ -5129,9 +5129,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <div class="doc doc-contents">
 <p>check if a document is searchable with a given sentinel value.</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">904</span>
-<span class="normal">905</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">905</span>
 <span class="normal">906</span>
 <span class="normal">907</span>
 <span class="normal">908</span>
@@ -5152,7 +5151,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <span class="normal">923</span>
 <span class="normal">924</span>
 <span class="normal">925</span>
-<span class="normal">926</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sentinel_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">sentinel_key</span><span class="p">,</span> <span class="n">sentinel_value</span><span class="p">):</span>
+<span class="normal">926</span>
+<span class="normal">927</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sentinel_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">sentinel_key</span><span class="p">,</span> <span class="n">sentinel_value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""check if a document is searchable with a given sentinel value."""</span>
     <span class="n">docs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
@@ -5194,9 +5194,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <pre><code>context.set_analytic_name("jupyter")
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">149</span>
-<span class="normal">150</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">150</span>
 <span class="normal">151</span>
 <span class="normal">152</span>
 <span class="normal">153</span>
@@ -5211,7 +5210,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <span class="normal">162</span>
 <span class="normal">163</span>
 <span class="normal">164</span>
-<span class="normal">165</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_analytic_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">analytic_name</span><span class="p">):</span>
+<span class="normal">165</span>
+<span class="normal">166</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_analytic_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">analytic_name</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Assigns an ``analytic_name`` value of a context object.</span>
 
@@ -5271,9 +5271,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <pre><code>context.set_analytic_session_id("Query Data")
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">168</span>
-<span class="normal">169</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">169</span>
 <span class="normal">170</span>
 <span class="normal">171</span>
 <span class="normal">172</span>
@@ -5288,7 +5287,8 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <span class="normal">181</span>
 <span class="normal">182</span>
 <span class="normal">183</span>
-<span class="normal">184</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_analytic_session_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">analytic_session_id</span><span class="p">):</span>
+<span class="normal">184</span>
+<span class="normal">185</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">set_analytic_session_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">analytic_session_id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Assigns an ``analytic_session_id`` value of a context object.</span>
 
@@ -5417,9 +5417,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
       analytic_name="yaada.analytic.builtin.newspaper.NewspaperScrapeSources",
       parameters={"content":True,"scrape_top_image":False,"memoize":True})</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1125</span>
-<span class="normal">1126</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1126</span>
 <span class="normal">1127</span>
 <span class="normal">1128</span>
 <span class="normal">1129</span>
@@ -5484,7 +5483,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">1188</span>
 <span class="normal">1189</span>
 <span class="normal">1190</span>
-<span class="normal">1191</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sync_exec_analytic</span><span class="p">(</span>
+<span class="normal">1191</span>
+<span class="normal">1192</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sync_exec_analytic</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">analytic_name</span><span class="p">,</span>
     <span class="n">analytic_session_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -5621,9 +5621,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 992</span>
-<span class="normal"> 993</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 993</span>
 <span class="normal"> 994</span>
 <span class="normal"> 995</span>
 <span class="normal"> 996</span>
@@ -5644,7 +5643,8 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">1011</span>
 <span class="normal">1012</span>
 <span class="normal">1013</span>
-<span class="normal">1014</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">term_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}}):</span>
+<span class="normal">1014</span>
+<span class="normal">1015</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">term_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}}):</span>
 <span class="w">    </span><span class="sd">"""</span>
 
 <span class="sd">    Returns an object describing the frequency of terms for a given field of an index by running an Elasticsearch terms aggregation.</span>
@@ -5737,9 +5737,8 @@ to <code>True</code>.</p>
   }
   context.update(doc)</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">384</span>
-<span class="normal">385</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">385</span>
 <span class="normal">386</span>
 <span class="normal">387</span>
 <span class="normal">388</span>
@@ -5835,7 +5834,8 @@ to <code>True</code>.</p>
 <span class="normal">478</span>
 <span class="normal">479</span>
 <span class="normal">480</span>
-<span class="normal">481</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
+<span class="normal">481</span>
+<span class="normal">482</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">update</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">doc</span><span class="p">,</span>
     <span class="n">process</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -5993,9 +5993,8 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <p>from yaada.analytic.context import make_analytic_context
   context = make_analytic_context()</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada-github/src/core/yaada/core/analytic/context.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1339</span>
-<span class="normal">1340</span>
+<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1340</span>
 <span class="normal">1341</span>
 <span class="normal">1342</span>
 <span class="normal">1343</span>
@@ -6105,7 +6104,8 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <span class="normal">1447</span>
 <span class="normal">1448</span>
 <span class="normal">1449</span>
-<span class="normal">1450</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">make_analytic_context</span><span class="p">(</span>
+<span class="normal">1450</span>
+<span class="normal">1451</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">make_analytic_context</span><span class="p">(</span>
     <span class="n">analytic_name</span><span class="o">=</span><span class="s2">"anonymous"</span><span class="p">,</span>
     <span class="n">analytic_session_id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">parameters</span><span class="o">=</span><span class="p">{},</span>
@@ -6250,7 +6250,7 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.a51614de.min.js"></script>
+<script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);

@@ -1,7 +1,7 @@
 project_name: "yaada"
 description: "An example project file included in core repo" 
-project_version: "6.2.0"
-yaada_core_version: "6.2.0"
+project_version: "6.2.1"
+yaada_core_version: "6.2.1"
 config: default.conf
 env: # the default environments for this project
   - local
