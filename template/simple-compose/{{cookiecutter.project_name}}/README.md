@@ -55,3 +55,14 @@ Updating package lock:
 ```
 pipenv lock
 ```
+
+### Troubleshooting zscaler issues
+
+Add zscaler root cert
+See: https://community.zscaler.com/t/installing-tls-ssl-root-certificates-to-non-standard-environments/7261
+
+#### Mac/Linux
+
+```
+cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
+```
