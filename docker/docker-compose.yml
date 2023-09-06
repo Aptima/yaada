@@ -6,6 +6,7 @@ volumes:
 networks:
   default:
     name: ${YAADA_NETWORK_NAME:-yaada-shared-infrastructure}
+    external: true
 services:
   openapi:
     platform: linux/${DOCKER_PLATFORM}

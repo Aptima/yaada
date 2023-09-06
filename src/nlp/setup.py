@@ -21,7 +21,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-nlp",
-    version="6.2.1",
+    version="6.2.2",
     packages=find_namespace_packages(),
     description="",
     long_description="",

@@ -7,8 +7,8 @@ volumes:
 
 networks:
   default:
-    external:
-      name: ${YAADA_NETWORK_NAME:-yaada-shared-infrastructure}
+    name: ${YAADA_NETWORK_NAME:-yaada-shared-infrastructure}
+    external: true
 
 services:
   opensearch:

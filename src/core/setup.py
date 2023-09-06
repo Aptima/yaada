@@ -22,7 +22,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-core",
-    version="6.2.1",
+    version="6.2.2",
     packages=find_namespace_packages(),
     description="",
     long_description="",
@@ -51,7 +51,7 @@ setup(
         "requests-file",
         "urllib3>=1.26,<2.1",  # elasticsearch usage of urllib3 will be deprecated as of urllib3 2.1.0. Will need to figure out elasticsearch upgrade path before relaxing this.
         "tqdm",
-        "regex==2021.11.10",
+        "regex",
         "paho-mqtt",
         "methodtools",
         "jmespath",

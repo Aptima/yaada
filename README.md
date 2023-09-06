@@ -159,6 +159,11 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 
 ## Release Notes
 
+### 6.2.1 --> 6.2.2
+
+- relax pinned regex dependency.
+- fix docker-compose network configuration.
+
 ### 6.2.0 --> 6.2.1
 
 - Fix bug in artifact download API due to use of deprecated Flask API.
