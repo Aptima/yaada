@@ -7,7 +7,7 @@
   "tenant": "{{ cookiecutter.project_slug.lower().replace('yaada_','').replace('_', '') }}",
   "docker_project": "{{ cookiecutter.prefix }}_{{ cookiecutter.tenant }}",
   "docker_image": "{{ cookiecutter.python_module }}/yaada",
-  "yaada_version": "6.2.2",
+  "yaada_version": "6.2.3",
   "project_version": "0.1",
   "include_yaada_nlp": ["y","n"],
   "include_yaada_webscraping": ["y","n"],

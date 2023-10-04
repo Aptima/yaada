@@ -22,9 +22,10 @@ import os
 
 def ensure_spacy_model(model_name):
     import spacy
+    from spacy import cli as spacycli
 
     if not spacy.util.is_package(model_name):
-        spacy.cli.download(model_name)
+        spacycli.download(model_name)
 
 
 nltk_search_path = dict(

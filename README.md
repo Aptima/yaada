@@ -158,18 +158,23 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 ```
 
 ## Release Notes
+### 6.2.3
 
-### 6.2.1 --> 6.2.2
+- update pinned dependencies for Docker images
+- fix model downloads for spacy 3.7.0
+- add yaada.yml script for model downloads
+
+### 6.2.2
 
 - relax pinned regex dependency.
 - fix docker-compose network configuration.
 
-### 6.2.0 --> 6.2.1
+### 6.2.1
 
 - Fix bug in artifact download API due to use of deprecated Flask API.
 - Add support for environment variable substitution to yaada.yml variables section
 
-### 6.1.0 --> 6.2.0
+### 6.2.0
 Adding cookiecutter templates to main yaada repo and moving away from using yaada-core Docker image. Going forward, projects will have fully self-contained Docker images and install yaada from the public Github repo.
 
 Add plugins for:
@@ -177,7 +182,7 @@ Add plugins for:
 - Neo4j graph database
 - Weaviate vector database
 
-### 6.0.3 --> 6.1.0
+### 6.1.0
 Due to current versions of Elasticsearch and MinIO incompatibility with M1 Macs, and due to both products having recent license changes,
 YAADA has replaced Elasticsearch with OpenSearch, and replaced MinIO with Zenko CloudServer. Additionally, all use of the minio python 
 client has been replaced with use of the boto3 AWS client.

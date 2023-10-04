@@ -37,12 +37,18 @@ install:
 	pipenv install --dev
 update:
 	pipenv update
-lock-arm64:
+lock-requirements:
 	pipenv lock
+update-requirements-arm64:
 	pipenv requirements --exclude-markers | grep "^[^-]" > docker/yaada/requirements-arm64.txt
-lock-amd64:
-	pipenv lock
+	pipenv requirements --exclude-markers | grep "^[^-]" > template/simple-compose/{{cookiecutter.project_name}}/docker/yaada/requirements-arm64.txt
+lock-arm64: lock-requirements update-requirements-arm64
+
+lock-amd64:lock-requirements update-requirements-amd64
+
+update-requirements-amd64:
 	pipenv requirements --exclude-markers | grep "^[^-]" > docker/yaada/requirements-amd64.txt
+	pipenv requirements --exclude-markers | grep "^[^-]" > template/simple-compose/{{cookiecutter.project_name}}/docker/yaada/requirements-amd64.txt
 lock: lock-amd64
 %/dist:
 	cd $(dir $@) && python -m build

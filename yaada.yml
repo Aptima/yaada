@@ -1,7 +1,7 @@
 project_name: "yaada"
 description: "An example project file included in core repo" 
-project_version: "6.2.2"
-yaada_core_version: "6.2.2"
+project_version: "6.2.3"
+yaada_core_version: "6.2.3"
 config: default.conf
 env: # the default environments for this project
   - local
@@ -109,6 +109,8 @@ script:
   docs-serve:
     command: mkdocs serve
     cwd: site
+  download-nlp-resources:
+    command: yaada-download-default-nlp-resources.py
 environments:
   local: {}
   pytorch:
