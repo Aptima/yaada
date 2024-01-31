@@ -21,7 +21,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-openapi",
-    version="6.2.3",
+    version="6.3.0",
     packages=find_namespace_packages(),
     description="",
     long_description="",
@@ -33,6 +33,6 @@ setup(
         "yaada/openapi/entrypoints/yaada-openapi.py",
     ],
     licence="MIT License",
-    install_requires=["connexion[swagger-ui]", "flask", "flask-cors"],
+    install_requires=["connexion[swagger-ui]<3", "flask", "flask-cors"],
     include_package_data=True,
 )
