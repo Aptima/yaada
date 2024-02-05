@@ -22,7 +22,7 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-core",
-    version="6.3.0",
+    version="7.0.0",
     packages=find_namespace_packages(),
     description="",
     long_description="",
