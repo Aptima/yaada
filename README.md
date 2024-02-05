@@ -158,6 +158,12 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 ```
 
 ## Release Notes
+
+### 7.0.0
+
+- Drop support for Elasticsearch and OpenSearch 1.X. Upgraded OpenSearch to latest 2.X version.
+- Minimum Python version changed from 3.8 to 3.10
+
 ### 6.2.3
 
 - update pinned dependencies for Docker images
