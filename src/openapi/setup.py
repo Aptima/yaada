@@ -27,7 +27,7 @@ setup(
     long_description="",
     author="Gabriel Ganberg",
     author_email="ganberg@aptima.com",
-    python_requires=">=3.8.0",
+    python_requires=">=3.10",
     zip_safe=False,
     scripts=[
         "yaada/openapi/entrypoints/yaada-openapi.py",
