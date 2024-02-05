@@ -17,8 +17,8 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from yaada.core.infrastructure.providers.elasticsearch import (  # noqa: F401
-    ElasticsearchProvider,
+from yaada.core.infrastructure.providers.opensearch import (  # noqa: F401
+    OpenSearchProvider,
 )
 from yaada.core.infrastructure.providers.factory import (  # noqa: F401
     make_document_service,

@@ -216,7 +216,7 @@ def scrape_article_content(
 
 class NewspaperScrapeSingleArticle(YAADAAnalytic):
     """
-    This analytic scrapes a single source for articles and stores them in elasticsearch with the doc_type ``NewsArticle``.
+    This analytic scrapes a single source for articles and stores them in opensearch with the doc_type ``NewsArticle``.
 
     .. code-block:: python
 
@@ -513,11 +513,11 @@ class NewspaperScrapeContent(YAADAAnalytic):
         "type": "object",
         "properties": {
             "analyze_query": {
-                "description": "the elasticsearch query for fetching documents to analyze",
+                "description": "the opensearch query for fetching documents to analyze",
                 "type": "object",
             },
             "analyze_doc_type": {
-                "description": "the elasticsearch query for fetching documents to analyze",
+                "description": "the opensearch query for fetching documents to analyze",
                 "type": "object",
             },
             "analyze_feature": {

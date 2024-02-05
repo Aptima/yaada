@@ -173,7 +173,7 @@ paths:
         required: true
         schema:
           type: string
-      - description: The elasticsearch id for document
+      - description: The opensearch id for document
         name: id
         in: path
         required: true
@@ -283,7 +283,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: elasticsearch source_include
+        - description: opensearch source_include
           name: source_include
           in: query
           required: false
@@ -291,7 +291,7 @@ paths:
             type: array
             items:
               type: string
-        - description: elasticsearch source_exclude
+        - description: opensearch source_exclude
           name: source_exclude
           in: query
           required: false
@@ -344,7 +344,7 @@ paths:
             type: array
             items:
               type: string
-        - description: elasticsearch source_include
+        - description: opensearch source_include
           name: source_include
           in: query
           required: false
@@ -352,7 +352,7 @@ paths:
             type: array
             items:
               type: string
-        - description: elasticsearch source_exclude
+        - description: opensearch source_exclude
           name: source_exclude
           in: query
           required: false
@@ -369,7 +369,7 @@ paths:
       responses:
         "200":
           $ref: "#/components/responses/search_response"
-      summary: Run elasticsearch search and return paged results
+      summary: Run opensearch search and return paged results
       operationId: yaada.openapi.document.search_post
       requestBody:
         content:
@@ -392,7 +392,7 @@ paths:
           required: true
           schema:
             type: string
-        - description: elasticsearch source_include
+        - description: opensearch source_include
           name: source_include
           in: query
           required: false
@@ -400,7 +400,7 @@ paths:
             type: array
             items:
               type: string
-        - description: elasticsearch source_exclude
+        - description: opensearch source_exclude
           name: source_exclude
           in: query
           required: false
@@ -420,19 +420,19 @@ paths:
           required: false
           schema:
             type: integer
-        - description: return raw elasticsearch results
+        - description: return raw opensearch results
           name: raw
           in: query
           required: false
           schema:
             type: boolean
-        - description: elasticsearch query
+        - description: opensearch query
           name: query
           in: query
           required: false
           schema:
             type: object
-      summary: Run elasticsearch search and return paged results
+      summary: Run opensearch search and return paged results
       operationId: yaada.openapi.document.search
       tags:
         - data
@@ -456,7 +456,7 @@ paths:
       responses:
         "200":
           description: Success
-      summary: Run elasticsearch raw query. Used for aggregations.
+      summary: Run opensearch raw query. Used for aggregations.
       operationId: yaada.openapi.document.rawquery
       requestBody:
         content:
@@ -583,7 +583,7 @@ components:
           description: The unique identifier of the document
         _id:
           type: string
-          description: Optional elasticsearch id
+          description: Optional opensearch id
       type: object
     SearchDocuments:
       required:
@@ -594,21 +594,21 @@ components:
           description: The type of document
         query_body:
           type: object
-          description: Elasticsearch query
+          description: OpenSearch query
           default:
             query:
               match_all: {}
         page_from:
           type: integer
-          description: Elasticsearch document offset to start page from
+          description: OpenSearch document offset to start page from
           default: 0
         page_size:
           type: integer
-          description: Elasticsearch document offset to start page from
+          description: OpenSearch document offset to start page from
           default: 10
         raw:
           type: boolean
-          description: Return the raw elasticsearch hit, rather than the _source field
+          description: Return the raw opensearch hit, rather than the _source field
           default: false
         _source:
           type: boolean
@@ -633,7 +633,7 @@ components:
           description: The type of document
         query_body:
           type: object
-          description: Elasticsearch query
+          description: OpenSearch query
           default:
             query:
               match_all: {}
@@ -647,7 +647,7 @@ components:
           description: The type of document
         id:
           type: string
-          description: the elasticsearch id
+          description: the opensearch id
         _source:
           type: boolean
           description: Include the document as part of response
@@ -671,7 +671,7 @@ components:
           description: The type of document
         ids:
           type: array
-          description: elasticsearch id
+          description: opensearch id
           items:
             type: string
         _source:
@@ -701,7 +701,7 @@ components:
           description: The term to count.
         query_body:
           type: object
-          description: Elasticsearch query
+          description: OpenSearch query
           default:
             query:
               match_all: {}

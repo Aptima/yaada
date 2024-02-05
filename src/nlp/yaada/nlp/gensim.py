@@ -283,7 +283,7 @@ class GensimTrainLDAModel(YAADAAnalytic):
                 "type": "string",
             },
             "analyze_query": {
-                "description": "the elasticsearch query for fetching documents to analyze",
+                "description": "the opensearch query for fetching documents to analyze",
                 "type": "object",
             },
             "analyze_query_size": {

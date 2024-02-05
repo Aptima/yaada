@@ -49,7 +49,7 @@ setup(
         "python-dateutil",
         "requests",
         "requests-file",
-        "urllib3>=1.26,<2.1",  # elasticsearch usage of urllib3 will be deprecated as of urllib3 2.1.0. Will need to figure out elasticsearch upgrade path before relaxing this.
+        #"urllib3>=1.26,<2.1",  # elasticsearch usage of urllib3 will be deprecated as of urllib3 2.1.0. Will need to figure out elasticsearch upgrade path before relaxing this.
         "tqdm",
         "regex",
         "paho-mqtt",
@@ -59,7 +59,7 @@ setup(
         "GitPython",
         "boto3",
         "docker",
-        "elasticsearch==7.10.1",
+        "opensearch-py",
         "schedule",
         "numpy",
         "networkx",

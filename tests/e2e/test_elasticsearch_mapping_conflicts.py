@@ -1,5 +1,5 @@
 import pytest
-from elasticsearch.helpers.errors import BulkIndexError
+from opensearchpy.helpers.errors import BulkIndexError
 
 from yaada.core.analytic.context import make_analytic_context
 

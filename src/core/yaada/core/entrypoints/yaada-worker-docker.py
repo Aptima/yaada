@@ -43,7 +43,7 @@ env_variables_to_copy = [
     "OBJECT_STORAGE_URL",
     "MQTT_HOSTNAME",
     "MQTT_PORT",
-    "ELASTICSEARCH_URL",
+    "OPENSEARCH_URL",
     "YAADA_LOGLEVEL",
     "ARANGO_SERVER_HOSTS",
     "YAADA_CONFIG",

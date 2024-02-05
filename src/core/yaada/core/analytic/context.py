@@ -395,15 +395,15 @@ class AnalyticContext:
     ):
         """
 
-        Stores the document given by the ``doc`` parameter in Elasticsearch.
+        Stores the document given by the ``doc`` parameter in OpenSearch.
 
           Parameters:
 
           * **doc: dict, list[dict]**
 
-            The ``doc`` parameter, represents an Elasticsearch document to be ingested. The schema and details of a document can be found in :ref:`Documents`.
+            The ``doc`` parameter, represents an OpenSearch document to be ingested. The schema and details of a document can be found in :ref:`Documents`.
 
-            This parameter can be given as a dictionary representation of an Elasticsearch document, or a list of ``doc``'s which will result in a batch-ingest.
+            This parameter can be given as a dictionary representation of an OpenSearch document, or a list of ``doc``'s which will result in a batch-ingest.
 
           * **process: bool, default = True**
 
@@ -433,7 +433,7 @@ class AnalyticContext:
 
             optional
 
-            Setting ``barrier`` to ``True`` ensures that the document is indexed Elasticsearch
+            Setting ``barrier`` to ``True`` ensures that the document is indexed OpenSearch
             and searchable before the the update function finishes running.
 
             Enabling ``barrier`` will dractically reduce throughput performace especially if ``update``
@@ -445,7 +445,7 @@ class AnalyticContext:
             optional
 
             This value is the maximum amount of time in seconds that the function will wait
-            for the document to appear in Elasticsearch before finishing. If this maximum value
+            for the document to appear in OpenSearch before finishing. If this maximum value
             is reached and the document is not in elastic search, it will return an
             ``IngestBarrierTimeout`` error. This only applies if the ``barrier`` parameter is set
             to ``True``.
@@ -561,21 +561,21 @@ class AnalyticContext:
         source=None,
     ):
         """
-        Returns results of a query to Elasticsearch as a generator object. It uses an abstraction of the `scroll API <https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html>`_.
+        Returns results of a query to OpenSearch as a generator object. It uses an abstraction of the `scroll API <https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html>`_.
 
         Parameters:
 
           * **doc_type: str**
 
-            This represents an Elasticsearch index. The query will search the index.
+            This represents an OpenSearch index. The query will search the index.
 
-            Every document in Elasticsearch has a required ``doc_type`` field as described in the :ref:`Documents` section.
+            Every document in OpenSearch has a required ``doc_type`` field as described in the :ref:`Documents` section.
 
           * **query: dict, default={"query": {"match_all": {}}}**
 
             optional
 
-            An Elasticsearch query. More info can be found in `Elasticsearch documentation.
+            An OpenSearch query. More info can be found in `OpenSearch documentation.
             <https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html>`_
           * **size:int, default=None**
 
@@ -657,7 +657,7 @@ class AnalyticContext:
         sentinel_value=None,
     ):
         """
-        Returns a document from Elasticsearch.
+        Returns a document from OpenSearch.
 
         Parameters:
 
@@ -692,13 +692,13 @@ class AnalyticContext:
             optional
 
 
-            If True, this function will wait to return until the document is searchable in Elasticsearch.
+            If True, this function will wait to return until the document is searchable in OpenSearch.
 
           * **timeout:int, default=60**
 
             optional
 
-            This specifies the maximum time to wait for the document to be searchable in Elasticsearch if the ``wait`` parameter is set to ``True``.
+            This specifies the maximum time to wait for the document to be searchable in OpenSearch if the ``wait`` parameter is set to ``True``.
 
           * **sentinel_key:str, default='_ingest_sentinel'**
 
@@ -706,12 +706,12 @@ class AnalyticContext:
 
             Advance Usage
 
-            Elasticsearch field that contains the ``sentinel_value``. By default, there will be an ``_ingest_sentinal`` Elasticsearch field.
+            OpenSearch field that contains the ``sentinel_value``. By default, there will be an ``_ingest_sentinal`` OpenSearch field.
 
 
             This parameter relates to the ``barrier`` concept used as a parameter in the :py:meth:`yaada.analytic.context.AnalyticContext.update` method.
-            If this ``get`` method is being used to retrieve a document in Elasticsearch soon after it has been ingested, this can be used to wait until
-            that value is searchable in Elasticsearch before it is retrieved. This parameter will only be applied if the ``wait`` parameter
+            If this ``get`` method is being used to retrieve a document in OpenSearch soon after it has been ingested, this can be used to wait until
+            that value is searchable in OpenSearch before it is retrieved. This parameter will only be applied if the ``wait`` parameter
             is set to ``True``.
 
           * **sentinel_value:str, default=None**
@@ -720,7 +720,7 @@ class AnalyticContext:
 
             Advance Usage
 
-            This parameter is used to ensure that an updated document has fully updated in Elasticsearch before it is retrieved by the ``get`` method. Because a
+            This parameter is used to ensure that an updated document has fully updated in OpenSearch before it is retrieved by the ``get`` method. Because a
             document that is being updated may already exist, YAADA needs a way to know that it has been updated before retrieving the document.
             This is done by introducing a new value to the document, called a sentinal value. If a value is specified for this parameter, YAADA will
             check that this value matches up with the value in the ``sentinel_key`` field for the document before retrieving it, to know that it has been updated.
@@ -772,7 +772,7 @@ class AnalyticContext:
         self, doc_type, ids, source=None, source_exclude=None, source_include=None
     ):
         """
-        Returns multiple documents from Elasticsearch.
+        Returns multiple documents from OpenSearch.
 
         Parameters:
 
@@ -782,7 +782,7 @@ class AnalyticContext:
 
           * **ids: list**
 
-            List of unique identifiers of documents in Elasticsearch
+            List of unique identifiers of documents in OpenSearch
 
           * **source: list, defult=None**
 
@@ -829,7 +829,7 @@ class AnalyticContext:
 
           * **query: dict**
 
-            And Elasticsearch query. Elasticsearch's documentation on querying can be found `here
+            And OpenSearch query. OpenSearch's documentation on querying can be found `here
             <https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html>`_.
 
         Example:
@@ -850,7 +850,7 @@ class AnalyticContext:
 
     def delete(self, doc_type, id):
         """
-        Delete a single document in Elasticsearch.
+        Delete a single document in OpenSearch.
 
         Parameters:
 
@@ -860,7 +860,7 @@ class AnalyticContext:
 
           * **id: str**
 
-            Identifier of document in Elasticsearch.
+            Identifier of document in OpenSearch.
 
         Example:
 
@@ -873,7 +873,7 @@ class AnalyticContext:
 
     def delete_index(self, doc_type, initialize_index=True):
         """
-        Deletes an index in Elasticsearch.
+        Deletes an index in OpenSearch.
 
         Parameters:
 
@@ -979,7 +979,7 @@ class AnalyticContext:
     def document_counts(self):
         """
         Returns an object with a breakdown of each index and the count of documents
-        in each index. The keys are each ``doc_type``'s in Elasticsearch and the values are
+        in each index. The keys are each ``doc_type``'s in OpenSearch and the values are
         the number of documents currently stored.
 
         Example:
@@ -993,13 +993,13 @@ class AnalyticContext:
     def term_counts(self, doc_type, term, query={"query": {"match_all": {}}}):
         """
 
-        Returns an object describing the frequency of terms for a given field of an index by running an Elasticsearch terms aggregation.
+        Returns an object describing the frequency of terms for a given field of an index by running an OpenSearch terms aggregation.
 
         Parameters:
 
           * **doc_type: str**
 
-            The document type, this represents an Elasticsearch index.
+            The document type, this represents an OpenSearch index.
 
           * **term: str**
 
@@ -1021,16 +1021,16 @@ class AnalyticContext:
         return self.doc_service.index_field_mappings(doc_type, *fields)
 
     def index_field_mappings(self, doc_type, *fields):
-        # Link out specific Elasticsearch call
+        # Link out specific OpenSearch call
         """
-        Returns the Elasticsearch mapping for the given ``doc_type``. The Elasticsearch documentation
+        Returns the OpenSearch mapping for the given ``doc_type``. The OpenSearch documentation
         has a section on `mappings. <https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html>`_
 
         Parameters:
 
           * **doc_type: str**
 
-            The document type, this represents an Elasticsearch index.
+            The document type, this represents an OpenSearch index.
 
           * **fields: str **
 
@@ -1042,26 +1042,26 @@ class AnalyticContext:
 
     def index_mappings(self, doc_type):
         """
-        Returns raw index mapping for an Elasticsearch index. Includes Elasticsearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.
+        Returns raw index mapping for an OpenSearch index. Includes OpenSearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.
 
         Parameters:
 
           * **doc_type: str**
 
-            The document type, this represents an Elasticsearch index.
+            The document type, this represents an OpenSearch index.
 
         """
         return self.doc_service.index_mappings(doc_type)
 
     def index_settings(self, doc_type):
         """
-        Returns an object with an index's Elasticsearch settings. `Documentation on Elasticsearch's settings <https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings>`_
+        Returns an object with an index's OpenSearch settings. `Documentation on OpenSearch's settings <https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings>`_
 
         Parameters:
 
           * **doc_type: str**
 
-            The document type, this represents an Elasticsearch index.
+            The document type, this represents an OpenSearch index.
 
 
         """
@@ -1082,17 +1082,17 @@ class AnalyticContext:
         """
         Returns results to a query.
 
-        This returns the bare elasticsearch results. Use this to access to the scoring information or aggregations.
+        This returns the bare opensearch results. Use this to access to the scoring information or aggregations.
 
         Parameters:
 
           * **doc_type: str**
 
-            The document type, this represents an Elasticsearch index.
+            The document type, this represents an OpenSearch index.
 
           * **query: dict**
 
-            Elasticsearch query, more documentation can be found `here <https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html>`_.
+            OpenSearch query, more documentation can be found `here <https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html>`_.
 
         """
         return self.doc_service.rawquery(doc_type, query)
@@ -1106,7 +1106,7 @@ class AnalyticContext:
 
           * **doc_type:str**
 
-            The document type, this represents an Elasticsearch index.
+            The document type, this represents an OpenSearch index.
 
         Example:
 
@@ -1144,7 +1144,7 @@ class AnalyticContext:
 
             optional
 
-            This value will be stored in Elasticsearch to mark the documents changed by this analytic session.
+            This value will be stored in OpenSearch to mark the documents changed by this analytic session.
             If a value is not defined, the context object's ``analytic_session_id`` value will be automatically assigned.
 
           * **parameters: dict, default={}**
@@ -1216,7 +1216,7 @@ class AnalyticContext:
 
             optional
 
-            This value will be stored in Elasticsearch to mark the documents changed by this analytic session.
+            This value will be stored in OpenSearch to mark the documents changed by this analytic session.
             If a value is not defined, the context object's ``analytic_session_id`` value will be automatically assigned.
 
           * **parameters: dict, default={}**
@@ -1355,7 +1355,7 @@ def make_analytic_context(
 ):
     """
     Return an instance of the context object. A context object is needed to
-    interact with the Elasticsearch database using python. A detailed description of the
+    interact with the OpenSearch database using python. A detailed description of the
     context object can be found in the :ref:`Context Object<Context Object>` section.
 
     Parameters:
@@ -1373,7 +1373,7 @@ def make_analytic_context(
 
       optional
 
-      This value will be saved in Elasticsearch. It will mark which documents are edited by this specific instance of the
+      This value will be saved in OpenSearch. It will mark which documents are edited by this specific instance of the
       context object.
       Documents added or edited by a context, will inherit that context's ``analytic_session_id`` in a ``analytic_session_id`` field.
 

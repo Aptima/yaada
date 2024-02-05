@@ -131,7 +131,7 @@ s3:
 #   ingest: Null
 #   sink: Null
 #   sinklog: Null
-# elasticsearch:
+# opensearch:
 #   hostname: Null
 #   tenant: Null
 #   prefix: Null

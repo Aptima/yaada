@@ -424,7 +424,7 @@ def create_service_overrides(service_name, overrides, fields=None):
     if fields is None:
         if service_name == "mqtt":
             fields = ["hostname", "prefix", "tenant"]
-        elif service_name == "elasticsearch":
+        elif service_name == "opensearch":
             fields = ["hostname", "prefix", "tenant", "protocol"]
         elif service_name == "objectstorage":
             fields = ["hostname", "prefix", "tenant"]
