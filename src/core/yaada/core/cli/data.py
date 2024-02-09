@@ -402,7 +402,7 @@ def ts(doc_type, env):
     "--env", "-e", type=common.EnvironmentsType(), default=None, multiple=True
 )
 def mapping(doc_type, field, env):
-    """Print elasticsearch mapping"""
+    """Print opensearch mapping"""
     project = Project(env=env)
     from yaada.core.analytic.context import make_analytic_context
 
@@ -417,7 +417,7 @@ def mapping(doc_type, field, env):
     "--env", "-e", type=common.EnvironmentsType(), default=None, multiple=True
 )
 def load_geonames(env):
-    """Load geonames dataset into Elasticsearch.
+    """Load geonames dataset into OpenSearch.
 
     This script is adapted from code with Copyright (c) 2016 Open Event Data Alliance
     Provided with MIT license at https://github.com/openeventdata/es-geonames

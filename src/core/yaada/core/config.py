@@ -128,25 +128,25 @@ class YAADAConfig:
         )
         self.message_provider = self.hocon["yaada.message_provider"]
 
-        self.elasticsearch_url = self.hocon["yaada.elasticsearch.url"]
-        self.elasticsearch_index_config = self.hocon.get(
-            "yaada.elasticsearch.index.config", None
+        self.opensearch_url = self.hocon["yaada.opensearch.url"]
+        self.opensearch_index_config = self.hocon.get(
+            "yaada.opensearch.index.config", None
         )
-        if self.elasticsearch_index_config is not None:
-            self.elasticsearch_index_config = (
-                self.elasticsearch_index_config.as_plain_ordered_dict()
+        if self.opensearch_index_config is not None:
+            self.opensearch_index_config = (
+                self.opensearch_index_config.as_plain_ordered_dict()
             )
-        self.elasticsearch_field_limit = self.hocon.get(
-            "yaada.elasticsearch.mapping_field_limit", 1000
+        self.opensearch_field_limit = self.hocon.get(
+            "yaada.opensearch.mapping_field_limit", 1000
         )
-        self.elasticsearch_index_has_ts = to_bool(
-            self.hocon.get("yaada.elasticsearch.index_has_ts", False)
+        self.opensearch_index_has_ts = to_bool(
+            self.hocon.get("yaada.opensearch.index_has_ts", False)
         )
-        self.elasticsearch_username = self.hocon.get(
-            "yaada.elasticsearch.username", None
+        self.opensearch_username = self.hocon.get(
+            "yaada.opensearch.username", None
         )
-        self.elasticsearch_password = self.hocon.get(
-            "yaada.elasticsearch.password", None
+        self.opensearch_password = self.hocon.get(
+            "yaada.opensearch.password", None
         )
 
         self.mqtt_hostname = self.hocon["yaada.mqtt.host"]

@@ -112,7 +112,7 @@ def watch(analytic_name, analytic_session_id, env):
     "--env", "-e", type=common.EnvironmentsType(), default=None, multiple=True
 )
 def delete(analytic_name, analytic_session_id, env):
-    """Delete session info from Elasticsearch."""
+    """Delete session info from OpenSearch."""
     project = Project(env=env)
     from yaada.core.analytic.context import make_analytic_context
 

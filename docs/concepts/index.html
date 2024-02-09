@@ -8,9 +8,9 @@
 <link href="../getting-started/" rel="prev"/>
 <link href="../tutorial/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.17" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
 <title>Architecture and Concepts - Yet Another Analytic Dataflow Architecture</title>
-<link href="../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -18,7 +18,6 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -53,6 +52,7 @@
 </div>
 </div>
 </div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -101,23 +101,31 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
-        Home
-      </a>
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../getting-started/">
-        Getting Started
-      </a>
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Architecture and Concepts
-          <span class="md-nav__icon md-icon"></span>
+<span class="md-ellipsis">
+    Architecture and Concepts
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Architecture and Concepts
-      </a>
+<span class="md-ellipsis">
+    Architecture and Concepts
+  </span>
+</a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
 <span class="md-nav__icon md-icon"></span>
@@ -126,59 +134,77 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada-architecture">
-    YAADA Architecture
-  </a>
+<span class="md-ellipsis">
+      YAADA Architecture
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#elasticsearch-and-documents-and-data-ingest">
-    Elasticsearch and Documents and Data Ingest
-  </a>
-<nav aria-label="Elasticsearch and Documents and Data Ingest" class="md-nav">
+<a class="md-nav__link" href="#opensearch-and-documents-and-data-ingest">
+<span class="md-ellipsis">
+      OpenSearch and Documents and Data Ingest
+    </span>
+</a>
+<nav aria-label="OpenSearch and Documents and Data Ingest" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#schemas">
-    Schemas
-  </a>
+<span class="md-ellipsis">
+      Schemas
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytics">
-    Analytics
-  </a>
+<span class="md-ellipsis">
+      Analytics
+    </span>
+</a>
 <nav aria-label="Analytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytic-context">
-    Analytic Context
-  </a>
+<span class="md-ellipsis">
+      Analytic Context
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytic-models">
-    Analytic Models
-  </a>
+<span class="md-ellipsis">
+      Analytic Models
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pipeline-processors">
-    Pipeline Processors
-  </a>
+<span class="md-ellipsis">
+      Pipeline Processors
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tutorial/">
-        Tutorial
-      </a>
+<span class="md-ellipsis">
+    Tutorial
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../openapi/">
-        REST API
-      </a>
+<span class="md-ellipsis">
+    REST API
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -196,46 +222,60 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada-architecture">
-    YAADA Architecture
-  </a>
+<span class="md-ellipsis">
+      YAADA Architecture
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#elasticsearch-and-documents-and-data-ingest">
-    Elasticsearch and Documents and Data Ingest
-  </a>
-<nav aria-label="Elasticsearch and Documents and Data Ingest" class="md-nav">
+<a class="md-nav__link" href="#opensearch-and-documents-and-data-ingest">
+<span class="md-ellipsis">
+      OpenSearch and Documents and Data Ingest
+    </span>
+</a>
+<nav aria-label="OpenSearch and Documents and Data Ingest" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#schemas">
-    Schemas
-  </a>
+<span class="md-ellipsis">
+      Schemas
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytics">
-    Analytics
-  </a>
+<span class="md-ellipsis">
+      Analytics
+    </span>
+</a>
 <nav aria-label="Analytics" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytic-context">
-    Analytic Context
-  </a>
+<span class="md-ellipsis">
+      Analytic Context
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytic-models">
-    Analytic Models
-  </a>
+<span class="md-ellipsis">
+      Analytic Models
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#pipeline-processors">
-    Pipeline Processors
-  </a>
+<span class="md-ellipsis">
+      Pipeline Processors
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -252,7 +292,7 @@
 </p>
 <figcaption>YAADA Architecture</figcaption>
 </figure>
-<p>YAADA is a framework for handling and analyzing data. YAADA utilizes two data stores — Elasticsearch and S3 object storage — to provide services that allow for analysis and processing of data through Python-based analytics.</p>
+<p>YAADA is a framework for handling and analyzing data. YAADA utilizes two data stores — OpenSearch and S3 object storage — to provide services that allow for analysis and processing of data through Python-based analytics.</p>
 <p>YAADA uses a containerized approach through Docker. A standard YAADA project will have the following Docker containers:</p>
 <table>
 <thead>
@@ -268,7 +308,7 @@
 </tr>
 <tr>
 <td>sink</td>
-<td>Handles sending data asynchronously to Elasticsearch</td>
+<td>Handles sending data asynchronously to OpenSearch</td>
 </tr>
 <tr>
 <td>worker</td>
@@ -279,7 +319,7 @@
 <td>OpenAPI-based REST API</td>
 </tr>
 <tr>
-<td>elasticsearch</td>
+<td>opensearch</td>
 <td>3rd Party primary data store</td>
 </tr>
 <tr>
@@ -304,9 +344,9 @@
 </tr>
 </tbody>
 </table>
-<h2 id="elasticsearch-and-documents-and-data-ingest">Elasticsearch and Documents and Data Ingest</h2>
-<p>Elasticsearch is the main database used to store and retrieve data in YAADA. Data in Elasticsearch is stored in documents, and can be queried using the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html">Elasticsearch Query DSL</a>, a query language based on JSON.</p>
-<p>Elasticsearch documents are the primary form of data that YAADA analytics operate over. Documents are semi-structured, JSON-like objects comprised of key/value pairs. They are represented as Python dictionaries in memory and transmitted across services as json-serialized objects.</p>
+<h2 id="opensearch-and-documents-and-data-ingest">OpenSearch and Documents and Data Ingest</h2>
+<p>OpenSearch is the main database used to store and retrieve data in YAADA. Data in OpenSearch is stored in documents, and can be queried using the <a href="https://opensearch.org/docs/latest/query-dsl/">OpenSearch Query DSL</a>, a query language based on JSON.</p>
+<p>OpenSearch documents are the primary form of data that YAADA analytics operate over. Documents are semi-structured, JSON-like objects comprised of key/value pairs. They are represented as Python dictionaries in memory and transmitted across services as json-serialized objects.</p>
 <p>All YAADA documents will at a mimimum have two required attributes:</p>
 <table>
 <thead>
@@ -320,17 +360,17 @@
 <tr>
 <td><code>doc_type</code></td>
 <td>String</td>
-<td>The name of the type of document being represented. Used to determine the Elasticsearch index where the document will be stored.</td>
+<td>The name of the type of document being represented. Used to determine the OpenSearch index where the document will be stored.</td>
 </tr>
 <tr>
 <td><code>id</code></td>
 <td>String</td>
-<td>The unique (within doc_type) id for the document. Used as Elasticsearch id. Autogenerated as a UUID if ommitted.</td>
+<td>The unique (within doc_type) id for the document. Used as OpenSearch id. Autogenerated as a UUID if ommitted.</td>
 </tr>
 <tr>
 <td><code>@timestamp</code></td>
 <td>String</td>
-<td>ISO 8601 formatted time that the document was ingested into Elasticsearch. Will be autogenerated.</td>
+<td>ISO 8601 formatted time that the document was ingested into OpenSearch. Will be autogenerated.</td>
 </tr>
 </tbody>
 </table>
@@ -341,7 +381,7 @@
 <span class="w">  </span><span class="nt">"foo"</span><span class="p">:</span><span class="s2">"bar"</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>With a default configuration, this document would be stored in the <code>yaada-{TENANT}-document-foo</code> index with an Elasticsearch unique id of “1”.</p>
+<p>With a default configuration, this document would be stored in the <code>yaada-{TENANT}-document-foo</code> index with an OpenSearch unique id of “1”.</p>
 <h3 id="schemas">Schemas</h3>
 <p>YAADA supports defining document schemas as json or yaml files following the <a href="https://spec.openapis.org/oas/v3.0.0.html#schema-object">OpenAPI 3.0 json-schema variant</a>.</p>
 <h2 id="analytics">Analytics</h2>
@@ -359,7 +399,7 @@
 <figcaption>The typical flow of document data in an analytic</figcaption>
 </figure>
 <h3 id="analytic-context">Analytic Context</h3>
-<p>YAADA provides a built-in <code>yaada.core.analytic.context.AnalyticContext</code> class that serves as the main API for interacting with or analyzing data. Most YAADA services will construct a single <code>context</code> object which will get used by any analytics or pipelines invoked to interact with the backend databases. A user can instantiated as a <code>context</code> object using the <code>yaada.core.analytic.context.make_analytic_context</code> method. Once instantiated, the context object provides a suite of methods for interacting with Elasticsearch, such as querying, fetching, and ingesting documents, as well as accessing YAADA capabilities like running analytics.</p>
+<p>YAADA provides a built-in <code>yaada.core.analytic.context.AnalyticContext</code> class that serves as the main API for interacting with or analyzing data. Most YAADA services will construct a single <code>context</code> object which will get used by any analytics or pipelines invoked to interact with the backend databases. A user can instantiated as a <code>context</code> object using the <code>yaada.core.analytic.context.make_analytic_context</code> method. Once instantiated, the context object provides a suite of methods for interacting with OpenSearch, such as querying, fetching, and ingesting documents, as well as accessing YAADA capabilities like running analytics.</p>
 <h3 id="analytic-models">Analytic Models</h3>
 <p>Some analytics may be able to produce results in a stateless manner through simple inspection of the incoming documents, but often an analytic will have to use some outside resources to produce results, such as a trained language model. YAADA analytics may define an optional analytic model building step, where the analytic builds a named model from a set of documents and writes it out to a file or set of files to be stored in object storage, as illiustrated here.</p>
 <figure>
@@ -367,21 +407,22 @@
 </p>
 <figcaption>Training and storing an analytic model based on documents</figcaption>
 </figure>
-<p>Models created in this way can then be loaded from object storage and used by analytics to produce results, whether that be the analytic that created it or another analytic. This is generally done by querying documents, using the model to analyze those documents, and then ingesting the results back into Elasticsearch, as shown in the following diagram. When an analytic uses a model, all produced results will be annotated with the name of the analytic model they were produced by.</p>
+<p>Models created in this way can then be loaded from object storage and used by analytics to produce results, whether that be the analytic that created it or another analytic. This is generally done by querying documents, using the model to analyze those documents, and then ingesting the results back into OpenSearch, as shown in the following diagram. When an analytic uses a model, all produced results will be annotated with the name of the analytic model they were produced by.</p>
 <figure>
 <p><img alt="Apply Analytic Model" src="../images/apply-trained-models.png" width="600"/>
 </p>
 <figcaption>Using a pretrained analytic model to analyze documents and produce new results</figcaption>
 </figure>
 <h2 id="pipeline-processors">Pipeline Processors</h2>
-<p>Pipelines allow you to run a series of transform functions on documents of a specific <code>doc_type</code> each time such a document is ingested. Each pipeline correspond to one <code>doc_type</code>. If a pieline is configured for a <code>doc_type</code>, upon ingest documents of that type are run through the series of processors configured for that pipeline. A processor, similarly to a single-document analytic, takes in a document and modifies or adds new data to it before sending it off to the next step in the pipeline. If and when all the steps of a pipeline are complete, the document is then sent to be ingested into Elasticsearch.</p>
+<p>Pipelines allow you to run a series of transform functions on documents of a specific <code>doc_type</code> each time such a document is ingested. Each pipeline correspond to one <code>doc_type</code>. If a pieline is configured for a <code>doc_type</code>, upon ingest documents of that type are run through the series of processors configured for that pipeline. A processor, similarly to a single-document analytic, takes in a document and modifies or adds new data to it before sending it off to the next step in the pipeline. If and when all the steps of a pipeline are complete, the document is then sent to be ingested into OpenSearch.</p>
 <figure>
 <p><img alt="Data Ingest" src="../images/data-ingest.png" width="600"/>
 </p>
-<figcaption>Ingested documents are run through a processing pipeline and then stored into Elasticsearch</figcaption>
+<figcaption>Ingested documents are run through a processing pipeline and then stored into OpenSearch</figcaption>
 </figure>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 </main>
 <footer class="md-footer">
@@ -405,8 +446,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);

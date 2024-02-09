@@ -1,7 +1,7 @@
 project_name: "yaada"
 description: "An example project file included in core repo" 
-project_version: "6.2.3"
-yaada_core_version: "6.2.3"
+project_version: "7.0.0"
+yaada_core_version: "7.0.0"
 config: default.conf
 env: # the default environments for this project
   - local
@@ -53,7 +53,7 @@ docker:
       dockerfile: docker/yaada/Dockerfile
       context: .
       build_args: # a map of argument/value pairs. May substitute in values from variables section using ${VARIABLE}.
-        YAADA_BASE_IMAGE: python:3.8
+        YAADA_BASE_IMAGE: python:3.10
         PLATFORM: ${DOCKER_PLATFORM}
     yaada/dev:
       image: yaada/dev

@@ -6,9 +6,9 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.17" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
 <title>YAADA Python API - Yet Another Analytic Dataflow Architecture</title>
-<link href="../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -16,7 +16,6 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -51,6 +50,7 @@
 </div>
 </div>
 </div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -99,28 +99,38 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
-        Home
-      </a>
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../getting-started/">
-        Getting Started
-      </a>
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../concepts/">
-        Architecture and Concepts
-      </a>
+<span class="md-ellipsis">
+    Architecture and Concepts
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tutorial/">
-        Tutorial
-      </a>
+<span class="md-ellipsis">
+    Tutorial
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../openapi/">
-        REST API
-      </a>
+<span class="md-ellipsis">
+    REST API
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -138,147 +148,203 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#analytic-context">
-    Analytic Context
-  </a>
+<span class="md-ellipsis">
+      Analytic Context
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context">
-    yaada.core.analytic.context
-  </a>
+<span class="md-ellipsis">
+      context
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext">
-    AnalyticContext
-  </a>
+<span class="md-ellipsis">
+      AnalyticContext
+    </span>
+</a>
 <nav aria-label="AnalyticContext" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.aggregation">
-    aggregation()
-  </a>
+<span class="md-ellipsis">
+      aggregation
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.async_exec_analytic">
-    async_exec_analytic()
-  </a>
+<span class="md-ellipsis">
+      async_exec_analytic
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.delete">
-    delete()
-  </a>
+<span class="md-ellipsis">
+      delete
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.delete_by_query">
-    delete_by_query()
-  </a>
+<span class="md-ellipsis">
+      delete_by_query
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.delete_index">
-    delete_index()
-  </a>
+<span class="md-ellipsis">
+      delete_index
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.document_counts">
-    document_counts()
-  </a>
+<span class="md-ellipsis">
+      document_counts
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.document_mappings">
-    document_mappings()
-  </a>
+<span class="md-ellipsis">
+      document_mappings
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.document_type_exists">
-    document_type_exists()
-  </a>
+<span class="md-ellipsis">
+      document_type_exists
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.exists">
-    exists()
-  </a>
+<span class="md-ellipsis">
+      exists
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.get">
-    get()
-  </a>
+<span class="md-ellipsis">
+      get
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.index_field_mappings">
-    index_field_mappings()
-  </a>
+<span class="md-ellipsis">
+      index_field_mappings
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.index_mappings">
-    index_mappings()
-  </a>
+<span class="md-ellipsis">
+      index_mappings
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.index_settings">
-    index_settings()
-  </a>
+<span class="md-ellipsis">
+      index_settings
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.ingest_barrier">
-    ingest_barrier()
-  </a>
+<span class="md-ellipsis">
+      ingest_barrier
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.mget">
-    mget()
-  </a>
+<span class="md-ellipsis">
+      mget
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.query">
-    query()
-  </a>
+<span class="md-ellipsis">
+      query
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.rawquery">
-    rawquery()
-  </a>
+<span class="md-ellipsis">
+      rawquery
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.report_status">
-    report_status()
-  </a>
+<span class="md-ellipsis">
+      report_status
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.sentinel_present">
-    sentinel_present()
-  </a>
+<span class="md-ellipsis">
+      sentinel_present
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.set_analytic_name">
-    set_analytic_name()
-  </a>
+<span class="md-ellipsis">
+      set_analytic_name
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.set_analytic_session_id">
-    set_analytic_session_id()
-  </a>
+<span class="md-ellipsis">
+      set_analytic_session_id
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.sync_exec_analytic">
-    sync_exec_analytic()
-  </a>
+<span class="md-ellipsis">
+      sync_exec_analytic
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.term_counts">
-    term_counts()
-  </a>
+<span class="md-ellipsis">
+      term_counts
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.AnalyticContext.update">
-    update()
-  </a>
+<span class="md-ellipsis">
+      update
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada.core.analytic.context.make_analytic_context">
-    make_analytic_context()
-  </a>
+<span class="md-ellipsis">
+      make_analytic_context
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -299,7 +365,7 @@
 </h2>
 <div class="doc doc-contents">
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  59</span>
 <span class="normal">  60</span>
 <span class="normal">  61</span>
@@ -1917,15 +1983,15 @@
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 
-<span class="sd">        Stores the document given by the ``doc`` parameter in Elasticsearch.</span>
+<span class="sd">        Stores the document given by the ``doc`` parameter in OpenSearch.</span>
 
 <span class="sd">          Parameters:</span>
 
 <span class="sd">          * **doc: dict, list[dict]**</span>
 
-<span class="sd">            The ``doc`` parameter, represents an Elasticsearch document to be ingested. The schema and details of a document can be found in :ref:`Documents`.</span>
+<span class="sd">            The ``doc`` parameter, represents an OpenSearch document to be ingested. The schema and details of a document can be found in :ref:`Documents`.</span>
 
-<span class="sd">            This parameter can be given as a dictionary representation of an Elasticsearch document, or a list of ``doc``'s which will result in a batch-ingest.</span>
+<span class="sd">            This parameter can be given as a dictionary representation of an OpenSearch document, or a list of ``doc``'s which will result in a batch-ingest.</span>
 
 <span class="sd">          * **process: bool, default = True**</span>
 
@@ -1955,7 +2021,7 @@
 
 <span class="sd">            optional</span>
 
-<span class="sd">            Setting ``barrier`` to ``True`` ensures that the document is indexed Elasticsearch</span>
+<span class="sd">            Setting ``barrier`` to ``True`` ensures that the document is indexed OpenSearch</span>
 <span class="sd">            and searchable before the the update function finishes running.</span>
 
 <span class="sd">            Enabling ``barrier`` will dractically reduce throughput performace especially if ``update``</span>
@@ -1967,7 +2033,7 @@
 <span class="sd">            optional</span>
 
 <span class="sd">            This value is the maximum amount of time in seconds that the function will wait</span>
-<span class="sd">            for the document to appear in Elasticsearch before finishing. If this maximum value</span>
+<span class="sd">            for the document to appear in OpenSearch before finishing. If this maximum value</span>
 <span class="sd">            is reached and the document is not in elastic search, it will return an</span>
 <span class="sd">            ``IngestBarrierTimeout`` error. This only applies if the ``barrier`` parameter is set</span>
 <span class="sd">            to ``True``.</span>
@@ -2083,21 +2149,21 @@
         <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Returns results of a query to Elasticsearch as a generator object. It uses an abstraction of the `scroll API &lt;https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html&gt;`_.</span>
+<span class="sd">        Returns results of a query to OpenSearch as a generator object. It uses an abstraction of the `scroll API &lt;https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html&gt;`_.</span>
 
 <span class="sd">        Parameters:</span>
 
 <span class="sd">          * **doc_type: str**</span>
 
-<span class="sd">            This represents an Elasticsearch index. The query will search the index.</span>
+<span class="sd">            This represents an OpenSearch index. The query will search the index.</span>
 
-<span class="sd">            Every document in Elasticsearch has a required ``doc_type`` field as described in the :ref:`Documents` section.</span>
+<span class="sd">            Every document in OpenSearch has a required ``doc_type`` field as described in the :ref:`Documents` section.</span>
 
 <span class="sd">          * **query: dict, default={"query": {"match_all": {}}}**</span>
 
 <span class="sd">            optional</span>
 
-<span class="sd">            An Elasticsearch query. More info can be found in `Elasticsearch documentation.</span>
+<span class="sd">            An OpenSearch query. More info can be found in `OpenSearch documentation.</span>
 <span class="sd">            &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_</span>
 <span class="sd">          * **size:int, default=None**</span>
 
@@ -2179,7 +2245,7 @@
         <span class="n">sentinel_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Returns a document from Elasticsearch.</span>
+<span class="sd">        Returns a document from OpenSearch.</span>
 
 <span class="sd">        Parameters:</span>
 
@@ -2214,13 +2280,13 @@
 <span class="sd">            optional</span>
 
 
-<span class="sd">            If True, this function will wait to return until the document is searchable in Elasticsearch.</span>
+<span class="sd">            If True, this function will wait to return until the document is searchable in OpenSearch.</span>
 
 <span class="sd">          * **timeout:int, default=60**</span>
 
 <span class="sd">            optional</span>
 
-<span class="sd">            This specifies the maximum time to wait for the document to be searchable in Elasticsearch if the ``wait`` parameter is set to ``True``.</span>
+<span class="sd">            This specifies the maximum time to wait for the document to be searchable in OpenSearch if the ``wait`` parameter is set to ``True``.</span>
 
 <span class="sd">          * **sentinel_key:str, default='_ingest_sentinel'**</span>
 
@@ -2228,12 +2294,12 @@
 
 <span class="sd">            Advance Usage</span>
 
-<span class="sd">            Elasticsearch field that contains the ``sentinel_value``. By default, there will be an ``_ingest_sentinal`` Elasticsearch field.</span>
+<span class="sd">            OpenSearch field that contains the ``sentinel_value``. By default, there will be an ``_ingest_sentinal`` OpenSearch field.</span>
 
 
 <span class="sd">            This parameter relates to the ``barrier`` concept used as a parameter in the :py:meth:`yaada.analytic.context.AnalyticContext.update` method.</span>
-<span class="sd">            If this ``get`` method is being used to retrieve a document in Elasticsearch soon after it has been ingested, this can be used to wait until</span>
-<span class="sd">            that value is searchable in Elasticsearch before it is retrieved. This parameter will only be applied if the ``wait`` parameter</span>
+<span class="sd">            If this ``get`` method is being used to retrieve a document in OpenSearch soon after it has been ingested, this can be used to wait until</span>
+<span class="sd">            that value is searchable in OpenSearch before it is retrieved. This parameter will only be applied if the ``wait`` parameter</span>
 <span class="sd">            is set to ``True``.</span>
 
 <span class="sd">          * **sentinel_value:str, default=None**</span>
@@ -2242,7 +2308,7 @@
 
 <span class="sd">            Advance Usage</span>
 
-<span class="sd">            This parameter is used to ensure that an updated document has fully updated in Elasticsearch before it is retrieved by the ``get`` method. Because a</span>
+<span class="sd">            This parameter is used to ensure that an updated document has fully updated in OpenSearch before it is retrieved by the ``get`` method. Because a</span>
 <span class="sd">            document that is being updated may already exist, YAADA needs a way to know that it has been updated before retrieving the document.</span>
 <span class="sd">            This is done by introducing a new value to the document, called a sentinal value. If a value is specified for this parameter, YAADA will</span>
 <span class="sd">            check that this value matches up with the value in the ``sentinel_key`` field for the document before retrieving it, to know that it has been updated.</span>
@@ -2294,7 +2360,7 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_include</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Returns multiple documents from Elasticsearch.</span>
+<span class="sd">        Returns multiple documents from OpenSearch.</span>
 
 <span class="sd">        Parameters:</span>
 
@@ -2304,7 +2370,7 @@
 
 <span class="sd">          * **ids: list**</span>
 
-<span class="sd">            List of unique identifiers of documents in Elasticsearch</span>
+<span class="sd">            List of unique identifiers of documents in OpenSearch</span>
 
 <span class="sd">          * **source: list, defult=None**</span>
 
@@ -2351,7 +2417,7 @@
 
 <span class="sd">          * **query: dict**</span>
 
-<span class="sd">            And Elasticsearch query. Elasticsearch's documentation on querying can be found `here</span>
+<span class="sd">            And OpenSearch query. OpenSearch's documentation on querying can be found `here</span>
 <span class="sd">            &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_.</span>
 
 <span class="sd">        Example:</span>
@@ -2372,7 +2438,7 @@
 
     <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Delete a single document in Elasticsearch.</span>
+<span class="sd">        Delete a single document in OpenSearch.</span>
 
 <span class="sd">        Parameters:</span>
 
@@ -2382,7 +2448,7 @@
 
 <span class="sd">          * **id: str**</span>
 
-<span class="sd">            Identifier of document in Elasticsearch.</span>
+<span class="sd">            Identifier of document in OpenSearch.</span>
 
 <span class="sd">        Example:</span>
 
@@ -2395,7 +2461,7 @@
 
     <span class="k">def</span> <span class="nf">delete_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">initialize_index</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Deletes an index in Elasticsearch.</span>
+<span class="sd">        Deletes an index in OpenSearch.</span>
 
 <span class="sd">        Parameters:</span>
 
@@ -2501,7 +2567,7 @@
     <span class="k">def</span> <span class="nf">document_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns an object with a breakdown of each index and the count of documents</span>
-<span class="sd">        in each index. The keys are each ``doc_type``'s in Elasticsearch and the values are</span>
+<span class="sd">        in each index. The keys are each ``doc_type``'s in OpenSearch and the values are</span>
 <span class="sd">        the number of documents currently stored.</span>
 
 <span class="sd">        Example:</span>
@@ -2515,13 +2581,13 @@
     <span class="k">def</span> <span class="nf">term_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}}):</span>
 <span class="w">        </span><span class="sd">"""</span>
 
-<span class="sd">        Returns an object describing the frequency of terms for a given field of an index by running an Elasticsearch terms aggregation.</span>
+<span class="sd">        Returns an object describing the frequency of terms for a given field of an index by running an OpenSearch terms aggregation.</span>
 
 <span class="sd">        Parameters:</span>
 
 <span class="sd">          * **doc_type: str**</span>
 
-<span class="sd">            The document type, this represents an Elasticsearch index.</span>
+<span class="sd">            The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">          * **term: str**</span>
 
@@ -2543,16 +2609,16 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc_service</span><span class="o">.</span><span class="n">index_field_mappings</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">index_field_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">):</span>
-        <span class="c1"># Link out specific Elasticsearch call</span>
+        <span class="c1"># Link out specific OpenSearch call</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Returns the Elasticsearch mapping for the given ``doc_type``. The Elasticsearch documentation</span>
+<span class="sd">        Returns the OpenSearch mapping for the given ``doc_type``. The OpenSearch documentation</span>
 <span class="sd">        has a section on `mappings. &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html&gt;`_</span>
 
 <span class="sd">        Parameters:</span>
 
 <span class="sd">          * **doc_type: str**</span>
 
-<span class="sd">            The document type, this represents an Elasticsearch index.</span>
+<span class="sd">            The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">          * **fields: str **</span>
 
@@ -2564,26 +2630,26 @@
 
     <span class="k">def</span> <span class="nf">index_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Returns raw index mapping for an Elasticsearch index. Includes Elasticsearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.</span>
+<span class="sd">        Returns raw index mapping for an OpenSearch index. Includes OpenSearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.</span>
 
 <span class="sd">        Parameters:</span>
 
 <span class="sd">          * **doc_type: str**</span>
 
-<span class="sd">            The document type, this represents an Elasticsearch index.</span>
+<span class="sd">            The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc_service</span><span class="o">.</span><span class="n">index_mappings</span><span class="p">(</span><span class="n">doc_type</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">index_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">"""</span>
-<span class="sd">        Returns an object with an index's Elasticsearch settings. `Documentation on Elasticsearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;`_</span>
+<span class="sd">        Returns an object with an index's OpenSearch settings. `Documentation on OpenSearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;`_</span>
 
 <span class="sd">        Parameters:</span>
 
 <span class="sd">          * **doc_type: str**</span>
 
-<span class="sd">            The document type, this represents an Elasticsearch index.</span>
+<span class="sd">            The document type, this represents an OpenSearch index.</span>
 
 
 <span class="sd">        """</span>
@@ -2604,17 +2670,17 @@
 <span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns results to a query.</span>
 
-<span class="sd">        This returns the bare elasticsearch results. Use this to access to the scoring information or aggregations.</span>
+<span class="sd">        This returns the bare opensearch results. Use this to access to the scoring information or aggregations.</span>
 
 <span class="sd">        Parameters:</span>
 
 <span class="sd">          * **doc_type: str**</span>
 
-<span class="sd">            The document type, this represents an Elasticsearch index.</span>
+<span class="sd">            The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">          * **query: dict**</span>
 
-<span class="sd">            Elasticsearch query, more documentation can be found `here &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_.</span>
+<span class="sd">            OpenSearch query, more documentation can be found `here &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_.</span>
 
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc_service</span><span class="o">.</span><span class="n">rawquery</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
@@ -2628,7 +2694,7 @@
 
 <span class="sd">          * **doc_type:str**</span>
 
-<span class="sd">            The document type, this represents an Elasticsearch index.</span>
+<span class="sd">            The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">        Example:</span>
 
@@ -2666,7 +2732,7 @@
 
 <span class="sd">            optional</span>
 
-<span class="sd">            This value will be stored in Elasticsearch to mark the documents changed by this analytic session.</span>
+<span class="sd">            This value will be stored in OpenSearch to mark the documents changed by this analytic session.</span>
 <span class="sd">            If a value is not defined, the context object's ``analytic_session_id`` value will be automatically assigned.</span>
 
 <span class="sd">          * **parameters: dict, default={}**</span>
@@ -2738,7 +2804,7 @@
 
 <span class="sd">            optional</span>
 
-<span class="sd">            This value will be stored in Elasticsearch to mark the documents changed by this analytic session.</span>
+<span class="sd">            This value will be stored in OpenSearch to mark the documents changed by this analytic session.</span>
 <span class="sd">            If a value is not defined, the context object's ``analytic_session_id`` value will be automatically assigned.</span>
 
 <span class="sd">          * **parameters: dict, default={}**</span>
@@ -2867,7 +2933,7 @@
 <div class="doc doc-contents">
 <p>Depricated, use :py:meth:<code>yaada.analytic.context.AnalyticContext.rawquery</code> instead.</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1075</span>
 <span class="normal">1076</span>
 <span class="normal">1077</span>
@@ -2887,104 +2953,39 @@
 </h3>
 <div class="doc doc-contents">
 <p>Asynchronously run an analytic.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**analytic_name</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>analytic_name: str</strong></p>
 <p>The full analytic class name.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**analytic_session_id</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str, default=None**</p>
+</li>
+<li>
+<p><strong>analytic_session_id: str, default=None</strong></p>
 <p>optional</p>
-<p>This value will be stored in Elasticsearch to mark the documents changed by this analytic session.
+<p>This value will be stored in OpenSearch to mark the documents changed by this analytic session.
 If a value is not defined, the context object's <code>analytic_session_id</code> value will be automatically assigned.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**parameters</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>dict, default={}**</p>
+</li>
+<li>
+<p><strong>parameters: dict, default={}</strong></p>
 <p>optional</p>
 <p>This value corresponds to the parameters of the yaada analytic being run.</p>
 <p>The parameters are assigned by setting each key in this dict to a string
 of the name of a parameter. The parameter will be assinged to the value given in the key-value pair.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**worker</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str, default='default**</p>
+</li>
+<li>
+<p><strong>worker:str, default='default</strong></p>
 <p>optional</p>
 <p>Use for selecting which analytic worker to use for execution</p>
 <p>Advanced Usage, Experimental API subject to change, not recommended for users</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**watch</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>bool, default=False**</p>
+</li>
+<li>
+<p><strong>watch:bool, default=False</strong></p>
 <p>optional</p>
 <p>Advanced Usage, Experimental API subject to change, not recommended for users</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1194</span>
 <span class="normal">1195</span>
 <span class="normal">1196</span>
@@ -3094,7 +3095,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
 
 <span class="sd">        optional</span>
 
-<span class="sd">        This value will be stored in Elasticsearch to mark the documents changed by this analytic session.</span>
+<span class="sd">        This value will be stored in OpenSearch to mark the documents changed by this analytic session.</span>
 <span class="sd">        If a value is not defined, the context object's ``analytic_session_id`` value will be automatically assigned.</span>
 
 <span class="sd">      * **parameters: dict, default={}**</span>
@@ -3163,56 +3164,24 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <code class="highlight language-python"><span class="n">delete</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Delete a single document in Elasticsearch.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Delete a single document in OpenSearch.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
 <p>The document type of the documents to be returned.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**id</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>Identifier of document in Elasticsearch.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+<li>
+<p><strong>id: str</strong></p>
+<p>Identifier of document in OpenSearch.</p>
+</li>
+</ul>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <pre><code>context.delete("Publication", "b0e062ac-0e84-40db-8ecd-36e1aa0e264b")
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">851</span>
 <span class="normal">852</span>
 <span class="normal">853</span>
@@ -3236,7 +3205,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">871</span>
 <span class="normal">872</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Delete a single document in Elasticsearch.</span>
+<span class="sd">    Delete a single document in OpenSearch.</span>
 
 <span class="sd">    Parameters:</span>
 
@@ -3246,7 +3215,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
 
 <span class="sd">      * **id: str**</span>
 
-<span class="sd">        Identifier of document in Elasticsearch.</span>
+<span class="sd">        Identifier of document in OpenSearch.</span>
 
 <span class="sd">    Example:</span>
 
@@ -3266,50 +3235,18 @@ of the name of a parameter. The parameter will be assinged to the value given in
 </h3>
 <div class="doc doc-contents">
 <p>Delete all documents that result from the a given query.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
 <p>The document type.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**query</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>dict**</p>
-<p>And Elasticsearch query. Elasticsearch's documentation on querying can be found <code>here
+</li>
+<li>
+<p><strong>query: dict</strong></p>
+<p>And OpenSearch query. OpenSearch's documentation on querying can be found <code>here
 &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;</code>_.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <p>context.delete_by_query("Publication", {
@@ -3320,7 +3257,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
       }
   })</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">820</span>
 <span class="normal">821</span>
 <span class="normal">822</span>
@@ -3362,7 +3299,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
 
 <span class="sd">      * **query: dict**</span>
 
-<span class="sd">        And Elasticsearch query. Elasticsearch's documentation on querying can be found `here</span>
+<span class="sd">        And OpenSearch query. OpenSearch's documentation on querying can be found `here</span>
 <span class="sd">        &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_.</span>
 
 <span class="sd">    Example:</span>
@@ -3389,40 +3326,19 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <code class="highlight language-python"><span class="n">delete_index</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="n">initialize_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Deletes an index in Elasticsearch.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Deletes an index in OpenSearch.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
 <p>Documents with this <code>doc_type</code> will all be deleted.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <p>context.delete_index("Publication")</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">874</span>
 <span class="normal">875</span>
 <span class="normal">876</span>
@@ -3441,7 +3357,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">889</span>
 <span class="normal">890</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">delete_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">initialize_index</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Deletes an index in Elasticsearch.</span>
+<span class="sd">    Deletes an index in OpenSearch.</span>
 
 <span class="sd">    Parameters:</span>
 
@@ -3466,14 +3382,14 @@ of the name of a parameter. The parameter will be assinged to the value given in
 </h3>
 <div class="doc doc-contents">
 <p>Returns an object with a breakdown of each index and the count of documents
-in each index. The keys are each <code>doc_type</code>'s in Elasticsearch and the values are
+in each index. The keys are each <code>doc_type</code>'s in OpenSearch and the values are
 the number of documents currently stored.</p>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <pre><code>context.document_counts()
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">979</span>
 <span class="normal">980</span>
 <span class="normal">981</span>
@@ -3489,7 +3405,7 @@ the number of documents currently stored.</p>
 <span class="normal">991</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">document_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns an object with a breakdown of each index and the count of documents</span>
-<span class="sd">    in each index. The keys are each ``doc_type``'s in Elasticsearch and the values are</span>
+<span class="sd">    in each index. The keys are each ``doc_type``'s in OpenSearch and the values are</span>
 <span class="sd">    the number of documents currently stored.</span>
 
 <span class="sd">    Example:</span>
@@ -3510,7 +3426,7 @@ the number of documents currently stored.</p>
 <div class="doc doc-contents">
 <p>This is a depricated method, use :py:meth:<code>yaada.analytic.context.AnalyticContext.index_field_mappings</code> instead.</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1017</span>
 <span class="normal">1018</span>
 <span class="normal">1019</span>
@@ -3531,41 +3447,19 @@ the number of documents currently stored.</p>
 <div class="doc doc-contents">
 <p>Returns a bool value describing whether a <code>doc_type</code>
 exists.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type, this represents an Elasticsearch index.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="example" open="">
-<summary>Example</summary>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type:str</strong></p>
+<p>The document type, this represents an OpenSearch index.</p>
+</li>
+</ul>
+<p>Example:</p>
 <p>.. code-block:: python</p>
-<p>context.document_type_exists("Publication")</p>
-</details>
+<pre><code>context.document_type_exists("Publication")
+</code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1100</span>
 <span class="normal">1101</span>
 <span class="normal">1102</span>
@@ -3592,7 +3486,7 @@ exists.</p>
 
 <span class="sd">      * **doc_type:str**</span>
 
-<span class="sd">        The document type, this represents an Elasticsearch index.</span>
+<span class="sd">        The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">    Example:</span>
 
@@ -3611,54 +3505,20 @@ exists.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Returns a bool value describing whether or not a document exists.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**id</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>The document type.
+  * <strong>id: str</strong></p>
 <p>The unique id of the document</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <p>Example</p>
 <p>.. code-block:: python</p>
 <p>context.exists("Publication", "f33bca95-3caa-46ac-8667-448ba4973190")</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">749</span>
 <span class="normal">750</span>
 <span class="normal">751</span>
@@ -3709,175 +3569,66 @@ exists.</p>
 <code class="highlight language-python"><span class="n">get</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_include</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wait</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">sentinel_key</span><span class="o">=</span><span class="s1">'_ingest_sentinel'</span><span class="p">,</span> <span class="n">sentinel_value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns a document from Elasticsearch.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Returns a document from OpenSearch.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
 <p>The document type of the desired document.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**id</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+</li>
+<li>
+<p><strong>id: str</strong></p>
 <p>The identifier of a single document.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**source</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>list, defult=None**</p>
+</li>
+<li>
+<p><strong>source: list, defult=None</strong></p>
 <p>optional</p>
 <p>A list containing the fields that will be returned for the document. Must include <code>_id</code> and <code>doc_type</code>.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**source_exclude</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>list, default=None**</p>
+</li>
+<li>
+<p><strong>source_exclude:list, default=None</strong></p>
 <p>optional</p>
 <p>A list containing the fields that will be excluded from what is returned for the document.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**source_include</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>list, default=None**</p>
+</li>
+<li>
+<p><strong>source_include:list, default=None</strong></p>
 <p>optional</p>
 <p>A list containing the fields that will returned for the document.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**wait</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>bool, default=False**</p>
+</li>
+<li>
+<p><strong>wait:bool, default=False</strong></p>
 <p>optional</p>
-<p>If True, this function will wait to return until the document is searchable in Elasticsearch.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**timeout</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>int, default=60**</p>
+<p>If True, this function will wait to return until the document is searchable in OpenSearch.</p>
+</li>
+<li>
+<p><strong>timeout:int, default=60</strong></p>
 <p>optional</p>
-<p>This specifies the maximum time to wait for the document to be searchable in Elasticsearch if the <code>wait</code> parameter is set to <code>True</code>.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**sentinel_key</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str, default='_ingest_sentinel'**</p>
+<p>This specifies the maximum time to wait for the document to be searchable in OpenSearch if the <code>wait</code> parameter is set to <code>True</code>.</p>
+</li>
+<li>
+<p><strong>sentinel_key:str, default='_ingest_sentinel'</strong></p>
 <p>optional</p>
 <p>Advance Usage</p>
-<p>Elasticsearch field that contains the <code>sentinel_value</code>. By default, there will be an <code>_ingest_sentinal</code> Elasticsearch field.</p>
+<p>OpenSearch field that contains the <code>sentinel_value</code>. By default, there will be an <code>_ingest_sentinal</code> OpenSearch field.</p>
 <p>This parameter relates to the <code>barrier</code> concept used as a parameter in the :py:meth:<code>yaada.analytic.context.AnalyticContext.update</code> method.
-If this <code>get</code> method is being used to retrieve a document in Elasticsearch soon after it has been ingested, this can be used to wait until
-that value is searchable in Elasticsearch before it is retrieved. This parameter will only be applied if the <code>wait</code> parameter
+If this <code>get</code> method is being used to retrieve a document in OpenSearch soon after it has been ingested, this can be used to wait until
+that value is searchable in OpenSearch before it is retrieved. This parameter will only be applied if the <code>wait</code> parameter
 is set to <code>True</code>.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**sentinel_value</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str, default=None**</p>
+</li>
+<li>
+<p><strong>sentinel_value:str, default=None</strong></p>
 <p>optional</p>
 <p>Advance Usage</p>
-<p>This parameter is used to ensure that an updated document has fully updated in Elasticsearch before it is retrieved by the <code>get</code> method. Because a
+<p>This parameter is used to ensure that an updated document has fully updated in OpenSearch before it is retrieved by the <code>get</code> method. Because a
 document that is being updated may already exist, YAADA needs a way to know that it has been updated before retrieving the document.
 This is done by introducing a new value to the document, called a sentinal value. If a value is specified for this parameter, YAADA will
 check that this value matches up with the value in the <code>sentinel_key</code> field for the document before retrieving it, to know that it has been updated.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <p>.. code-block:: python</p>
 <p>context.get("Publication", "2cf0d07c-cba9-47e3-9063-5d6265e26089")</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">647</span>
 <span class="normal">648</span>
 <span class="normal">649</span>
@@ -3991,7 +3742,7 @@ check that this value matches up with the value in the <code>sentinel_key</code>
     <span class="n">sentinel_value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns a document from Elasticsearch.</span>
+<span class="sd">    Returns a document from OpenSearch.</span>
 
 <span class="sd">    Parameters:</span>
 
@@ -4026,13 +3777,13 @@ check that this value matches up with the value in the <code>sentinel_key</code>
 <span class="sd">        optional</span>
 
 
-<span class="sd">        If True, this function will wait to return until the document is searchable in Elasticsearch.</span>
+<span class="sd">        If True, this function will wait to return until the document is searchable in OpenSearch.</span>
 
 <span class="sd">      * **timeout:int, default=60**</span>
 
 <span class="sd">        optional</span>
 
-<span class="sd">        This specifies the maximum time to wait for the document to be searchable in Elasticsearch if the ``wait`` parameter is set to ``True``.</span>
+<span class="sd">        This specifies the maximum time to wait for the document to be searchable in OpenSearch if the ``wait`` parameter is set to ``True``.</span>
 
 <span class="sd">      * **sentinel_key:str, default='_ingest_sentinel'**</span>
 
@@ -4040,12 +3791,12 @@ check that this value matches up with the value in the <code>sentinel_key</code>
 
 <span class="sd">        Advance Usage</span>
 
-<span class="sd">        Elasticsearch field that contains the ``sentinel_value``. By default, there will be an ``_ingest_sentinal`` Elasticsearch field.</span>
+<span class="sd">        OpenSearch field that contains the ``sentinel_value``. By default, there will be an ``_ingest_sentinal`` OpenSearch field.</span>
 
 
 <span class="sd">        This parameter relates to the ``barrier`` concept used as a parameter in the :py:meth:`yaada.analytic.context.AnalyticContext.update` method.</span>
-<span class="sd">        If this ``get`` method is being used to retrieve a document in Elasticsearch soon after it has been ingested, this can be used to wait until</span>
-<span class="sd">        that value is searchable in Elasticsearch before it is retrieved. This parameter will only be applied if the ``wait`` parameter</span>
+<span class="sd">        If this ``get`` method is being used to retrieve a document in OpenSearch soon after it has been ingested, this can be used to wait until</span>
+<span class="sd">        that value is searchable in OpenSearch before it is retrieved. This parameter will only be applied if the ``wait`` parameter</span>
 <span class="sd">        is set to ``True``.</span>
 
 <span class="sd">      * **sentinel_value:str, default=None**</span>
@@ -4054,7 +3805,7 @@ check that this value matches up with the value in the <code>sentinel_key</code>
 
 <span class="sd">        Advance Usage</span>
 
-<span class="sd">        This parameter is used to ensure that an updated document has fully updated in Elasticsearch before it is retrieved by the ``get`` method. Because a</span>
+<span class="sd">        This parameter is used to ensure that an updated document has fully updated in OpenSearch before it is retrieved by the ``get`` method. Because a</span>
 <span class="sd">        document that is being updated may already exist, YAADA needs a way to know that it has been updated before retrieving the document.</span>
 <span class="sd">        This is done by introducing a new value to the document, called a sentinal value. If a value is specified for this parameter, YAADA will</span>
 <span class="sd">        check that this value matches up with the value in the ``sentinel_key`` field for the document before retrieving it, to know that it has been updated.</span>
@@ -4088,54 +3839,22 @@ check that this value matches up with the value in the <code>sentinel_key</code>
 <code class="highlight language-python"><span class="n">index_field_mappings</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns the Elasticsearch mapping for the given <code>doc_type</code>. The Elasticsearch documentation
+<p>Returns the OpenSearch mapping for the given <code>doc_type</code>. The OpenSearch documentation
 has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html&gt;</code>_</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type, this represents an Elasticsearch index.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**fields</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str **</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>The document type, this represents an OpenSearch index.</p>
+</li>
+<li>
+<p>**fields: str **</p>
 <p>optional</p>
 <p>Limits the mapping to fields given for this parameter. Wildcards can be used.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1023</span>
 <span class="normal">1024</span>
 <span class="normal">1025</span>
@@ -4155,16 +3874,16 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">1039</span>
 <span class="normal">1040</span>
 <span class="normal">1041</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_field_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="o">*</span><span class="n">fields</span><span class="p">):</span>
-    <span class="c1"># Link out specific Elasticsearch call</span>
+    <span class="c1"># Link out specific OpenSearch call</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns the Elasticsearch mapping for the given ``doc_type``. The Elasticsearch documentation</span>
+<span class="sd">    Returns the OpenSearch mapping for the given ``doc_type``. The OpenSearch documentation</span>
 <span class="sd">    has a section on `mappings. &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html&gt;`_</span>
 
 <span class="sd">    Parameters:</span>
 
 <span class="sd">      * **doc_type: str**</span>
 
-<span class="sd">        The document type, this represents an Elasticsearch index.</span>
+<span class="sd">        The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">      * **fields: str **</span>
 
@@ -4182,37 +3901,16 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <code class="highlight language-python"><span class="n">index_mappings</span><span class="p">(</span><span class="n">doc_type</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns raw index mapping for an Elasticsearch index. Includes Elasticsearch metadata that :py:meth:<code>yaada.analytic.context.AnalyticContext.index_field_mappings</code> does not.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type, this represents an Elasticsearch index.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Returns raw index mapping for an OpenSearch index. Includes OpenSearch metadata that :py:meth:<code>yaada.analytic.context.AnalyticContext.index_field_mappings</code> does not.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>The document type, this represents an OpenSearch index.</p>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1043</span>
 <span class="normal">1044</span>
 <span class="normal">1045</span>
@@ -4226,13 +3924,13 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">1053</span>
 <span class="normal">1054</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns raw index mapping for an Elasticsearch index. Includes Elasticsearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.</span>
+<span class="sd">    Returns raw index mapping for an OpenSearch index. Includes OpenSearch metadata that :py:meth:`yaada.analytic.context.AnalyticContext.index_field_mappings` does not.</span>
 
 <span class="sd">    Parameters:</span>
 
 <span class="sd">      * **doc_type: str**</span>
 
-<span class="sd">        The document type, this represents an Elasticsearch index.</span>
+<span class="sd">        The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc_service</span><span class="o">.</span><span class="n">index_mappings</span><span class="p">(</span><span class="n">doc_type</span><span class="p">)</span>
@@ -4245,37 +3943,16 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <code class="highlight language-python"><span class="n">index_settings</span><span class="p">(</span><span class="n">doc_type</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns an object with an index's Elasticsearch settings. <code>Documentation on Elasticsearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;</code>_</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type, this represents an Elasticsearch index.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Returns an object with an index's OpenSearch settings. <code>Documentation on OpenSearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;</code>_</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>The document type, this represents an OpenSearch index.</p>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1056</span>
 <span class="normal">1057</span>
 <span class="normal">1058</span>
@@ -4290,13 +3967,13 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <span class="normal">1067</span>
 <span class="normal">1068</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">index_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns an object with an index's Elasticsearch settings. `Documentation on Elasticsearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;`_</span>
+<span class="sd">    Returns an object with an index's OpenSearch settings. `Documentation on OpenSearch's settings &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/index-modules.html#index-modules-settings&gt;`_</span>
 
 <span class="sd">    Parameters:</span>
 
 <span class="sd">      * **doc_type: str**</span>
 
-<span class="sd">        The document type, this represents an Elasticsearch index.</span>
+<span class="sd">        The document type, this represents an OpenSearch index.</span>
 
 
 <span class="sd">    """</span>
@@ -4416,7 +4093,7 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">929</span>
 <span class="normal">930</span>
 <span class="normal">931</span>
@@ -4517,71 +4194,38 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <code class="highlight language-python"><span class="n">mget</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_include</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns multiple documents from Elasticsearch.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Returns multiple documents from OpenSearch.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
 <p>The document type of the documents to be returned.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**ids</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>list**</p>
-<p>List of unique identifiers of documents in Elasticsearch</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**source</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>list, defult=None**</p>
+</li>
+<li>
+<p><strong>ids: list</strong></p>
+<p>List of unique identifiers of documents in OpenSearch</p>
+</li>
+<li>
+<p><strong>source: list, defult=None</strong></p>
 <p>optional</p>
 <p>A list containing the fields that will be returned for the document.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+<li>
+<p><strong>source_exclude, default=None</strong></p>
+<p>optional</p>
+<p>A list containing the fields that will be excluded from what is returned for the document.</p>
+</li>
+<li>
+<p><strong>source_include, default=None</strong></p>
+<p>optional</p>
+<p>A list containing the fields that will returned for the document.</p>
+</li>
+</ul>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <p>context.mget("Publication", ["2cf0d07c-cba9-47e3-9063-5d6265e26089", "b0e062ac-0e84-40db-8ecd-36e1aa0e264b"])</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">771</span>
 <span class="normal">772</span>
 <span class="normal">773</span>
@@ -4633,7 +4277,7 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
     <span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exclude</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_include</span><span class="o">=</span><span class="kc">None</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns multiple documents from Elasticsearch.</span>
+<span class="sd">    Returns multiple documents from OpenSearch.</span>
 
 <span class="sd">    Parameters:</span>
 
@@ -4643,7 +4287,7 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 
 <span class="sd">      * **ids: list**</span>
 
-<span class="sd">        List of unique identifiers of documents in Elasticsearch</span>
+<span class="sd">        List of unique identifiers of documents in OpenSearch</span>
 
 <span class="sd">      * **source: list, defult=None**</span>
 
@@ -4686,134 +4330,43 @@ has a section on <code>mappings. &lt;https://www.elastic.co/guide/en/elasticsear
 <code class="highlight language-python"><span class="n">query</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s1">'query'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'match_all'</span><span class="p">:</span> <span class="p">{}}},</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">scroll_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">scroll</span><span class="o">=</span><span class="s1">'2m'</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns results of a query to Elasticsearch as a generator object. It uses an abstraction of the <code>scroll API &lt;https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html&gt;</code>_.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>This represents an Elasticsearch index. The query will search the index.</p>
-<p>Every document in Elasticsearch has a required <code>doc_type</code> field as described in the :ref:<code>Documents</code> section.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**query</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>dict, default={"query": {"match_all": {}}}**</p>
+<p>Returns results of a query to OpenSearch as a generator object. It uses an abstraction of the <code>scroll API &lt;https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html&gt;</code>_.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>This represents an OpenSearch index. The query will search the index.</p>
+<p>Every document in OpenSearch has a required <code>doc_type</code> field as described in the :ref:<code>Documents</code> section.</p>
+</li>
+<li>
+<p><strong>query: dict, default={"query": {"match_all": {}}}</strong></p>
 <p>optional</p>
-<p>An Elasticsearch query. More info can be found in <code>Elasticsearch documentation.
-&lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;</code>_</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**size</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>int, default=None**</p>
+<p>An OpenSearch query. More info can be found in <code>OpenSearch documentation.
+&lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;</code>_
+  * <strong>size:int, default=None</strong></p>
 <p>optional</p>
 <p>Specifies number of documents to be returned. If the value is greater than the
-resulting number of documents, the resulting documents will all be returned.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**scroll_size</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>int, defaults=1000**</p>
+resulting number of documents, the resulting documents will all be returned.
+  * <strong>scroll_size:int, defaults=1000</strong></p>
 <p>optional</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**scroll</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str, default='2m'**</p>
+</li>
+<li>
+<p><strong>scroll:str, default='2m'</strong></p>
 <p>optional</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**raw</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>bool, default=False**</p>
+</li>
+<li>
+<p><strong>raw:bool, default=False</strong></p>
 <p>optional</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**source</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>list, default=None**</p>
+</li>
+<li>
+<p><strong>source:list, default=None</strong></p>
 <p>optional</p>
 <p>A list of fields that will be shown for each document returned by the query. Used to limit the fields that each document will return.
 Must include <code>_id</code> and <code>doc_type</code>.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">553</span>
 <span class="normal">554</span>
 <span class="normal">555</span>
@@ -4889,21 +4442,21 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
     <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Returns results of a query to Elasticsearch as a generator object. It uses an abstraction of the `scroll API &lt;https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html&gt;`_.</span>
+<span class="sd">    Returns results of a query to OpenSearch as a generator object. It uses an abstraction of the `scroll API &lt;https://www.elastic.co/guide/en/elasticsearch/reference/7.9/scroll-api.html&gt;`_.</span>
 
 <span class="sd">    Parameters:</span>
 
 <span class="sd">      * **doc_type: str**</span>
 
-<span class="sd">        This represents an Elasticsearch index. The query will search the index.</span>
+<span class="sd">        This represents an OpenSearch index. The query will search the index.</span>
 
-<span class="sd">        Every document in Elasticsearch has a required ``doc_type`` field as described in the :ref:`Documents` section.</span>
+<span class="sd">        Every document in OpenSearch has a required ``doc_type`` field as described in the :ref:`Documents` section.</span>
 
 <span class="sd">      * **query: dict, default={"query": {"match_all": {}}}**</span>
 
 <span class="sd">        optional</span>
 
-<span class="sd">        An Elasticsearch query. More info can be found in `Elasticsearch documentation.</span>
+<span class="sd">        An OpenSearch query. More info can be found in `OpenSearch documentation.</span>
 <span class="sd">        &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_</span>
 <span class="sd">      * **size:int, default=None**</span>
 
@@ -4953,52 +4506,20 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
 </h3>
 <div class="doc doc-contents">
 <p>Returns results to a query.</p>
-<p>This returns the bare elasticsearch results. Use this to access to the scoring information or aggregations.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type, this represents an Elasticsearch index.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**query</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>dict**</p>
-<p>Elasticsearch query, more documentation can be found <code>here &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;</code>_.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+<p>This returns the bare opensearch results. Use this to access to the scoring information or aggregations.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>The document type, this represents an OpenSearch index.</p>
+</li>
+<li>
+<p><strong>query: dict</strong></p>
+<p>OpenSearch query, more documentation can be found <code>here &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;</code>_.</p>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1081</span>
 <span class="normal">1082</span>
 <span class="normal">1083</span>
@@ -5020,17 +4541,17 @@ Must include <code>_id</code> and <code>doc_type</code>.</p>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Returns results to a query.</span>
 
-<span class="sd">    This returns the bare elasticsearch results. Use this to access to the scoring information or aggregations.</span>
+<span class="sd">    This returns the bare opensearch results. Use this to access to the scoring information or aggregations.</span>
 
 <span class="sd">    Parameters:</span>
 
 <span class="sd">      * **doc_type: str**</span>
 
-<span class="sd">        The document type, this represents an Elasticsearch index.</span>
+<span class="sd">        The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">      * **query: dict**</span>
 
-<span class="sd">        Elasticsearch query, more documentation can be found `here &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_.</span>
+<span class="sd">        OpenSearch query, more documentation can be found `here &lt;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html&gt;`_.</span>
 
 <span class="sd">    """</span>
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">doc_service</span><span class="o">.</span><span class="n">rawquery</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
@@ -5056,7 +4577,7 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 </li>
 </ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">494</span>
 <span class="normal">495</span>
 <span class="normal">496</span>
@@ -5129,7 +4650,7 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <div class="doc doc-contents">
 <p>check if a document is searchable with a given sentinel value.</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">905</span>
 <span class="normal">906</span>
 <span class="normal">907</span>
@@ -5185,6 +4706,7 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 </h3>
 <div class="doc doc-contents">
 <p>Assigns an <code>analytic_name</code> value of a context object.</p>
+<p>Parameters:</p>
 <ul>
 <li><strong>analytic_name: str</strong></li>
 </ul>
@@ -5194,7 +4716,7 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 <pre><code>context.set_analytic_name("jupyter")
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">150</span>
 <span class="normal">151</span>
 <span class="normal">152</span>
@@ -5238,40 +4760,19 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 </h3>
 <div class="doc doc-contents">
 <p>Assigns an <code>analytic_session_id</code> value of a context object.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**analytic_session_id</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>analytic_session_id: str</strong></p>
 <p>An identifier for this analytic object</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <pre><code>context.set_analytic_session_id("Query Data")
 </code></pre>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">169</span>
 <span class="normal">170</span>
 <span class="normal">171</span>
@@ -5315,109 +4816,44 @@ to show intermediate status of a an analytic. To do this, call it in the <code>r
 </h3>
 <div class="doc doc-contents">
 <p>Synchronously run an analytic. A tutorial on writing and running yaada analytics can be found in the :ref:<code>Writing an Analytic&lt;Writing an Analytic&gt;</code> section.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**analytic_name</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>analytic_name: str</strong></p>
 <p>The full analytic class name.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**analytic_session_id</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str, default=None**</p>
+</li>
+<li>
+<p><strong>analytic_session_id: str, default=None</strong></p>
 <p>optional</p>
-<p>This value will be stored in Elasticsearch to mark the documents changed by this analytic session.
+<p>This value will be stored in OpenSearch to mark the documents changed by this analytic session.
 If a value is not defined, the context object's <code>analytic_session_id</code> value will be automatically assigned.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**parameters</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>dict, default={}**</p>
+</li>
+<li>
+<p><strong>parameters: dict, default={}</strong></p>
 <p>optional</p>
 <p>This value corresponds to the parameters of the yaada analytic being run.</p>
 <p>The parameters are assigned by setting each key in this dict to a string
 of the name of a parameter. The parameter will be assinged to the value given in the key-value pair.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**include_results</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>bool, default=False**</p>
+</li>
+<li>
+<p><strong>include_results: bool, default=False</strong></p>
 <p>If running an analytic synchronously, setting this to  <code>True</code> will return the produced documents from the analytic.</p>
 <p>Warning - Will Produce a Large Output</p>
 <p>optional</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**printer</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>function, default=print**</p>
+</li>
+<li>
+<p><strong>printer: function, default=print</strong></p>
 <p>optional</p>
 <p>Advanced Usage, Experimental API subject to change, not recommended for users</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <p>Example:</p>
 <p>.. code-block:: python</p>
 <p>context.sync_exec_analytic(
       analytic_name="yaada.analytic.builtin.newspaper.NewspaperScrapeSources",
       parameters={"content":True,"scrape_top_image":False,"memoize":True})</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1126</span>
 <span class="normal">1127</span>
 <span class="normal">1128</span>
@@ -5505,7 +4941,7 @@ of the name of a parameter. The parameter will be assinged to the value given in
 
 <span class="sd">        optional</span>
 
-<span class="sd">        This value will be stored in Elasticsearch to mark the documents changed by this analytic session.</span>
+<span class="sd">        This value will be stored in OpenSearch to mark the documents changed by this analytic session.</span>
 <span class="sd">        If a value is not defined, the context object's ``analytic_session_id`` value will be automatically assigned.</span>
 
 <span class="sd">      * **parameters: dict, default={}**</span>
@@ -5560,68 +4996,25 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <code class="highlight language-python"><span class="n">term_counts</span><span class="p">(</span><span class="n">doc_type</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s1">'query'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'match_all'</span><span class="p">:</span> <span class="p">{}}})</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Returns an object describing the frequency of terms for a given field of an index by running an Elasticsearch terms aggregation.</p>
-<p><strong>Parameters:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**doc_type</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
-<p>The document type, this represents an Elasticsearch index.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**term</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>str**</p>
+<p>Returns an object describing the frequency of terms for a given field of an index by running an OpenSearch terms aggregation.</p>
+<p>Parameters:</p>
+<ul>
+<li>
+<p><strong>doc_type: str</strong></p>
+<p>The document type, this represents an OpenSearch index.</p>
+</li>
+<li>
+<p><strong>term: str</strong></p>
 <p>The field that will be inspected.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr>
-<td><code>*</code></td>
-<td>
-<code>**query</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>dict, default={"query":{"match_all":{}}}**</p>
+</li>
+<li>
+<p><strong>query: dict, default={"query":{"match_all":{}}}</strong></p>
 <p>optional</p>
 <p>Provides a filter for the documents that will be aggregated.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+</li>
+</ul>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 993</span>
 <span class="normal"> 994</span>
 <span class="normal"> 995</span>
@@ -5647,13 +5040,13 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <span class="normal">1015</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">term_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_type</span><span class="p">,</span> <span class="n">term</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}}}):</span>
 <span class="w">    </span><span class="sd">"""</span>
 
-<span class="sd">    Returns an object describing the frequency of terms for a given field of an index by running an Elasticsearch terms aggregation.</span>
+<span class="sd">    Returns an object describing the frequency of terms for a given field of an index by running an OpenSearch terms aggregation.</span>
 
 <span class="sd">    Parameters:</span>
 
 <span class="sd">      * **doc_type: str**</span>
 
-<span class="sd">        The document type, this represents an Elasticsearch index.</span>
+<span class="sd">        The document type, this represents an OpenSearch index.</span>
 
 <span class="sd">      * **term: str**</span>
 
@@ -5676,13 +5069,13 @@ of the name of a parameter. The parameter will be assinged to the value given in
 <code class="highlight language-python"><span class="n">update</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sync</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">archive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">barrier</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">barrier_timeout</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">raise_ingest_error</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
 </h3>
 <div class="doc doc-contents">
-<p>Stores the document given by the <code>doc</code> parameter in Elasticsearch.</p>
+<p>Stores the document given by the <code>doc</code> parameter in OpenSearch.</p>
 <p>Parameters:</p>
 <ul>
 <li>
 <p><strong>doc: dict, list[dict]</strong></p>
-<p>The <code>doc</code> parameter, represents an Elasticsearch document to be ingested. The schema and details of a document can be found in :ref:<code>Documents</code>.</p>
-<p>This parameter can be given as a dictionary representation of an Elasticsearch document, or a list of <code>doc</code>'s which will result in a batch-ingest.</p>
+<p>The <code>doc</code> parameter, represents an OpenSearch document to be ingested. The schema and details of a document can be found in :ref:<code>Documents</code>.</p>
+<p>This parameter can be given as a dictionary representation of an OpenSearch document, or a list of <code>doc</code>'s which will result in a batch-ingest.</p>
 </li>
 <li>
 <p><strong>process: bool, default = True</strong></p>
@@ -5707,7 +5100,7 @@ when it was originally ingested.</p>
 <li>
 <p><strong>barrier: bool, default=False</strong></p>
 <p>optional</p>
-<p>Setting <code>barrier</code> to <code>True</code> ensures that the document is indexed Elasticsearch
+<p>Setting <code>barrier</code> to <code>True</code> ensures that the document is indexed OpenSearch
 and searchable before the the update function finishes running.</p>
 <p>Enabling <code>barrier</code> will dractically reduce throughput performace especially if <code>update</code>
 is being called repeatedly by updating one document at a time. The process will not be slowed
@@ -5717,7 +5110,7 @@ drastically if the <code>update</code> is run as a batch-ingest.</p>
 <p><strong>barrier_timeout: int, default=600</strong></p>
 <p>optional</p>
 <p>This value is the maximum amount of time in seconds that the function will wait
-for the document to appear in Elasticsearch before finishing. If this maximum value
+for the document to appear in OpenSearch before finishing. If this maximum value
 is reached and the document is not in elastic search, it will return an
 <code>IngestBarrierTimeout</code> error. This only applies if the <code>barrier</code> parameter is set
 to <code>True</code>.</p>
@@ -5737,7 +5130,7 @@ to <code>True</code>.</p>
   }
   context.update(doc)</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">385</span>
 <span class="normal">386</span>
 <span class="normal">387</span>
@@ -5848,15 +5241,15 @@ to <code>True</code>.</p>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 
-<span class="sd">    Stores the document given by the ``doc`` parameter in Elasticsearch.</span>
+<span class="sd">    Stores the document given by the ``doc`` parameter in OpenSearch.</span>
 
 <span class="sd">      Parameters:</span>
 
 <span class="sd">      * **doc: dict, list[dict]**</span>
 
-<span class="sd">        The ``doc`` parameter, represents an Elasticsearch document to be ingested. The schema and details of a document can be found in :ref:`Documents`.</span>
+<span class="sd">        The ``doc`` parameter, represents an OpenSearch document to be ingested. The schema and details of a document can be found in :ref:`Documents`.</span>
 
-<span class="sd">        This parameter can be given as a dictionary representation of an Elasticsearch document, or a list of ``doc``'s which will result in a batch-ingest.</span>
+<span class="sd">        This parameter can be given as a dictionary representation of an OpenSearch document, or a list of ``doc``'s which will result in a batch-ingest.</span>
 
 <span class="sd">      * **process: bool, default = True**</span>
 
@@ -5886,7 +5279,7 @@ to <code>True</code>.</p>
 
 <span class="sd">        optional</span>
 
-<span class="sd">        Setting ``barrier`` to ``True`` ensures that the document is indexed Elasticsearch</span>
+<span class="sd">        Setting ``barrier`` to ``True`` ensures that the document is indexed OpenSearch</span>
 <span class="sd">        and searchable before the the update function finishes running.</span>
 
 <span class="sd">        Enabling ``barrier`` will dractically reduce throughput performace especially if ``update``</span>
@@ -5898,7 +5291,7 @@ to <code>True</code>.</p>
 <span class="sd">        optional</span>
 
 <span class="sd">        This value is the maximum amount of time in seconds that the function will wait</span>
-<span class="sd">        for the document to appear in Elasticsearch before finishing. If this maximum value</span>
+<span class="sd">        for the document to appear in OpenSearch before finishing. If this maximum value</span>
 <span class="sd">        is reached and the document is not in elastic search, it will return an</span>
 <span class="sd">        ``IngestBarrierTimeout`` error. This only applies if the ``barrier`` parameter is set</span>
 <span class="sd">        to ``True``.</span>
@@ -5946,8 +5339,9 @@ to <code>True</code>.</p>
 </h2>
 <div class="doc doc-contents">
 <p>Return an instance of the context object. A context object is needed to
-interact with the Elasticsearch database using python. A detailed description of the
+interact with the OpenSearch database using python. A detailed description of the
 context object can be found in the :ref:<code>Context Object&lt;Context Object&gt;</code> section.</p>
+<p>Parameters:</p>
 <ul>
 <li><strong>analytic_name: str, default='anonymous'</strong></li>
 </ul>
@@ -5959,7 +5353,7 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <li><strong>analytic_session_id: str, default=None</strong></li>
 </ul>
 <p>optional</p>
-<p>This value will be saved in Elasticsearch. It will mark which documents are edited by this specific instance of the
+<p>This value will be saved in OpenSearch. It will mark which documents are edited by this specific instance of the
   context object.
   Documents added or edited by a context, will inherit that context's <code>analytic_session_id</code> in a <code>analytic_session_id</code> field.</p>
 <p>If no value is given, a universally unique identifier will be automatically assigned.</p>
@@ -5993,7 +5387,7 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <p>from yaada.analytic.context import make_analytic_context
   context = make_analytic_context()</p>
 <details class="quote">
-<summary>Source code in <code>/Users/ganberg/dev/git/yaada/src/core/yaada/core/analytic/context.py</code></summary>
+<summary>Source code in <code>yaada/core/analytic/context.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1340</span>
 <span class="normal">1341</span>
 <span class="normal">1342</span>
@@ -6123,7 +5517,7 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Return an instance of the context object. A context object is needed to</span>
-<span class="sd">    interact with the Elasticsearch database using python. A detailed description of the</span>
+<span class="sd">    interact with the OpenSearch database using python. A detailed description of the</span>
 <span class="sd">    context object can be found in the :ref:`Context Object&lt;Context Object&gt;` section.</span>
 
 <span class="sd">    Parameters:</span>
@@ -6141,7 +5535,7 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 
 <span class="sd">      optional</span>
 
-<span class="sd">      This value will be saved in Elasticsearch. It will mark which documents are edited by this specific instance of the</span>
+<span class="sd">      This value will be saved in OpenSearch. It will mark which documents are edited by this specific instance of the</span>
 <span class="sd">      context object.</span>
 <span class="sd">      Documents added or edited by a context, will inherit that context's ``analytic_session_id`` in a ``analytic_session_id`` field.</span>
 
@@ -6226,6 +5620,7 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 </div>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 </main>
 <footer class="md-footer">
@@ -6249,8 +5644,8 @@ context object can be found in the :ref:<code>Context Object&lt;Context Object&g
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);

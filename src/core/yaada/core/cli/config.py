@@ -34,8 +34,8 @@ from yaada.core.cli.project import Project
 )
 @click.option("--mqtt-port", type=int, default=None)
 @click.option("--mqtt-hostname", type=click.STRING, default=None)
-@click.option("--elasticsearch-port", type=int, default=None)
-@click.option("--elasticsearch-hostname", type=click.STRING, default=None)
+@click.option("--opensearch-port", type=int, default=None)
+@click.option("--opensearch-hostname", type=click.STRING, default=None)
 @click.option("--objectstorage-port", type=int, default=None)
 @click.option("--objectstorage-hostname", type=click.STRING, default=None)
 @click.option("--objectstorage-location", type=click.STRING, default=None)
@@ -52,8 +52,8 @@ def env(
     protocol,
     mqtt_port,
     mqtt_hostname,
-    elasticsearch_port,
-    elasticsearch_hostname,
+    opensearch_port,
+    opensearch_hostname,
     objectstorage_port,
     objectstorage_hostname,
     objectstorage_location,
@@ -67,7 +67,7 @@ def env(
     data["environments"] = {}
     data["environments"][env] = dict()
     data["environments"][env]["mqtt"] = {}
-    data["environments"][env]["elasticsearch"] = {}
+    data["environments"][env]["opensearch"] = {}
     data["environments"][env]["objectstorage"] = {}
 
     if hostname is not None:
@@ -87,10 +87,10 @@ def env(
     if mqtt_hostname is not None:
         data["environments"][env]["mqtt"]["hostname"] = mqtt_hostname
 
-    if elasticsearch_port is not None:
-        data["environments"][env]["elasticsearch"]["port"] = elasticsearch_port
-    if elasticsearch_hostname is not None:
-        data["environments"][env]["elasticsearch"]["hostname"] = elasticsearch_hostname
+    if opensearch_port is not None:
+        data["environments"][env]["opensearch"]["port"] = opensearch_port
+    if opensearch_hostname is not None:
+        data["environments"][env]["opensearch"]["hostname"] = opensearch_hostname
 
     if objectstorage_port is not None:
         data["environments"][env]["objectstorage"]["port"] = objectstorage_port

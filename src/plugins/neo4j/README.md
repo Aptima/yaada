@@ -30,6 +30,12 @@ services:
 
 ## YAADA Configuration
 
+In order to load the neo4j plugin, add `yaada.neo4j.plugin.Neo4jPlugin` to the the `yaada.context.plugins` list in your project's conf file.
+
+Assuming no other plugins, it could look like this:
+```
+yaada.context.plugins = ["yaada.neo4j.plugin.Neo4jPlugin"]
+
 Example configuration for mapping data scraped from github into a graph structure:
 
 ```

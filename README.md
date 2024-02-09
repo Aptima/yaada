@@ -9,7 +9,7 @@ This README has contains instructions for developing the core YAADA project. For
 ### Prerequisites
 * Docker
 * docker-compose (isn't always installed with Docker under Linux, so may need to install seperately)
-* Python 3.8
+* Python 3.10
 * [PIP](https://pip.pypa.io/en/stable/)
 * [`pipenv`](https://pipenv.pypa.io/en/latest/)
 * Optional but recommended [`cookiecutter`](https://cookiecutter.readthedocs.io/en/stable/) -- if you would like to create your project from a template
@@ -158,6 +158,12 @@ cat cert/ZscalerRootCertificate-2048-SHA256.crt >> $(python -m certifi)
 ```
 
 ## Release Notes
+
+### 7.0.0
+
+- Drop support for Elasticsearch and OpenSearch 1.X. Upgraded OpenSearch to latest 2.X version.
+- Minimum Python version changed from 3.8 to 3.10
+
 ### 6.2.3
 
 - update pinned dependencies for Docker images

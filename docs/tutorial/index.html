@@ -8,9 +8,9 @@
 <link href="../concepts/" rel="prev"/>
 <link href="../openapi/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.17" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
 <title>Tutorial - Yet Another Analytic Dataflow Architecture</title>
-<link href="../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -18,7 +18,6 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -53,6 +52,7 @@
 </div>
 </div>
 </div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -101,28 +101,38 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
-        Home
-      </a>
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../getting-started/">
-        Getting Started
-      </a>
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../concepts/">
-        Architecture and Concepts
-      </a>
+<span class="md-ellipsis">
+    Architecture and Concepts
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Tutorial
-          <span class="md-nav__icon md-icon"></span>
+<span class="md-ellipsis">
+    Tutorial
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Tutorial
-      </a>
+<span class="md-ellipsis">
+    Tutorial
+  </span>
+</a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
 <span class="md-nav__icon md-icon"></span>
@@ -131,118 +141,158 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#creating-a-project">
-    Creating a project
-  </a>
+<span class="md-ellipsis">
+      Creating a project
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#working-with-jupyter-or-ipython">
-    Working with Jupyter or IPython
-  </a>
+<span class="md-ellipsis">
+      Working with Jupyter or IPython
+    </span>
+</a>
 <nav aria-label="Working with Jupyter or IPython" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#jupyter">
-    Jupyter
-  </a>
+<span class="md-ellipsis">
+      Jupyter
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ipython">
-    IPython
-  </a>
+<span class="md-ellipsis">
+      IPython
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ingesting-data">
-    Ingesting Data
-  </a>
+<span class="md-ellipsis">
+      Ingesting Data
+    </span>
+</a>
 <nav aria-label="Ingesting Data" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#download-csv-data">
-    Download csv data
-  </a>
+<span class="md-ellipsis">
+      Download csv data
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#load-the-csv">
-    Load the csv
-  </a>
+<span class="md-ellipsis">
+      Load the csv
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#defining-a-document-schema">
-    Defining a document schema
-  </a>
+<span class="md-ellipsis">
+      Defining a document schema
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#querying-data">
-    Querying Data
-  </a>
+<span class="md-ellipsis">
+      Querying Data
+    </span>
+</a>
 <nav aria-label="Querying Data" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fetch-documents-from-an-index-with-contextquery-method">
-    Fetch documents from an index with context.query method
-  </a>
+<span class="md-ellipsis">
+      Fetch documents from an index with context.query method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#compute-value-counts-with-contextterm_counts-method">
-    Compute value counts with context.term_counts method
-  </a>
+<span class="md-ellipsis">
+      Compute value counts with context.term_counts method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#check-if-a-document-exists-by-id-with-contextexists-method">
-    Check if a document exists by id with context.exists method
-  </a>
+<span class="md-ellipsis">
+      Check if a document exists by id with context.exists method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fetch-specific-document-with-contextget-method">
-    Fetch specific document with context.get method
-  </a>
+<span class="md-ellipsis">
+      Fetch specific document with context.get method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#raw-elasticsearch-queryaggregation-with-contextrawquery-method">
-    Raw Elasticsearch query/aggregation with context.rawquery method
-  </a>
+<a class="md-nav__link" href="#raw-opensearch-queryaggregation-with-contextrawquery-method">
+<span class="md-ellipsis">
+      Raw OpenSearch query/aggregation with context.rawquery method
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#elasticsearch-schema-mapping">
-    Elasticsearch schema mapping
-  </a>
+<a class="md-nav__link" href="#opensearch-schema-mapping">
+<span class="md-ellipsis">
+      OpenSearch schema mapping
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#applying-builtin-analyticspipelines">
-    Applying builtin analytics/pipelines
-  </a>
+<span class="md-ellipsis">
+      Applying builtin analytics/pipelines
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#writing-an-analytic">
-    Writing an Analytic
-  </a>
+<span class="md-ellipsis">
+      Writing an Analytic
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#writing-a-pipeline-processor">
-    Writing a Pipeline Processor
-  </a>
+<span class="md-ellipsis">
+      Writing a Pipeline Processor
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#extending-the-rest-api-with-custom-endpoints">
-    Extending the REST API with custom endpoints
-  </a>
+<span class="md-ellipsis">
+      Extending the REST API with custom endpoints
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../openapi/">
-        REST API
-      </a>
+<span class="md-ellipsis">
+    REST API
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -260,110 +310,148 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#creating-a-project">
-    Creating a project
-  </a>
+<span class="md-ellipsis">
+      Creating a project
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#working-with-jupyter-or-ipython">
-    Working with Jupyter or IPython
-  </a>
+<span class="md-ellipsis">
+      Working with Jupyter or IPython
+    </span>
+</a>
 <nav aria-label="Working with Jupyter or IPython" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#jupyter">
-    Jupyter
-  </a>
+<span class="md-ellipsis">
+      Jupyter
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ipython">
-    IPython
-  </a>
+<span class="md-ellipsis">
+      IPython
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ingesting-data">
-    Ingesting Data
-  </a>
+<span class="md-ellipsis">
+      Ingesting Data
+    </span>
+</a>
 <nav aria-label="Ingesting Data" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#download-csv-data">
-    Download csv data
-  </a>
+<span class="md-ellipsis">
+      Download csv data
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#load-the-csv">
-    Load the csv
-  </a>
+<span class="md-ellipsis">
+      Load the csv
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#defining-a-document-schema">
-    Defining a document schema
-  </a>
+<span class="md-ellipsis">
+      Defining a document schema
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#querying-data">
-    Querying Data
-  </a>
+<span class="md-ellipsis">
+      Querying Data
+    </span>
+</a>
 <nav aria-label="Querying Data" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fetch-documents-from-an-index-with-contextquery-method">
-    Fetch documents from an index with context.query method
-  </a>
+<span class="md-ellipsis">
+      Fetch documents from an index with context.query method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#compute-value-counts-with-contextterm_counts-method">
-    Compute value counts with context.term_counts method
-  </a>
+<span class="md-ellipsis">
+      Compute value counts with context.term_counts method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#check-if-a-document-exists-by-id-with-contextexists-method">
-    Check if a document exists by id with context.exists method
-  </a>
+<span class="md-ellipsis">
+      Check if a document exists by id with context.exists method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#fetch-specific-document-with-contextget-method">
-    Fetch specific document with context.get method
-  </a>
+<span class="md-ellipsis">
+      Fetch specific document with context.get method
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#raw-elasticsearch-queryaggregation-with-contextrawquery-method">
-    Raw Elasticsearch query/aggregation with context.rawquery method
-  </a>
+<a class="md-nav__link" href="#raw-opensearch-queryaggregation-with-contextrawquery-method">
+<span class="md-ellipsis">
+      Raw OpenSearch query/aggregation with context.rawquery method
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#elasticsearch-schema-mapping">
-    Elasticsearch schema mapping
-  </a>
+<a class="md-nav__link" href="#opensearch-schema-mapping">
+<span class="md-ellipsis">
+      OpenSearch schema mapping
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#applying-builtin-analyticspipelines">
-    Applying builtin analytics/pipelines
-  </a>
+<span class="md-ellipsis">
+      Applying builtin analytics/pipelines
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#writing-an-analytic">
-    Writing an Analytic
-  </a>
+<span class="md-ellipsis">
+      Writing an Analytic
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#writing-a-pipeline-processor">
-    Writing a Pipeline Processor
-  </a>
+<span class="md-ellipsis">
+      Writing a Pipeline Processor
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#extending-the-rest-api-with-custom-endpoints">
-    Extending the REST API with custom endpoints
-  </a>
+<span class="md-ellipsis">
+      Extending the REST API with custom endpoints
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -393,7 +481,7 @@
 </code></pre></div>
 <p>Unlike with Jupyter, you don't need to construct the <code>context</code> manually. Once you are in the REPL, you will have a <code>context</code> already constructed for you and any code changes in your project will be automatically picked up through <a href="https://ipython.org/ipython-doc/3/config/extensions/autoreload.html">IPython magic autoreload</a>.</p>
 <h2 id="ingesting-data">Ingesting Data</h2>
-<p>This section will cover ingesting data into YAADA's Elasticsearch. The tutorial will leverage a publically available csv containing avengers character data.
+<p>This section will cover ingesting data into YAADA's OpenSearch. The tutorial will leverage a publically available csv containing avengers character data.
 Content in this section assumes you have created an IPython shell with <code>yda run ipython</code> or using Jupyter Lab with <code>yda run jupyter</code> and have already constructed your YAADA <code>context</code>.</p>
 <h3 id="download-csv-data">Download csv data</h3>
 <p>Download the <code>avengers.csv</code>:</p>
@@ -414,7 +502,7 @@ Content in this section assumes you have created an IPython shell with <code>yda
   <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">reader</span><span class="p">):</span> 
     <span class="c1"># Create a dictionary containing all the values from the row, adding a `doc_type`</span>
     <span class="c1"># and normalizing the csv columns names to be better dictionary keys. Note that any </span>
-    <span class="c1"># fields that are an empty string are omitted to prevent Elasticsearch from inferring </span>
+    <span class="c1"># fields that are an empty string are omitted to prevent OpenSearch from inferring </span>
     <span class="c1"># the wrong schema type for the field.</span>
     <span class="n">doc</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">doc_type</span><span class="o">=</span><span class="s2">"Avenger"</span><span class="p">,</span><span class="o">**</span><span class="p">{</span><span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">"\W+"</span><span class="p">,</span><span class="s1">'_'</span><span class="p">,</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()):</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span><span class="n">v</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span> <span class="o">!=</span> <span class="s1">''</span><span class="p">})</span>
     <span class="c1"># for fields that contain numeric values, coerce to number if non empty string, delete if</span>
@@ -427,10 +515,10 @@ Content in this section assumes you have created an IPython shell with <code>yda
 
     <span class="c1"># Create a unique id for this row by hashing the URL it came from.</span>
     <span class="n">doc</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">hash_for_text</span><span class="p">([</span><span class="n">row</span><span class="p">[</span><span class="s1">'URL'</span><span class="p">]])</span> 
-    <span class="c1"># Save into elasticsearch</span>
+    <span class="c1"># Save into opensearch</span>
     <span class="n">context</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> 
 </code></pre></div></p>
-<p>Now verify that you have documents in Elasticsearch using <code>context.document_counts()</code>:</p>
+<p>Now verify that you have documents in OpenSearch using <code>context.document_counts()</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">context</span><span class="o">.</span><span class="n">document_counts</span><span class="p">()</span>
 </code></pre></div>
 <p>will result in:
@@ -469,7 +557,7 @@ Note that several fields (i.e. <code>analytic_name</code>, <code>analytic_sessio
 <p><div class="highlight"><pre><span></span><code><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
 <span class="nt">properties</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">id</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The index-unique id used for writing into elasticsearch -- will be autogenerated if omitted.</span>
+<span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">The index-unique id used for writing into opensearch -- will be autogenerated if omitted.</span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 <span class="w">  </span><span class="nt">doc_type</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
@@ -536,7 +624,7 @@ Failed validating 'required' in schema:
      'links': {},
      'nullable': False,
      'properties': {'_id': {'description': 'The index-unique id used for '
-                                           'writing into elasticsearch -- '
+                                           'writing into opensearch -- '
                                            'will be autogenerated if '
                                            'omitted.',
                             'type': 'string'},
@@ -552,7 +640,7 @@ Failed validating 'required' in schema:
                     'gender': {'type': 'string'},
                     'honorary': {'type': 'string'},
                     'id': {'description': 'The index-unique id used for '
-                                          'writing into elasticsearch -- '
+                                          'writing into opensearch -- '
                                           'will be autogenerated if '
                                           'omitted.',
                            'type': 'string'},
@@ -585,7 +673,7 @@ On instance:
 <p>This section will cover how to query data in YAADA. The methods that will be covered are <code>query</code>, <code>term_counts</code>, <code>exists</code>, <code>get</code>, and <code>rawquery</code> context methods.
 Content in this section assumes you have created an IPython shell with <code>yda run ipython</code> or using Jupyter Lab with <code>yda run jupyter</code> and have already constructed your YAADA <code>context</code>, and have followed the previous tutorial to ingest <code>Avenger</code> documents.</p>
 <h3 id="fetch-documents-from-an-index-with-contextquery-method">Fetch documents from an index with <code>context.query</code> method</h3>
-<p>This method uses the Elasticsearch scroll api through the Elasticsearch scan method and so can return extremely large numbers of documents if you are not careful.</p>
+<p>This method uses the OpenSearch scroll api through the OpenSearch scan method and so can return extremely large numbers of documents if you are not careful.</p>
 <p>Basic usage of <code>query</code> to retrieve all documents in index just requires passing the <code>doc_type</code> as a parameter:</p>
 <p><div class="highlight"><pre><span></span><code><span class="n">avengers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">avengers</span><span class="p">))</span>
@@ -593,9 +681,9 @@ Content in this section assumes you have created an IPython shell with <code>yda
 Which should print:</p>
 <div class="highlight"><pre><span></span><code>173
 </code></pre></div>
-<p>Note that <code>context.query('Avenger')</code> returns a python generator that will lazily scroll through the Elasticsearch index, so we realize by wrapping with the <code>list</code> constructor.</p>
-<p>Now let's query for a subset of avengers using an Elasticsearch query. See <a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.10/query-dsl.html">Elasticsearch Query DSL documentation</a> for more details.</p>
-<p>We are going to query for all avengers that have dies 3 times. Note that in the following query, we append a <code>.keyword</code> to the field we are querying on because by default, Elasticsearch maps string to a fuzzy search index mapping, and provides a <code>.keyword</code> variant for exact matching with <code>term</code> queries.
+<p>Note that <code>context.query('Avenger')</code> returns a python generator that will lazily scroll through the OpenSearch index, so we realize by wrapping with the <code>list</code> constructor.</p>
+<p>Now let's query for a subset of avengers using an OpenSearch query. See <a href="https://opensearch.org/docs/latest/query-dsl/">OpenSearch Query DSL documentation</a> for more details.</p>
+<p>We are going to query for all avengers that have dies 3 times. Note that in the following query, we append a <code>.keyword</code> to the field we are querying on because by default, OpenSearch maps string to a fuzzy search index mapping, and provides a <code>.keyword</code> variant for exact matching with <code>term</code> queries.
 <div class="highlight"><pre><span></span><code><span class="n">avengers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,{</span>
     <span class="s2">"query"</span><span class="p">:{</span>
         <span class="s2">"term"</span><span class="p">:</span> <span class="p">{</span>
@@ -664,9 +752,9 @@ which should print:
  'id': 'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89',
  '_id': 'e5d765e20f6e5e36f409a0cac8ff26bccc547a6316f4c5b5863ad360358cae89'}
 </code></pre></div>
-<h3 id="raw-elasticsearch-queryaggregation-with-contextrawquery-method">Raw Elasticsearch query/aggregation with <code>context.rawquery</code> method</h3>
-<p>The <code>context.query</code> method mentioned above used the Elasticsearch scroll API and only returns the source document, without any of the metadata from the Eleasticsearch query result envelope. If you want access to aggregations or query score data, you'll need to use <code>context.rawquery</code>.</p>
-<p>If I want to run an Elasticsearch aggregation to find out the range of <code>year</code> values in the <code>Avenger</code> index, I can run the following aggregation:</p>
+<h3 id="raw-opensearch-queryaggregation-with-contextrawquery-method">Raw OpenSearch query/aggregation with <code>context.rawquery</code> method</h3>
+<p>The <code>context.query</code> method mentioned above used the OpenSearch scroll API and only returns the source document, without any of the metadata from the Eleasticsearch query result envelope. If you want access to aggregations or query score data, you'll need to use <code>context.rawquery</code>.</p>
+<p>If I want to run an OpenSearch aggregation to find out the range of <code>year</code> values in the <code>Avenger</code> index, I can run the following aggregation:</p>
 <div class="highlight"><pre><span></span><code><span class="n">r</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">rawquery</span><span class="p">(</span><span class="s1">'Avenger'</span><span class="p">,{</span>
     <span class="s2">"query"</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">"match_all"</span><span class="p">:</span> <span class="p">{}</span>
@@ -697,7 +785,7 @@ which should print:
   'latest_year': {'value': 2015.0}}}
 </code></pre></div>
 <p>so we can see that the first year in the Avenger index is <code>1900.0</code> and the latest is <code>2015.0</code>.</p>
-<h2 id="elasticsearch-schema-mapping">Elasticsearch schema mapping</h2>
+<h2 id="opensearch-schema-mapping">OpenSearch schema mapping</h2>
 <p>TODO</p>
 <h2 id="applying-builtin-analyticspipelines">Applying builtin analytics/pipelines</h2>
 <p>TODO</p>
@@ -709,6 +797,7 @@ which should print:
 <p>TODO</p>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 </main>
 <footer class="md-footer">
@@ -732,8 +821,8 @@ which should print:
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);

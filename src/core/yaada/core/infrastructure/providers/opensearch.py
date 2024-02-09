@@ -25,10 +25,10 @@ import warnings
 from datetime import datetime, timedelta
 
 from deepmerge import always_merger
-from elasticsearch import Elasticsearch, helpers
-from elasticsearch.client import ClusterClient, IndicesClient
-from elasticsearch.exceptions import NotFoundError
-from elasticsearch.helpers.errors import BulkIndexError
+from opensearchpy import OpenSearch, helpers
+from opensearchpy.client import ClusterClient, IndicesClient
+from opensearchpy.exceptions import NotFoundError
+from opensearchpy.helpers.errors import BulkIndexError
 
 from yaada.core import default_log_level, utility
 
@@ -36,35 +36,35 @@ logger = logging.getLogger(__name__)
 logger.setLevel(default_log_level)
 
 
-class ElasticsearchProvider:
+class OpenSearchProvider:
     def __init__(self, config, overrides={}):
         self.config = config
         logger.debug(f"overrides {overrides}")
-        elasticsearch_url = self.config.elasticsearch_url
+        opensearch_url = self.config.opensearch_url
 
         if any([x in overrides for x in ["hostname", "port", "protocol"]]):
-            elasticsearch_url = f"{overrides.get('protocol','http')}://{overrides.get('hostname')}:{overrides.get('port','9200')}"
+            opensearch_url = f"{overrides.get('protocol','http')}://{overrides.get('hostname')}:{overrides.get('port','9200')}"
         utility.wait_net_service(
-            "elasticsearch", elasticsearch_url, 5.0, config.connection_timeout
+            "opensearch", opensearch_url, 5.0, config.connection_timeout
         )
-        elasticsearch_logger = logging.getLogger("elasticsearch")
-        elasticsearch_logger.disabled = True
-        self.username = overrides.get("username", config.elasticsearch_username)
-        self.password = overrides.get("password", config.elasticsearch_password)
+        opensearch_logger = logging.getLogger("opensearch")
+        opensearch_logger.disabled = True
+        self.username = overrides.get("username", config.opensearch_username)
+        self.password = overrides.get("password", config.opensearch_password)
         http_auth = None
 
         if self.username and self.password:
             http_auth = (self.username, self.password)
 
         logger.info(
-            f"connecting to elasticsearch elasticsearch_url={elasticsearch_url}"
+            f"connecting to opensearch opensearch_url={opensearch_url}"
         )
-        self.es = Elasticsearch(
-            elasticsearch_url, timeout=60, max_retries=2, http_auth=http_auth
+        self.es = OpenSearch(
+            opensearch_url, timeout=60, max_retries=2, http_auth=http_auth
         )
 
         self.wait_for_es()
-        elasticsearch_logger.disabled = False
+        opensearch_logger.disabled = False
         self.tenant = overrides.get("tenant", config.tenant)
         self.prefix = overrides.get("prefix", config.data_prefix)
         self.document_buffer = []
@@ -72,7 +72,7 @@ class ElasticsearchProvider:
         self.last_result_flush = datetime.utcnow()
         self.last_document_flush = datetime.utcnow()
         self.index_cache = set()
-        self.index_has_ts = self.config.elasticsearch_index_has_ts
+        self.index_has_ts = self.config.opensearch_index_has_ts
 
     @staticmethod
     def clean_fields(doc):
@@ -101,7 +101,7 @@ class ElasticsearchProvider:
         self.tenant = tenant
 
     def init_indexes(self):
-        for doc_type in self.config.elasticsearch_index_config:
+        for doc_type in self.config.opensearch_index_config:
             self.init_index(doc_type)
 
     def index_str(self, base, name, tenant=None):
@@ -201,18 +201,18 @@ class ElasticsearchProvider:
         _settings = utility.nestify_dict(
             {
                 "number_of_shards": 1,
-                "index.mapping.total_fields.limit": self.config.elasticsearch_field_limit,
+                "index.mapping.total_fields.limit": self.config.opensearch_field_limit,
             }
         )
         _aliases = {}
         if (
-            self.config.elasticsearch_index_config
-            and doc_type in self.config.elasticsearch_index_config
+            self.config.opensearch_index_config
+            and doc_type in self.config.opensearch_index_config
         ):
             _mappings = always_merger.merge(
                 _mappings,
                 utility.nestify_dict(
-                    self.config.elasticsearch_index_config.get(doc_type).get(
+                    self.config.opensearch_index_config.get(doc_type).get(
                         "mappings", {}
                     )
                 ),
@@ -220,7 +220,7 @@ class ElasticsearchProvider:
             _settings = always_merger.merge(
                 _settings,
                 utility.nestify_dict(
-                    self.config.elasticsearch_index_config.get(doc_type).get(
+                    self.config.opensearch_index_config.get(doc_type).get(
                         "settings", {}
                     )
                 ),
@@ -228,7 +228,7 @@ class ElasticsearchProvider:
             _aliases = always_merger.merge(
                 _aliases,
                 utility.nestify_dict(
-                    self.config.elasticsearch_index_config.get(doc_type).get(
+                    self.config.opensearch_index_config.get(doc_type).get(
                         "aliases", {}
                     )
                 ),
@@ -337,7 +337,7 @@ class ElasticsearchProvider:
                     # if there is an indexing error, put the data into a penalty index and only raise exception of requested to.
                     for action_type, error_data in error.items():
                         self.write_ingest_error("BulkIndexError", error_data)
-                        # since the document actually wasn't flushed to elasticsearch, remove from the result set
+                        # since the document actually wasn't flushed to opensearch, remove from the result set
                         error_id = error_data.get("_id")
                         error_doc_type = (
                             error_data.get("data", {})
@@ -379,7 +379,7 @@ class ElasticsearchProvider:
                     # if there is an indexing error, put the data into a penalty index and only raise exception of requested to.
                     for action_type, error_data in error.items():
                         self.write_ingest_error("BulkIndexError", error_data)
-                        # since the document actually wasn't flushed to elasticsearch, remove from the result set
+                        # since the document actually wasn't flushed to opensearch, remove from the result set
                         error_id = error_data.get("_id")
                         error_doc_type = (
                             error_data.get("data", {})

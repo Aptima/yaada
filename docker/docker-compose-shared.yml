@@ -1,6 +1,5 @@
 version: '3.6'
 volumes:
-  # shared_minio_volume:
   shared_zenko_data_volume:
   shared_zenko_metadata_volume:
   shared_opensearch_volume:
@@ -12,35 +11,36 @@ networks:
     external: true
 services:
   opensearch:
-    image: opensearchproject/opensearch:1.3.7
+    image: opensearchproject/opensearch:2.11.0
     platform: linux/${DOCKER_PLATFORM}
-    restart: always
+    environment:
+        - discovery.type=single-node
+        - bootstrap.memory_lock=true
+        - ES_JAVA_OPTS=-Xms512m -Xmx512m
+        - DISABLE_INSTALL_DEMO_CONFIG=true
+        - DISABLE_SECURITY_PLUGIN=true
+    ulimits:
+        memlock:
+            soft: -1
+            hard: -1
+        nofile:
+            soft: 65536
+            hard: 65536
     volumes:
-      - shared_opensearch_volume:/usr/share/opensearch/data
+        - shared_opensearch_volume:/usr/share/opensearch/data
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9200"]
       interval: 15s
       timeout: 10s
       retries: 3
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-      nofile:
-        soft: 65536
-        hard: 65536
-    environment:
-      - discovery.type=single-node
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - "DISABLE_INSTALL_DEMO_CONFIG=true" # Prevents execution of bundled demo script which installs demo certificates and security configurations to OpenSearch
-      - "DISABLE_SECURITY_PLUGIN=true" # Disables security plugin
+    restart: always
+
+
   opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:1.3.7
-    platform: linux/${DOCKER_PLATFORM}
+    image: opensearchproject/opensearch-dashboards:2.11.0
     environment:
-      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
-      DISABLE_SECURITY_DASHBOARDS_PLUGIN: true
+        OPENSEARCH_HOSTS: '[${OPENSEARCH_HOSTS:-"http://opensearch:9200"}]'
+        DISABLE_SECURITY_DASHBOARDS_PLUGIN: "true"
     restart: always
 
   # If we need to change the name of the zenko container, we will need to update docker/zenko-cloudserver/config/config.json to make sure

@@ -11,7 +11,7 @@
 ### Prerequisites
 * Docker
 * docker-compose (isn't always installed with Docker under Linux, sp may need to install seperately)
-* Python 3.8 installed locally and runnable with name `python`
+* Python 3.10 installed locally and runnable with name `python`
 * On Windows, make sure Microsoft Visual C++ Build Tools are installed (requires Admin rights) and on the System PATH. (current download location: https://visualstudio.microsoft.com/downloads/ under `Tools for Visual Studio 2017` ... `Build Tools for Visual Studio 2017`)
 * [PIP](https://pip.pypa.io/en/stable/)
 * [`pipenv`](https://pipenv.pypa.io/en/latest/)

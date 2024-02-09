@@ -266,7 +266,7 @@ def image_debug_shell(arguments, verbose, env):
         "-e",
         "MQTT_PORT=1883",
         "-e",
-        "ELASTICSEARCH_URL=http://opensearch:9200",
+        "OPENSEARCH_URL=http://opensearch:9200",
         "-e",
         "TIKA_SERVER_ENDPOINT=http://tika:9998",
     ]

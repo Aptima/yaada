@@ -22,13 +22,13 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-core",
-    version="6.2.3",
+    version="7.0.0",
     packages=find_namespace_packages(),
     description="",
     long_description="",
     author="Gabriel Ganberg",
     author_email="ganberg@aptima.com",
-    python_requires=">=3.8.0",
+    python_requires=">=3.10",
     zip_safe=False,
     licence="MIT License",
     scripts=[
@@ -49,7 +49,7 @@ setup(
         "python-dateutil",
         "requests",
         "requests-file",
-        "urllib3>=1.26,<2.1",  # elasticsearch usage of urllib3 will be deprecated as of urllib3 2.1.0. Will need to figure out elasticsearch upgrade path before relaxing this.
+        #"urllib3>=1.26,<2.1",  # elasticsearch usage of urllib3 will be deprecated as of urllib3 2.1.0. Will need to figure out elasticsearch upgrade path before relaxing this.
         "tqdm",
         "regex",
         "paho-mqtt",
@@ -59,7 +59,7 @@ setup(
         "GitPython",
         "boto3",
         "docker",
-        "elasticsearch==7.10.1",
+        "opensearch-py",
         "schedule",
         "numpy",
         "networkx",

@@ -20,7 +20,7 @@ services:
       - OBJECT_STORAGE_URL=zenko:8000
       - MQTT_HOSTNAME=mosquitto
       - MQTT_PORT=1883
-      - ELASTICSEARCH_URL=http://opensearch:9200
+      - OPENSEARCH_URL=http://opensearch:9200
       - TIKA_SERVER_ENDPOINT=http://tika:9998
 
   ingest:
@@ -34,7 +34,7 @@ services:
       - OBJECT_STORAGE_URL=zenko:8000
       - MQTT_HOSTNAME=mosquitto
       - MQTT_PORT=1883
-      - ELASTICSEARCH_URL=http://opensearch:9200
+      - OPENSEARCH_URL=http://opensearch:9200
       - TIKA_SERVER_ENDPOINT=http://tika:9998
   sink:
     platform: linux/${DOCKER_PLATFORM}
@@ -47,7 +47,7 @@ services:
       - OBJECT_STORAGE_URL=zenko:8000
       - MQTT_HOSTNAME=mosquitto
       - MQTT_PORT=1883
-      - ELASTICSEARCH_URL=http://opensearch:9200
+      - OPENSEARCH_URL=http://opensearch:9200
       - TIKA_SERVER_ENDPOINT=http://tika:9998
   worker:
     platform: linux/${DOCKER_PLATFORM}
@@ -61,7 +61,7 @@ services:
       - OBJECT_STORAGE_URL=zenko:8000
       - MQTT_HOSTNAME=mosquitto
       - MQTT_PORT=1883
-      - ELASTICSEARCH_URL=http://opensearch:9200
+      - OPENSEARCH_URL=http://opensearch:9200
       - TIKA_SERVER_ENDPOINT=http://tika:9998
   docker-worker:
     platform: linux/${DOCKER_PLATFORM}
@@ -78,7 +78,7 @@ services:
       - OBJECT_STORAGE_URL=zenko:8000
       - MQTT_HOSTNAME=mosquitto
       - MQTT_PORT=1883
-      - ELASTICSEARCH_URL=http://opensearch:9200
+      - OPENSEARCH_URL=http://opensearch:9200
       - TIKA_SERVER_ENDPOINT=http://tika:9998
       - YAADA_WORKER_LABELS=docker
   {% if cookiecutter.include_jupyter == 'y' -%}jupyter:
@@ -93,7 +93,7 @@ services:
       - OBJECT_STORAGE_URL=zenko:8000
       - MQTT_HOSTNAME=mosquitto
       - MQTT_PORT=1883
-      - ELASTICSEARCH_URL=http://opensearch:9200
+      - OPENSEARCH_URL=http://opensearch:9200
       - TIKA_SERVER_ENDPOINT=http://tika:9998
     volumes:
       - jupyter_notebook_volume:/notebooks

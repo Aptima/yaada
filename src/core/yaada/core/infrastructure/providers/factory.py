@@ -18,7 +18,7 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 from yaada.core.infrastructure.modelmanager import ModelManager
-from yaada.core.infrastructure.providers.elasticsearch import ElasticsearchProvider
+from yaada.core.infrastructure.providers.opensearch import OpenSearchProvider
 from yaada.core.infrastructure.providers.mqtt import ExternalMQTTProvider, MQTTProvider
 from yaada.core.infrastructure.providers.objectstorage import ObjectStorageProvider
 from yaada.core.utility import create_service_overrides
@@ -33,8 +33,8 @@ def make_message_service(config, overrides={}):
 
 
 def make_document_service(config, overrides={}):
-    _document_service = ElasticsearchProvider(
-        config, overrides=create_service_overrides("elasticsearch", overrides)
+    _document_service = OpenSearchProvider(
+        config, overrides=create_service_overrides("opensearch", overrides)
     )
     return _document_service
 

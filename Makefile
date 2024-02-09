@@ -87,3 +87,5 @@ docs-build:
 publish: clean-packages publish-packages
 	yda build
 	yda push
+download-nlp-resource:
+	yda run -r yaada-download-default-nlp-resources.py

@@ -62,7 +62,7 @@ class TimestampedAppender:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Export all documents from the elasticsearch index"
+        description="Export all documents from the opensearch index"
     )
     parser.add_argument(
         "-o",

@@ -21,13 +21,13 @@ from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-nlp",
-    version="6.2.3",
+    version="7.0.0",
     packages=find_namespace_packages(),
     description="",
     long_description="",
     author="Gabriel Ganberg",
     author_email="ganberg@aptima.com",
-    python_requires=">=3.8.0",
+    python_requires=">=3.10",
     zip_safe=False,
     licence="MIT License",
     scripts=[

@@ -194,20 +194,25 @@ def wait_net_service(service_name, url, interval, timeout=None):
     if connectivity_cache.get("service_name", False):
         return True
 
+    # print(f"wait_net_service:{service_name}:{url}")
     import socket
     from time import sleep
     from urllib.parse import urlparse
 
     parsed = urlparse(url)
+    # print(f"wait_net_service.parsed {parsed}")
     port = None
-    if parsed.scheme == "https":
-        port = 443
-    elif parsed.scheme == "http":
-        port = 80
-    if parsed.netloc != "":
-        parts = parsed.netloc.split(":")
-    elif parsed.path != "":
-        parts = parsed.path.split(":")
+    if parsed.scheme in ['http','https']:
+        if parsed.scheme == "https":
+            port = 443
+        elif parsed.scheme == "http":
+            port = 80
+        if parsed.netloc != "":
+            parts = parsed.netloc.split(":")
+        elif parsed.path != "":
+            parts = parsed.path.split(":")
+    else:
+        parts = url.split(":")
     server = parts[0]
 
     if len(parts) > 1:
@@ -419,7 +424,7 @@ def create_service_overrides(service_name, overrides, fields=None):
     if fields is None:
         if service_name == "mqtt":
             fields = ["hostname", "prefix", "tenant"]
-        elif service_name == "elasticsearch":
+        elif service_name == "opensearch":
             fields = ["hostname", "prefix", "tenant", "protocol"]
         elif service_name == "objectstorage":
             fields = ["hostname", "prefix", "tenant"]

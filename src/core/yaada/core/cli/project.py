@@ -145,7 +145,7 @@ class Project:
         self.config = strip_none_values(self.config)
 
         self.init_environment()
-        self.set_elasticsearch_variables()
+        self.set_opensearch_variables()
         self.set_objectstorage_variables()
         self.set_mqtt_variables()
         self.resolve_path_variables()
@@ -277,18 +277,18 @@ class Project:
     def merge_config(self, config):
         my_merger.merge(self.config, config)
 
-    def set_elasticsearch_variables(self):
-        overrides = create_service_overrides("elasticsearch", self.config)
+    def set_opensearch_variables(self):
+        overrides = create_service_overrides("opensearch", self.config)
 
         if any([x in overrides for x in ["hostname", "port", "protocol"]]):
             protocol = overrides.get("protocol", "http")
             hostname = overrides.get("hostname", "localhost")
             port = overrides.get("port", "9200")
-            self.set_env_var("ELASTICSEARCH_URL", f"{protocol}://{hostname}:{port}")
+            self.set_env_var("OPENSEARCH_URL", f"{protocol}://{hostname}:{port}")
         if "username" in overrides:
-            self.set_env_var("ELASTICSEARCH_USERNAME", overrides.get("username"))
+            self.set_env_var("OPENSEARCH_USERNAME", overrides.get("username"))
         if "password" in overrides:
-            self.set_env_var("ELASTICSEARCH_PASSWORD", overrides.get("password"))
+            self.set_env_var("OPENSEARCH_PASSWORD", overrides.get("password"))
 
     def set_mqtt_variables(self):
         overrides = create_service_overrides("mqtt", self.config)

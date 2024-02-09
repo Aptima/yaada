@@ -8,9 +8,9 @@
 <link href=".." rel="prev"/>
 <link href="../concepts/" rel="next"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.3, mkdocs-material-9.1.17" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-9.5.7" name="generator"/>
 <title>Getting Started - Yet Another Analytic Dataflow Architecture</title>
-<link href="../assets/stylesheets/main.26e3688c.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.f2e4d321.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
@@ -18,7 +18,6 @@
 <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body dir="ltr">
-<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
@@ -53,6 +52,7 @@
 </div>
 </div>
 </div>
+<script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
 <label class="md-header__button md-icon" for="__search">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
 </label>
@@ -101,18 +101,24 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="..">
-        Home
-      </a>
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Getting Started
-          <span class="md-nav__icon md-icon"></span>
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+<span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Getting Started
-      </a>
+<span class="md-ellipsis">
+    Getting Started
+  </span>
+</a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
 <span class="md-nav__icon md-icon"></span>
@@ -121,20 +127,26 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
+<span class="md-ellipsis">
+      Prerequisites
+    </span>
+</a>
 <nav aria-label="Prerequisites" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#docker-setup">
-    Docker Setup
-  </a>
+<span class="md-ellipsis">
+      Docker Setup
+    </span>
+</a>
 <nav aria-label="Docker Setup" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada-memory-requirements">
-    YAADA memory requirements
-  </a>
+<span class="md-ellipsis">
+      YAADA memory requirements
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -144,69 +156,91 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#create-new-project">
-    Create new project:
-  </a>
+<span class="md-ellipsis">
+      Create new project:
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#python-environment-setup">
-    Python environment setup
-  </a>
+<span class="md-ellipsis">
+      Python environment setup
+    </span>
+</a>
 <nav aria-label="Python environment setup" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#create-virtual-environment">
-    Create virtual environment
-  </a>
+<span class="md-ellipsis">
+      Create virtual environment
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-the-current-project-into-virtual-environment">
-    Install the current project into virtual environment
-  </a>
+<span class="md-ellipsis">
+      Install the current project into virtual environment
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#building-and-running-through-docker">
-    Building and running through Docker
-  </a>
+<span class="md-ellipsis">
+      Building and running through Docker
+    </span>
+</a>
 <nav aria-label="Building and running through Docker" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#build-project-images">
-    Build project images
-  </a>
+<span class="md-ellipsis">
+      Build project images
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#launching">
-    Launching
-  </a>
+<span class="md-ellipsis">
+      Launching
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#useful-cli-commands">
-    Useful CLI Commands
-  </a>
+<span class="md-ellipsis">
+      Useful CLI Commands
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../concepts/">
-        Architecture and Concepts
-      </a>
+<span class="md-ellipsis">
+    Architecture and Concepts
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../tutorial/">
-        Tutorial
-      </a>
+<span class="md-ellipsis">
+    Tutorial
+  </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../openapi/">
-        REST API
-      </a>
+<span class="md-ellipsis">
+    REST API
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -224,20 +258,26 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#prerequisites">
-    Prerequisites
-  </a>
+<span class="md-ellipsis">
+      Prerequisites
+    </span>
+</a>
 <nav aria-label="Prerequisites" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#docker-setup">
-    Docker Setup
-  </a>
+<span class="md-ellipsis">
+      Docker Setup
+    </span>
+</a>
 <nav aria-label="Docker Setup" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#yaada-memory-requirements">
-    YAADA memory requirements
-  </a>
+<span class="md-ellipsis">
+      YAADA memory requirements
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -247,51 +287,67 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#create-new-project">
-    Create new project:
-  </a>
+<span class="md-ellipsis">
+      Create new project:
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#python-environment-setup">
-    Python environment setup
-  </a>
+<span class="md-ellipsis">
+      Python environment setup
+    </span>
+</a>
 <nav aria-label="Python environment setup" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#create-virtual-environment">
-    Create virtual environment
-  </a>
+<span class="md-ellipsis">
+      Create virtual environment
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#install-the-current-project-into-virtual-environment">
-    Install the current project into virtual environment
-  </a>
+<span class="md-ellipsis">
+      Install the current project into virtual environment
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#building-and-running-through-docker">
-    Building and running through Docker
-  </a>
+<span class="md-ellipsis">
+      Building and running through Docker
+    </span>
+</a>
 <nav aria-label="Building and running through Docker" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#build-project-images">
-    Build project images
-  </a>
+<span class="md-ellipsis">
+      Build project images
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#launching">
-    Launching
-  </a>
+<span class="md-ellipsis">
+      Launching
+    </span>
+</a>
 </li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#useful-cli-commands">
-    Useful CLI Commands
-  </a>
+<span class="md-ellipsis">
+      Useful CLI Commands
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -305,9 +361,9 @@
 <ul>
 <li>Docker</li>
 <li>docker-compose (isn't always installed with Docker under Linux, so may need to install seperately)</li>
-<li>Python 3.8 installed locally and runnable with name <code>python</code></li>
+<li>Python 3.10 installed locally and runnable with name <code>python</code></li>
 <li>On Windows, make sure Microsoft Visual C++ Build Tools are installed (requires Admin rights) and on the System PATH. (current download location: https://visualstudio.microsoft.com/downloads/ under <code>Tools for Visual Studio 2017</code> ... <code>Build Tools for Visual Studio 2017</code>)</li>
-<li>Python 3.8</li>
+<li>Python 3.10</li>
 <li><a href="https://pip.pypa.io/en/stable/">PIP</a></li>
 <li><a href="https://pipenv.pypa.io/en/latest/"><code>pipenv</code></a></li>
 <li>Optional but recommended <a href="https://cookiecutter.readthedocs.io/en/stable/"><code>cookiecutter</code></a> -- if you would like to create your project from a template</li>
@@ -379,7 +435,7 @@
 <p>When having difficulty with a service, to see the logs of that service, run::</p>
 <div class="highlight"><pre><span></span><code>$ yda logs &lt;service_name&gt;
 </code></pre></div>
-<p>The following command is commonly used to check what documents are currently in Elasticsearch:</p>
+<p>The following command is commonly used to check what documents are currently in OpenSearch:</p>
 <div class="highlight"><pre><span></span><code>$ yda data counts
 </code></pre></div>
 <p>Launch an IPython shell with a YAADA <code>context</code> already constructed and available and live reload setup:</p>
@@ -390,6 +446,7 @@
 </code></pre></div>
 </article>
 </div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
 </div>
 </main>
 <footer class="md-footer">
@@ -413,8 +470,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.caa56a14.min.js"></script>
 <script>document$.subscribe(() => {
             window.update_swagger_ui_iframe_height = function (id) {
                 var iFrameID = document.getElementById(id);
