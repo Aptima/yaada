@@ -33,11 +33,11 @@ services:
 ```
 
 ## YAADA Configuration
- In order to load the weaviate plugin, add `seek.weaviate.plugin.WeaviatePlugin` to the the `yaada.context.plugins` list in your project's conf file.
+In order to load the weaviate plugin, add `yaada.weaviate.plugin.WeaviatePlugin` to the the `yaada.context.plugins` list in your project's conf file.
 
 Assuming no other plugins, it could look like this:
 ```
-yaada.context.plugins = ["seek.weaviate.plugin.WeaviatePlugin"]
+yaada.context.plugins = ["yaada.weaviate.plugin.WeaviatePlugin"]
 ```
 
 You can then configure the plugin by adding a `yaada.context.plugin.weaviate` section to the config like:

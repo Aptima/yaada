@@ -42,7 +42,6 @@ services:
         OPENSEARCH_HOSTS: '[${OPENSEARCH_HOSTS:-"http://opensearch:9200"}]'
         DISABLE_SECURITY_DASHBOARDS_PLUGIN: "true"
     restart: always
-    profiles: ["opensearch"]
 
   # If we need to change the name of the zenko container, we will need to update docker/zenko-cloudserver/config/config.json to make sure
   # there is a region mapping in the restEndpoints section for the new url.
