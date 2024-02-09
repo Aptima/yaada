@@ -244,7 +244,7 @@
           }
         },
         {
-          "description": "The elasticsearch id for document",
+          "description": "The opensearch id for document",
           "name": "id",
           "in": "path",
           "required": true,
@@ -412,7 +412,7 @@
             }
           },
           {
-            "description": "elasticsearch source_include",
+            "description": "opensearch source_include",
             "name": "source_include",
             "in": "query",
             "required": false,
@@ -424,7 +424,7 @@
             }
           },
           {
-            "description": "elasticsearch source_exclude",
+            "description": "opensearch source_exclude",
             "name": "source_exclude",
             "in": "query",
             "required": false,
@@ -506,7 +506,7 @@
             }
           },
           {
-            "description": "elasticsearch source_include",
+            "description": "opensearch source_include",
             "name": "source_include",
             "in": "query",
             "required": false,
@@ -518,7 +518,7 @@
             }
           },
           {
-            "description": "elasticsearch source_exclude",
+            "description": "opensearch source_exclude",
             "name": "source_exclude",
             "in": "query",
             "required": false,
@@ -544,7 +544,7 @@
             "$ref": "#/components/responses/search_response"
           }
         },
-        "summary": "Run elasticsearch search and return paged results",
+        "summary": "Run opensearch search and return paged results",
         "operationId": "yaada.openapi.document.search_post",
         "requestBody": {
           "content": {
@@ -580,7 +580,7 @@
             }
           },
           {
-            "description": "elasticsearch source_include",
+            "description": "opensearch source_include",
             "name": "source_include",
             "in": "query",
             "required": false,
@@ -592,7 +592,7 @@
             }
           },
           {
-            "description": "elasticsearch source_exclude",
+            "description": "opensearch source_exclude",
             "name": "source_exclude",
             "in": "query",
             "required": false,
@@ -622,7 +622,7 @@
             }
           },
           {
-            "description": "return raw elasticsearch results",
+            "description": "return raw opensearch results",
             "name": "raw",
             "in": "query",
             "required": false,
@@ -631,7 +631,7 @@
             }
           },
           {
-            "description": "elasticsearch query",
+            "description": "opensearch query",
             "name": "query",
             "in": "query",
             "required": false,
@@ -640,7 +640,7 @@
             }
           }
         ],
-        "summary": "Run elasticsearch search and return paged results",
+        "summary": "Run opensearch search and return paged results",
         "operationId": "yaada.openapi.document.search",
         "tags": [
           "data"
@@ -678,7 +678,7 @@
             "description": "Success"
           }
         },
-        "summary": "Run elasticsearch raw query. Used for aggregations.",
+        "summary": "Run opensearch raw query. Used for aggregations.",
         "operationId": "yaada.openapi.document.rawquery",
         "requestBody": {
           "content": {
@@ -875,7 +875,7 @@
           },
           "_id": {
             "type": "string",
-            "description": "Optional elasticsearch id"
+            "description": "Optional opensearch id"
           }
         },
         "type": "object"
@@ -891,7 +891,7 @@
           },
           "query_body": {
             "type": "object",
-            "description": "Elasticsearch query",
+            "description": "OpenSearch query",
             "default": {
               "query": {
                 "match_all": {}
@@ -900,17 +900,17 @@
           },
           "page_from": {
             "type": "integer",
-            "description": "Elasticsearch document offset to start page from",
+            "description": "OpenSearch document offset to start page from",
             "default": 0
           },
           "page_size": {
             "type": "integer",
-            "description": "Elasticsearch document offset to start page from",
+            "description": "OpenSearch document offset to start page from",
             "default": 10
           },
           "raw": {
             "type": "boolean",
-            "description": "Return the raw elasticsearch hit, rather than the _source field",
+            "description": "Return the raw opensearch hit, rather than the _source field",
             "default": false
           },
           "_source": {
@@ -945,7 +945,7 @@
           },
           "query_body": {
             "type": "object",
-            "description": "Elasticsearch query",
+            "description": "OpenSearch query",
             "default": {
               "query": {
                 "match_all": {}
@@ -966,7 +966,7 @@
           },
           "id": {
             "type": "string",
-            "description": "the elasticsearch id"
+            "description": "the opensearch id"
           },
           "_source": {
             "type": "boolean",
@@ -1000,7 +1000,7 @@
           },
           "ids": {
             "type": "array",
-            "description": "elasticsearch id",
+            "description": "opensearch id",
             "items": {
               "type": "string"
             }
@@ -1042,7 +1042,7 @@
           },
           "query_body": {
             "type": "object",
-            "description": "Elasticsearch query",
+            "description": "OpenSearch query",
             "default": {
               "query": {
                 "match_all": {}
@@ -1240,11 +1240,11 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "The index-unique id used for writing into elasticsearch -- will be autogenerated if omitted.",
+            "description": "The index-unique id used for writing into opensearch -- will be autogenerated if omitted.",
             "type": "string"
           },
           "_id": {
-            "description": "The index-unique id used for writing into elasticsearch -- will be autogenerated if omitted.",
+            "description": "The index-unique id used for writing into opensearch -- will be autogenerated if omitted.",
             "type": "string"
           },
           "doc_type": {
@@ -1335,11 +1335,11 @@
         "type": "object",
         "properties": {
           "id": {
-            "description": "The index-unique id used for writing into elasticsearch -- will be autogenerated if omitted.",
+            "description": "The index-unique id used for writing into opensearch -- will be autogenerated if omitted.",
             "type": "string"
           },
           "_id": {
-            "description": "The index-unique id used for writing into elasticsearch -- will be autogenerated if omitted.",
+            "description": "The index-unique id used for writing into opensearch -- will be autogenerated if omitted.",
             "type": "string"
           },
           "url": {

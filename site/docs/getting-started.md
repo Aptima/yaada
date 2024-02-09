@@ -102,7 +102,7 @@ When having difficulty with a service, to see the logs of that service, run::
 $ yda logs <service_name>
 ```
 
-The following command is commonly used to check what documents are currently in Elasticsearch:
+The following command is commonly used to check what documents are currently in OpenSearch:
 
 ```
 $ yda data counts
