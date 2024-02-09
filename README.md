@@ -9,7 +9,7 @@ This README has contains instructions for developing the core YAADA project. For
 ### Prerequisites
 * Docker
 * docker-compose (isn't always installed with Docker under Linux, so may need to install seperately)
-* Python 3.8
+* Python 3.10
 * [PIP](https://pip.pypa.io/en/stable/)
 * [`pipenv`](https://pipenv.pypa.io/en/latest/)
 * Optional but recommended [`cookiecutter`](https://cookiecutter.readthedocs.io/en/stable/) -- if you would like to create your project from a template
