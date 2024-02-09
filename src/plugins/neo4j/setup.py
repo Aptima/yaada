@@ -17,7 +17,7 @@
 # IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-from setuptools import find_packages, setup
+from setuptools import find_namespace_packages, setup
 
 setup(
     name="yaada-neo4j",
@@ -25,6 +25,6 @@ setup(
     description="Neo4J API for YAADA",
     install_requires=["yaada-core>=6.1.0", "neo4j==5.6.0"],
     python_requires=">=3.10",
-    packages=find_packages(),
+    packages=find_namespace_packages(),
     scripts=[],
 )
