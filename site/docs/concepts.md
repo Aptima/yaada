@@ -16,11 +16,11 @@ YAADA uses a containerized approach through Docker. A standard YAADA project wil
 | Container     | Function                                                                    |
 | ------------- | --------------------------------------------------------------------------- |
 | ingest        | Handles asynchronous per-document processing at ingest time                 |
-| sink          | Handles sending data asynchronously to OpenSearch                        |
+| sink          | Handles sending data asynchronously to OpenSearch                           |
 | worker        | Handles asynchronous execution of analytics                                 |
 | openapi       | OpenAPI-based REST API                                                      |
-| opensearch | 3rd Party primary data store                                                |
-| kibana        | 3rd Party data exploration/dashboard app provided by Elastic                |
+| opensearch    | 3rd Party primary data store                                                |
+| opensearch-dashboards| 3rd Party data exploration/dashboard app provided by OpenSearch      |
 | mosquitto     | 3rd Party MQTT messaging for communication between YAADA components         |
 | zenko         | 3rd Party S3 style object storage for models and file data                  |
 | tika*         | Optional 3rd Party service to parse text from a range of file types         |

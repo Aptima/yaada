@@ -1,6 +1,6 @@
 # Yet Another Analytic Dataflow Architecture
 
-YAADA is a data architecture and analytics platform developed to support the full analytics development lifecycle, from prototyping in local Python to operational deployment as containerized microservices. YAADA’s primary focus is ingesting, storing, and analyzing semi-structured document-oriented data and training, persisting, and applying analytic models. It leverages industry hardened cloud technologies such as Elasticsearch and Kibana for document storage and visualization and Jupyter Notebook for exploratory data analysis and analytic prototyping. It provides an analytic plugin API that allow analytic developers to focus on the algorithms, while handling all the details of data management and analytic invocation through REST and message-based APIs. In addition, YAADA includes pre-built analytic wrappers for popular open source libraries for NLP and web scraping.
+YAADA is a data architecture and analytics platform developed to support the full analytics development lifecycle, from prototyping in local Python to operational deployment as containerized microservices. YAADA’s primary focus is ingesting, storing, and analyzing semi-structured document-oriented data and training, persisting, and applying analytic models. It leverages industry hardened cloud technologies such as OpenSearch and OpenSearch Dashboards for document storage and visualization and Jupyter Notebook for exploratory data analysis and analytic prototyping. It provides an analytic plugin API that allow analytic developers to focus on the algorithms, while handling all the details of data management and analytic invocation through REST and message-based APIs. In addition, YAADA includes pre-built analytic wrappers for popular open source libraries for NLP and web scraping.
 
 ## Getting started
 
@@ -69,7 +69,7 @@ You can now access the services provided in YAADA. Here is a table of the servic
 | ------------------------------------------- |
 | [OpenAPI REST UI](http://localhost:5000/ui) |
 | [Jupyter Lab](http://localhost:8888/)       |
-| [Kibana](http://localhost:5601)             |
+| [OpenSearch Dashboards](http://localhost:5601)             |
 | [MinIO](http://localhost:9000/)             |
 
 Bring down services and infrastructure:
@@ -94,7 +94,7 @@ When having difficulty with a service, to see the logs of that service, run::
 $ yda logs <service_name>
 ```
 
-The following command is commonly used to check what documents are currently in Elasticsearch:
+The following command is commonly used to check what documents are currently in OpenSearch:
 
 ```
 $ yda data counts

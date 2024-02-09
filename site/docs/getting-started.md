@@ -77,7 +77,7 @@ You can now access the services provided in YAADA. Here is a table of the servic
 | ------------------------------------------- |
 | [OpenAPI REST UI](http://localhost:5000/ui) |
 | [Jupyter Lab](http://localhost:8888/)       |
-| [Kibana](http://localhost:5601)             |
+| [OpenSearch Dashboards](http://localhost:5601)             |
 | [Zenko CloudServer](http://localhost:8000/)             |
 
 Bring down services and infrastructure:
