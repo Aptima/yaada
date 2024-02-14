@@ -8,7 +8,7 @@ env: # the default environments for this project
 docker:
   # used to populate active YAADA_PROJECT_IMAGE environment variable
   tag: LATEST #required. one of [LATEST, VERSION, GITHASH]
-  compose_project_name: yaada6 # required.
+  compose_project_name: yaada7 # required.
   project_image: yaada/yaada
   platform: amd64
   network: 

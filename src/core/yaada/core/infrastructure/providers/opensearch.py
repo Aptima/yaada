@@ -266,7 +266,6 @@ class OpenSearchProvider:
             warnings.simplefilter("ignore")
             self.es.index(
                 index=self.index_str("analytic", analytic_name),
-                doc_type="status",
                 id=analytic_session_id,
                 body=status,
             )
