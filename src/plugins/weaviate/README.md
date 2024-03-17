@@ -11,7 +11,7 @@ volumes:
   weaviate-volume:
 services:
   weaviate:
-    image: semitechnologies/weaviate:1.18.3
+    image: cr.weaviate.io/semitechnologies/weaviate:1.18.3
     restart: on-failure:0
     ports:
      - "18080:8080"
